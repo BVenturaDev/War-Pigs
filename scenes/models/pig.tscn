@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/pig/pig.glb" type="PackedScene" id=1]
+
+[node name="pig" instance=ExtResource( 1 )]
+transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0 )
+
+[node name="BoneAttachment" parent="rig/Skeleton" index="0"]
+transform = Transform( 1, 2.90624e-08, -1.81877e-07, -1.08993e-07, 0.889389, -0.457151, 1.48474e-07, 0.457151, 0.889389, 1.14039e-08, 6.31533, 0.238549 )
+
+[node name="BoneAttachment2" parent="rig/Skeleton" index="1"]
+transform = Transform( -0.0521151, -0.693236, -0.718824, -0.997179, -0.00280369, 0.0749999, -0.0540081, 0.720705, -0.691134, 1.38437, 4.19038, 1.67499 )
+
+[node name="BoneAttachment3" parent="rig/Skeleton" index="2"]
+transform = Transform( -0.0953518, 0.0477389, 0.994298, 0.992467, -0.0726312, 0.0986632, 0.0769271, 0.996216, -0.0404536, -1.94106, 3.89498, 1.5377 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "Idle"

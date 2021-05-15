@@ -1,7 +1,8 @@
 extends Node
 
 # Constants
-const GRAV = -30.0
+const GRAV: float = -30.0
+const ATTACKDIST: float = -110.0
 
 
 func _ready() -> void:

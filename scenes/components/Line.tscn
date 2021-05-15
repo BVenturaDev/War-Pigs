@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="Line" type="Spatial"]
+
+[node name="pos1" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 0 )
+
+[node name="pos2" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 0 )
+
+[node name="pos3" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 0 )
+
+[node name="pos4" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 0 )
+
+[node name="pos5" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0 )
+
+[node name="pos6" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0 )
+
+[node name="pos7" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
+
+[node name="pos8" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0 )
+
+[node name="pos9" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0 )
+
+[node name="pos10" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 0 )
