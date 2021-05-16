@@ -12,10 +12,13 @@ var line_pos: Array = []
 var minions: Array = []
 
 func _create_pos(var pos: Node) -> Node:
+	# Transform along local z axis
 	pos.transform.origin.z += Globals.ATTACKDIST
 	var new_pos = targ_pos_spawn.instance()
 	player.main.add_child(new_pos)
+	# Set global_transform to the attack position
 	new_pos.global_transform = pos.global_transform
+	# Return to original pos
 	pos.transform.origin.z -= Globals.ATTACKDIST
 	return new_pos
 
