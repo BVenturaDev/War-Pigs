@@ -2,10 +2,10 @@
 
 [ext_resource path="res://src/components/raid/Raidable.gd" type="Script" id=1]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.3826, 1, 0.357133 )
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=2]
 
 [node name="Spatial" type="StaticBody"]
 script = ExtResource( 1 )
@@ -17,43 +17,43 @@ max_health = 10.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0633316, 1.03416, -1.20338 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 0.116869, 0, 0, 0, 1, 0, 0, 0, 2.99111, -2.11844, 1.03416, -0.147659 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
 transform = Transform( 0.116869, 0, 0, 0, 1, 0, 0, 0, 2.99111, 2.29698, 1.03416, -0.147659 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 operation = 2
 
 [node name="MeshInstance" type="MeshInstance" parent="CSGCombiner"]
 transform = Transform( 0.186808, 0, 0, 0, 1, 0, 0, 0, 1, -2.09678, 1.01366, 0 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="CSGCombiner"]
 transform = Transform( 0.186808, 0, 0, 0, 1, 0, 0, 0, 1, 2.28179, 1.01366, 0 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="CSGCombiner"]
 transform = Transform( 2.4678, 0, 0, 0, 1, 0, 0, 0, 0.218273, 0.0654795, 1.01366, -1.26021 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance4" type="MeshInstance" parent="CSGCombiner"]
 transform = Transform( 2.4678, 0, 0, 0, -4.37114e-08, -0.218273, 0, 1, -9.54102e-09, 0.0654795, 2.24485, -0.220126 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Positions" type="Node" parent="."]
+[node name="Positions" type="Spatial" parent="."]
 
 [node name="Position3D" type="Position3D" parent="Positions"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429417, 0.0262634, 2.15974 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429417, 0.318507, 2.15974 )
 
 [node name="Position3D1" type="Position3D" parent="Positions"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74944, -0.159965, 2.28278 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74944, 0.146598, 2.28278 )

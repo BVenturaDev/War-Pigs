@@ -56,8 +56,15 @@ func _on_Area_body_entered(body):
 			var position = body.give_position()
 			if position != null:	# Position available
 				raid_position = position
+				# MESS... Have target be position to move towards.
+				"""
+				Not setting target caused the pig to move to another direction.
+				This caused me a lot of time to figure it out.
+				"""
+				target = null
+				target = raid_position
 				# Move to that position in Hut
-				path_finder.update_path(raid_position)
+				path_finder.move_to(raid_position.global_transform.origin)
 				#path_finder.move_to(raid_position.translation)
 				raiding_entity = body
 				state = states.RAID
