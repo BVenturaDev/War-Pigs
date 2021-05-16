@@ -14,7 +14,7 @@ func move_to(target_pos) -> void:
 	path_node = 0
 
 func update_path(target) -> void:
-	if target:
+	if not target == null:
 		# Go to the closest position to target
 		move_to(nav.get_closest_point(target.global_transform.origin))
 
