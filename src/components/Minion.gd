@@ -1,7 +1,7 @@
 extends KinematicBody
 
 # States
-enum states {FOLLOW, ATTACK}
+enum states {FOLLOW, ATTACK, RAID}
 var state: int = states.FOLLOW
 
 # Exports
@@ -23,6 +23,10 @@ var attack_tar: Node = null
 var in_formation: bool = false
 var form_id: int = -1
 var attacking: bool = false
+
+# Raid variables
+var raid_position: Position3D
+var raiding_entity: Raidable
 
 func _state_follow() -> void:
 	# Find direction along path
@@ -47,6 +51,17 @@ func _on_Area_body_entered(body):
 			if body.alive:
 				target = body
 				state = states.ATTACK
+		elif body.is_in_group("raidable"):
+			# Acquire position in hut
+			var position = body.give_position()
+			if position != null:	# Position available
+				raid_position = position
+				# Move to that position in Hut
+				path_finder.update_path(raid_position)
+				#path_finder.move_to(raid_position.translation)
+				raiding_entity = body
+				state = states.RAID
+			
 
 func _on_Attack_Timer_timeout():
 	attacking = false
@@ -86,3 +101,23 @@ func _physics_process(var delta: float) -> void:
 					attack_tar = col
 					attack_time.start()
 					break
+	# RAID STATE
+	if state == states.RAID:
+		# Reached position in Hut
+		if path_finder.has_path() == false:
+			# Avoid checking on a freed object
+			if is_instance_valid(raiding_entity):
+				if raiding_entity.is_destroyed():
+					# Clean up
+					raiding_entity.retrieve_position(raid_position)
+					raid_position = null
+					raiding_entity = null
+					line_up()	# Objective complete
+				else:	# Attack Hut
+					if $Raid_Timer.is_stopped():
+						raiding_entity.decrease_health(damage)
+						$Raid_Timer.start()
+			else:	# Hut destroyed
+				raiding_entity = null
+				raid_position = null
+				line_up()
