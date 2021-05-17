@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/components/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/pig.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/Formations.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/cross_hair.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -24,8 +25,24 @@ transform = Transform( 1, 0, 0, 0, 0.988019, 0.154331, 0, -0.154331, 0.988019, 2
 spring_length = 40.0
 
 [node name="Camera" type="Camera" parent="Camara_Control/SpringArm"]
+current = true
 near = 0.01
 far = 1000.0
+
+[node name="interact_Target" type="RayCast" parent="Camara_Control"]
+enabled = true
+cast_to = Vector3( 0, 0, -20 )
+collision_mask = 5
+
+[node name="Target_Ray" type="RayCast" parent="Camara_Control"]
+cast_to = Vector3( 0, 0, -110 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Camara_Control"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+cast_shadow = 0
+opacity = 0.75
+pixel_size = 0.02
+texture = ExtResource( 4 )
 
 [node name="Formations" type="Spatial" parent="."]
 script = ExtResource( 3 )
