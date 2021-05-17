@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/components/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/boar.tscn" type="PackedScene" id=2]
@@ -10,6 +10,10 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.3
 height = 6.0
+
+[sub_resource type="CubeMesh" id=3]
+material = ExtResource( 2 )
+size = Vector3( 1, 1, 6 )
 
 [node name="Enemy" type="KinematicBody" groups=[
 "Enemies",
