@@ -14,6 +14,7 @@ export var damage: int = 5
 onready var player: KinematicBody = $"../../Player"
 onready var path_finder: Spatial = $Path_Finder
 onready var attack_time: Timer = $Attack_Timer
+onready var baggage: Spatial = $Baggage
 
 # Minion Variables
 var path: Array = []
@@ -35,6 +36,8 @@ func _state_follow() -> void:
 			look_at(player.global_transform.origin, Vector3.UP)
 			rotation.x = 0
 			rotation.z = 0
+			# Accumulate Raid Wealth
+			accumulate_wealth()
 		elif target.is_in_group("Target_Spawn"):
 			# Reached target, return
 			target.queue_free()
@@ -56,7 +59,7 @@ func _on_Area_body_entered(body):
 				state = states.ATTACK
 		elif body.is_in_group("raidable"):
 			# Acquire position in hut
-			var position = body.give_position()
+			var position = body.give_position(self)
 			if position != null:	# Position available
 				raid_position = position
 				# MESS... Have target be position to move towards.
@@ -121,7 +124,7 @@ func _physics_process(var delta: float) -> void:
 			if is_instance_valid(raiding_entity):
 				if raiding_entity.is_destroyed():
 					# Clean up
-					raiding_entity.retrieve_position(raid_position)
+					raiding_entity.retrieve_position(raid_position, self)
 					raid_position = null
 					raiding_entity = null
 					line_up()	# Objective complete
@@ -133,3 +136,21 @@ func _physics_process(var delta: float) -> void:
 				raiding_entity = null
 				raid_position = null
 				line_up()
+
+######
+## Currency
+######
+
+func accumulate_wealth():
+	if baggage.has_currency():
+		remove_currency()
+
+### Baggage Interface
+func pass_currency(c):
+	baggage.give_currency(c)
+	
+func remove_currency():
+	var c: CurrencyData = baggage.remove_currency()
+	print_debug("Wealth Acquired: " + str(c.get_amount()))
+	# Do something with currency
+	
