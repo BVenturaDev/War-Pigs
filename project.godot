@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://src/Globals.gd"
+Options="*res://src/options.gd"
 
 [display]
 
