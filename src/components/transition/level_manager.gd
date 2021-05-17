@@ -7,14 +7,14 @@ Responsible for changing scenes.
 # List of scenes to transition to
 var transition_scenes: Array
 
-# Goes to the next scene
+# Goes to the next scene in the transition_scene
 # 
 func back_to_raid():
 	var next_scene = transition_scenes.pop_front()
 	if next_scene != null:
 		transition_to(next_scene)
 	else:
-		printerr("Expected a scene")
+		printerr("[Level Manager]Scenes empty. Please add a scene path.")
 
 func scenes_to_transition(scenes: Array):
 	# Get the immediate scene
