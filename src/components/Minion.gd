@@ -151,6 +151,7 @@ func pass_currency(c):
 	
 func remove_currency():
 	var c: CurrencyData = baggage.remove_currency()
-	print_debug("Wealth Acquired: " + str(c.get_amount()))
+	#print_debug("Wealth Acquired: " + str(c.get_amount()))
+	Globals.add_to_currency(c.get_amount())
 	# Do something with currency
 	

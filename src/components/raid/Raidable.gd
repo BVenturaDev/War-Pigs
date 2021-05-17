@@ -42,10 +42,13 @@ func is_destroyed():
 # Position where the pig will go to raid
 func give_position(entity: KinematicBody) -> Position3D:
 	var pos = positions_available.pop_front()
-	# Pass position to spatial
-	position_occupied.append(pos)
-	pigs_attacking.append(entity)
-	return pos
+	if pos != null:	# Avoid giving all pigs that are near a spot
+		# Pass position to spatial
+		position_occupied.append(pos)
+		pigs_attacking.append(entity)
+		return pos
+	else:
+		return pos
 
 # Return the position given to the pigs back to the hut
 func retrieve_position(position: Position3D, entity: KinematicBody):
