@@ -3,7 +3,7 @@
 [ext_resource path="res://src/components/transition/LevelTransition.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 4.53013, 2.92176, 3.0388 )
+extents = Vector3( 4.53013, 2.92176, 12.2112 )
 
 [node name="Area" type="Area"]
 script = ExtResource( 1 )

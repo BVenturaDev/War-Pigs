@@ -1,6 +1,6 @@
 extends Area
 
-# Scenes to transition to
+# Scenes to transition to upon activation
 export (Array, String, FILE,"*.tscn") var scenes
 
 func transition():
