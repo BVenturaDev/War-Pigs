@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/components/Minion.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/Path_Finder.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
 height = 6.0
+
+[sub_resource type="SphereShape" id=2]
+radius = 20.0
 
 [node name="Minion" type="KinematicBody" groups=[
 "Minions",
@@ -26,4 +29,15 @@ autostart = true
 
 [node name="pig" parent="." instance=ExtResource( 3 )]
 
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="Attack_Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="Search_Timer" to="." method="_on_Search_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="Attack_Timer" to="." method="_on_Attack_Timer_timeout"]
