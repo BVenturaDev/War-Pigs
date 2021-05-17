@@ -38,6 +38,7 @@ func _state_follow() -> void:
 			print("Coming back: " + str(form_id))
 
 func _on_Search_Timer_timeout():
+	# Update our path finding
 	if target:
 		path_finder.update_path(target)
 
@@ -45,7 +46,9 @@ func _on_Area_body_entered(body):
 	if state == states.FOLLOW:
 		if body.is_in_group("Enemies"):
 			if body.alive:
+				# Found a live enemy, engage them
 				target = body
+				path_finder.update_path(target)
 				state = states.ATTACK
 
 func _on_Attack_Timer_timeout():
