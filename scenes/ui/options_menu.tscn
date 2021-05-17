@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/ui/options/rebindable_action.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/ui/options/back_main_menu_button.gd" type="Script" id=2]
 [ext_resource path="res://src/ui/options/volume_slider.tscn" type="PackedScene" id=3]
 
 [node name="Options" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 0, 0, 0, 0.392157 )
+margin_left = 240.0
+margin_top = 135.0
+margin_right = 1680.0
+margin_bottom = 945.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,22 +99,11 @@ margin_left = 48.0
 margin_right = 97.0
 text = "Space"
 
-[node name="Back" type="Button" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 42.0
-margin_bottom = 20.0
-text = "Back"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 164.049
-margin_top = 246.073
-margin_right = 255.049
-margin_bottom = 286.073
+margin_left = 343.846
+margin_top = 488.799
+margin_right = 440.846
+margin_bottom = 598.799
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,44 +111,42 @@ __meta__ = {
 [node name="VolumeControl" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 99.0
+margin_right = 97.0
 margin_bottom = 34.0
 
 [node name="Label" parent="VBoxContainer/VolumeControl" index="0"]
-margin_right = 99.0
+margin_right = 97.0
 
 [node name="VolumeSlider" parent="VBoxContainer/VolumeControl" index="1"]
-margin_right = 99.0
+margin_right = 97.0
 
 [node name="VolumeControl2" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 38.0
-margin_right = 99.0
+margin_right = 97.0
 margin_bottom = 72.0
 
 [node name="Label" parent="VBoxContainer/VolumeControl2" index="0"]
-margin_right = 99.0
+margin_right = 97.0
 text = "Music"
 
 [node name="VolumeSlider" parent="VBoxContainer/VolumeControl2" index="1"]
-margin_right = 99.0
+margin_right = 97.0
 bus_name = "Music"
 
 [node name="VolumeControl3" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 76.0
-margin_right = 99.0
+margin_right = 97.0
 margin_bottom = 110.0
 
 [node name="Label" parent="VBoxContainer/VolumeControl3" index="0"]
-margin_right = 99.0
+margin_right = 97.0
 text = "Sounds"
 
 [node name="VolumeSlider" parent="VBoxContainer/VolumeControl3" index="1"]
-margin_right = 99.0
+margin_right = 97.0
 bus_name = "Sounds"
-
-[connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
 
 [editable path="Hotkeys/RebindableAction"]
 [editable path="Hotkeys/RebindableAction5"]

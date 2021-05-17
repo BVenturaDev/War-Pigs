@@ -1,6 +1,5 @@
 extends Node
 
-
 # You can adjust the starting values here while debugging so the music/sounds don't annoy you every time
 # the _ready() will set those volumes so you don't have to go through the options. 
 # Can be useful to load preferences from a file too (not necessary for the jam)
@@ -15,6 +14,7 @@ func set_volume(bus_name: String, volume_value: float) -> void:
 
 
 func _ready() -> void:
+	self.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	for bus_name in _buses_volumes.keys():
 		_set_bus_volume(bus_name)
 
