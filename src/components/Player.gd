@@ -12,6 +12,14 @@ var vel: Vector3 = Vector3()
 # Scene Variables
 onready var camera_control = $Camara_Control
 onready var formations = $Formations
+onready var interact_tar = $Camara_Control/interact_Target
+
+func _interact():
+	var col = interact_tar.get_collider()
+	if col:
+		if col.is_in_group("Enemies"):
+			if not col.alive:
+				col.recruit()
 
 func _ready():
 	main = get_parent()
@@ -50,3 +58,5 @@ func _physics_process(var delta: float) -> void:
 		formations.return_to_formation()
 	if Input.is_action_just_pressed("charge"):
 		formations.charge()
+	if Input.is_action_just_pressed("ui_select"):
+		_interact()

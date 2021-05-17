@@ -64,6 +64,7 @@ func _set_target(var i: int, var tar: Node) -> void:
 
 func _attack(var i: int) -> void:
 	# Send the minion to the player target position
+	minions[i].state = minions[i].states.FOLLOW
 	minions[i].target = _create_pos(_find_pos_loc(i))
 	minions[i].in_formation = false
 	minions[i].path_finder.update_path(minions[i].target)
@@ -97,8 +98,7 @@ func attack_individual() -> void:
 		
 func return_to_formation() -> void:
 		for i in minions:
-			if not i.in_formation:
-				i.line_up()
+			i.line_up()
 
 func charge() -> void:
 	for i in minions:

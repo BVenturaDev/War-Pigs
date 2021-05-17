@@ -58,6 +58,8 @@ func _on_Attack_Timer_timeout():
 func join_formation() -> void:
 	player.formations.add_minion(self)
 	in_formation = true
+	state = states.FOLLOW
+	attack_tar = null
 
 func line_up():
 	attack_tar = null
