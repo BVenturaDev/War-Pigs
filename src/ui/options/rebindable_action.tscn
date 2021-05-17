@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/options/rebindable_action.gd" type="Script" id=1]
+
+[node name="RebindableAction" type="HBoxContainer"]
+margin_right = 89.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 64.0
+margin_bottom = 17.0
+text = "Move left:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 68.0
+margin_right = 89.0
+margin_bottom = 20.0
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

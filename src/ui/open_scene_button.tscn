@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/open_scene_button.gd" type="Script" id=2]
+
+[node name="Play" type="Button"]
+margin_right = 74.0
+margin_bottom = 20.0
+text = "Play"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
