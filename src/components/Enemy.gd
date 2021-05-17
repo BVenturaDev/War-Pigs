@@ -5,7 +5,6 @@ var pig_scene = preload("res://scenes/components/Minion.tscn")
 
 # Scene Variables
 onready var label = $Recruit_Label
-onready var dest_timer = $Destruction_Timer
 
 # Enemy Variables
 var hp: int = 100
@@ -26,7 +25,7 @@ func recruit() -> void:
 	get_parent().add_child(pig)
 	pig.global_transform = global_transform
 	pig.join_formation()
-	get_tree().call_group("Minions", "enemy_killed", self)
+	get_tree().call_group("Minions", "target_killed", self)
 	queue_free()
 	
 

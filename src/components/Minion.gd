@@ -1,7 +1,7 @@
 extends KinematicBody
 
 # States
-enum states {FOLLOW, ATTACK}
+enum states {FOLLOW, ATTACK, RAID}
 var state: int = states.FOLLOW
 
 # Exports
@@ -14,6 +14,7 @@ export var damage: int = 5
 onready var player: KinematicBody = $"../../Player"
 onready var path_finder: Spatial = $Path_Finder
 onready var attack_time: Timer = $Attack_Timer
+onready var baggage: Spatial = $Baggage
 
 # Minion Variables
 var path: Array = []
@@ -24,6 +25,10 @@ var in_formation: bool = false
 var form_id: int = -1
 var attacking: bool = false
 
+# Raid variables
+var raid_position: Position3D
+var raiding_entity: Raidable
+
 func _state_follow() -> void:
 	# Find direction along path
 	if target and not path_finder.has_path():
@@ -31,6 +36,8 @@ func _state_follow() -> void:
 			look_at(player.global_transform.origin, Vector3.UP)
 			rotation.x = 0
 			rotation.z = 0
+			# Accumulate Raid Wealth
+			accumulate_wealth()
 		elif target.is_in_group("Target_Spawn"):
 			# Reached target, return
 			target.queue_free()
@@ -50,6 +57,24 @@ func _on_Area_body_entered(body):
 				target = body
 				path_finder.update_path(target)
 				state = states.ATTACK
+		elif body.is_in_group("raidable"):
+			# Acquire position in hut
+			var position = body.give_position(self)
+			if position != null:	# Position available
+				raid_position = position
+				# MESS... Have target be position to move towards.
+				"""
+				Not setting target caused the pig to move to another direction.
+				This caused me a lot of time to figure it out.
+				"""
+				target = null
+				target = raid_position
+				# Move to that position in Hut
+				path_finder.move_to(raid_position.global_transform.origin)
+				#path_finder.move_to(raid_position.translation)
+				raiding_entity = body
+				state = states.RAID
+			
 
 func _on_Attack_Timer_timeout():
 	attacking = false
@@ -70,8 +95,8 @@ func line_up():
 	in_formation = true
 	state = states.FOLLOW
 	
-func enemy_killed(var enemy: Node) -> void:
-	if attack_tar == enemy:
+func target_killed(var tar: Node) -> void:
+	if attack_tar == tar or target == tar:
 		line_up()
 
 func _physics_process(var delta: float) -> void:
@@ -91,3 +116,41 @@ func _physics_process(var delta: float) -> void:
 					attack_tar = col
 					attack_time.start()
 					break
+	# RAID STATE
+	if state == states.RAID:
+		# Reached position in Hut
+		if path_finder.has_path() == false:
+			# Avoid checking on a freed object
+			if is_instance_valid(raiding_entity):
+				if raiding_entity.is_destroyed():
+					# Clean up
+					raiding_entity.retrieve_position(raid_position, self)
+					raid_position = null
+					raiding_entity = null
+					line_up()	# Objective complete
+				else:	# Attack Hut
+					if $Raid_Timer.is_stopped():
+						raiding_entity.decrease_health(damage)
+						$Raid_Timer.start()
+			else:	# Hut destroyed
+				raiding_entity = null
+				raid_position = null
+				line_up()
+
+######
+## Currency
+######
+
+func accumulate_wealth():
+	if baggage.has_currency():
+		remove_currency()
+
+### Baggage Interface
+func pass_currency(c):
+	baggage.give_currency(c)
+	
+func remove_currency():
+	var c: CurrencyData = baggage.remove_currency()
+	print_debug("Wealth Acquired: " + str(c.get_amount()))
+	# Do something with currency
+	
