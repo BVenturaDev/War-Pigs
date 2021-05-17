@@ -46,6 +46,7 @@ func retrieve_position(position: Position3D):
 	positions_available.append(position)
 
 func die():
+	get_tree().call_group("Minions", "target_killed", self)
 	queue_free()
 
 func spawn_pointer(point: Position3D):

@@ -92,8 +92,8 @@ func line_up():
 	in_formation = true
 	state = states.FOLLOW
 	
-func enemy_killed(var enemy: Node) -> void:
-	if attack_tar == enemy:
+func target_killed(var tar: Node) -> void:
+	if attack_tar == tar or target == tar:
 		line_up()
 
 func _physics_process(var delta: float) -> void:
