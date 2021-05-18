@@ -97,20 +97,18 @@ func _check_bodies():
 						break
 			elif body.is_in_group("raidable"):
 				# Acquire position in hut
-				var position = body.give_position(self)
+				var body_owner = body.get_raidable()
+				var position = body_owner.give_position(self)
 				if position != null:	# Position available
-					raid_position = position
 					# MESS... Have target be position to move towards.
 					"""
 					Not setting target caused the pig to move to another direction.
 					This caused me a lot of time to figure it out.
 					"""
-					target = null
-					target = raid_position
+					target = position
 					# Move to that position in Hut
-					path_finder.move_to(raid_position.global_transform.origin)
-					#path_finder.move_to(raid_position.translation)
-					raiding_entity = body
+					path_finder.move_to(target.global_transform.origin)
+					raiding_entity = body_owner
 					state = states.RAID
 					break
 			

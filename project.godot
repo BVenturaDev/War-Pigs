@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/components/currency/CurrencyData.gd"
 }, {
-"base": "StaticBody",
+"base": "Spatial",
 "class": "Raidable",
 "language": "GDScript",
 "path": "res://src/components/raid/Raidable.gd"

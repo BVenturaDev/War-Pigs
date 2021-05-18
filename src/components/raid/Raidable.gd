@@ -1,4 +1,4 @@
-extends StaticBody
+extends Spatial
 class_name Raidable
 
 """
@@ -12,15 +12,25 @@ var currency_item = load("res://scenes/components/currency/Currency.tscn")
 export (float) var max_health
 onready var health: float = max_health
 
+# object that is to be interacted by the minions
+export (NodePath) var raidable_trigger_path
+var raidable_trigger
+
 # Positions for pigs to go to inside
 var positions_available: Array = []
 var position_occupied: Array = []
+
+
 
 # Pigs that are inside the hut
 var pigs_attacking: Array = []
 
 func _ready():
-	add_to_group("raidable")
+	# Pass raidable to trigger
+	if raidable_trigger_path != "":
+		raidable_trigger = get_node(raidable_trigger_path)
+		raidable_trigger.set_raidable(self)
+		
 	for p in $Positions.get_children():
 		positions_available.append(p)
 		if DEBUG:
