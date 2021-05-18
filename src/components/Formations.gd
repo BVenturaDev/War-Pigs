@@ -73,6 +73,19 @@ func _ready() -> void:
 	_add_line()
 	get_tree().call_group("Minions", "join_formation")
 
+# Move minions above i down 1 position in formation
+func reshuffle(var index: int) -> void:
+	for i in range(index, minions.size()):
+		if not i + 1 == minions.size():
+			if not minions[i + 1] == null:
+				minions[i] = minions[i + 1]
+				minions[i].form_id -= 1
+				if minions[i].in_formation:
+					update_target(i)
+				minions[i + 1] = null
+		else:
+			minions[i] = null
+
 # Give the minion it's target in formation
 func update_target(var i: int) -> void:
 	_set_target(i, _find_pos_loc(i))

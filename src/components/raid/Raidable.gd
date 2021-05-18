@@ -64,7 +64,7 @@ func die():
 		var currency_scene = currency_item.instance()
 		p.pass_currency(currency_scene)
 	get_tree().call_group("Minions", "target_killed", self)
-	queue_free()
+	call_deferred("queue_free")
 
 func spawn_pointer(point: Position3D):
 	var packed: Spatial = poiner_debug.instance()

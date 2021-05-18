@@ -35,3 +35,7 @@ func calculate_vel(var max_speed: float, var accel: float, var delta: float) -> 
 			return vel.linear_interpolate(dir * max_speed, accel * delta)
 			
 	return Vector3()
+	
+func stop() -> void:
+	path = []
+	path_node = 0
