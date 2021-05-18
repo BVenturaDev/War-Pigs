@@ -40,15 +40,15 @@ func _physics_process(var delta: float) -> void:
 	if not is_on_floor():
 		vel.y = Globals.GRAV
 	# Do movement
-	var _v = move_and_slide(vel, Vector3.UP)
 	if state == states.CHARGE and not attacking:
+	var _v = move_and_slide(vel, Vector3.UP)
 		for i in get_slide_count():
-			var col = get_slide_collision(i).collider
 			if col.has_method("is_in_group"):
+			var col = get_slide_collision(i).collider
 				if col.is_in_group("Minions") and attack_time.is_stopped():
-					state = states.ATTACK
 					
 	# Check if KO'd
+					state = states.ATTACK
 	if hp < 1 and alive:
 		get_tree().call_group("Minions", "enemy_killed", self)
 		alive = false

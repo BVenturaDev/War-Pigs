@@ -9,7 +9,9 @@
 radius = 2.0
 height = 7.0
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=[
+"player",
+]]
 input_ray_pickable = false
 collision_layer = 2
 script = ExtResource( 1 )
