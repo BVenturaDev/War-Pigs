@@ -13,7 +13,7 @@ var alive: bool = true
 func _on_Search_Timer_timeout():
 	pass # Replace with function body.
 
-func _physics_process(var delta: float) -> void:
+func _physics_process(var _delta: float) -> void:
 	if hp < 1 and alive:
 		get_tree().call_group("Minions", "enemy_killed", self)
 		alive = false

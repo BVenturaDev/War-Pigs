@@ -26,4 +26,4 @@ func scenes_to_transition(scenes: Array):
 
 # General function to transition to a given scene
 func transition_to(scene: String):
-	get_tree().change_scene(scene)
+	var _ch_sc = get_tree().change_scene(scene)
