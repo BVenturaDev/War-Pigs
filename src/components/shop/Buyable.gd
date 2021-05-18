@@ -1,11 +1,12 @@
 tool
 extends StaticBody
 
+class_name Buyable
+
 """
 Contain the item that is to be bought.
 """
-# Be able to change collision shape in editor
-export (Vector3) var collision_scale = Vector3(1,1,1)
+# Allow to edit the label view in inspector
 export (NodePath) var buyable_item_path
 
 # Any item to buy (data)
@@ -19,25 +20,30 @@ export (String) var item_type
 func _ready():
 	if buyable_item_path != "":
 		buyable_item = get_node(buyable_item_path)
-	$CollisionShape.scale = collision_scale
 	add_to_group("buyable")
 	
 func _process(delta):
-	if Engine.editor_hint:
-		$CollisionShape.scale = collision_scale
+	pass
 
-func buy_item(amount: int):
-	if amount >= cost:
-		if buyable_item != null:
-			var item = buyable_item
-			remove_child(buyable_item)
-			buyable_item = null
-			return item
-	return null
+#########
+## Buyable Interface
+#########
+
+func get_item():
+	var item = buyable_item
+	remove_child(buyable_item)
+	return buyable_item
 
 # Called after buying an item. NOT before
-func change(amount: int) -> int:
-	return amount - cost
+func spent(amount: int) -> int:
+	return cost
 	
 func get_type() -> String:
 	return item_type
+
+func destroy_item():
+	call_deferred("queue_free")
+
+# Called from buyer
+func can_buy(amount: int) -> bool:
+	return amount >= cost

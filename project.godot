@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody",
+"class": "Buyable",
+"language": "GDScript",
+"path": "res://src/components/shop/Buyable.gd"
+}, {
 "base": "Resource",
 "class": "CurrencyData",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/components/raid/Raidable.gd"
 } ]
 _global_script_class_icons={
+"Buyable": "",
 "CurrencyData": "",
 "Raidable": ""
 }
