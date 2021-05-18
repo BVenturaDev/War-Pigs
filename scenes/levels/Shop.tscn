@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/transition/LevelTransition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/shop/BuyableItem.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -9,6 +10,14 @@
 albedo_color = Color( 0.352941, 0.623529, 0.388235, 1 )
 
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 22.5749, 4.00292, 4.52788 )
+
+[sub_resource type="SphereMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.411765, 0.411765, 0.411765, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -28,3 +37,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865025, 17.4836 )
 
 [node name="Area" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0493, 4.12317, -61.3154 )
+
+[node name="DummyShop" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.60424, -22.238 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="DummyShop"]
+transform = Transform( 1, 0, 0, 0, 0.868476, 0, 0, 0, 1, 0, -0.729249, 0 )
+operation = 1
+snap = 0.01
+
+[node name="Stand" type="CSGBox" parent="DummyShop/CSGCombiner"]
+width = 41.9623
+height = 9.25687
+depth = 5.83799
+
+[node name="Counter" type="CSGBox" parent="DummyShop/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.62976, 0.0420456 )
+width = 43.4411
+height = 0.410854
+depth = 6.17704
+
+[node name="CollisionShape" type="CollisionShape" parent="DummyShop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360236, 0 )
+shape = SubResource( 4 )
+
+[node name="BuyableItem" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.0538, -22.2762 )
+buyable_item_path = NodePath("MeshInstance")
+item_type = "Helmet"
+
+[node name="MeshInstance" type="MeshInstance" parent="BuyableItem"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )

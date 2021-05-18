@@ -20,6 +20,8 @@ func _interact():
 		if col.is_in_group("Enemies"):
 			if not col.alive:
 				col.recruit()
+		if col.is_in_group("buyable"):
+			print_debug("I can buy it!")
 
 func _ready():
 	main = get_parent()
