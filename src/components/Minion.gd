@@ -28,13 +28,12 @@ var form_id: int = -1
 var attacking: bool = false
 var alive: bool = true
 var attack_i: int = -1
-# used to have pigs obey the order given by the player.
-var returning_from_raid: bool = false
 
 # Raid variables
 var raid_position: Position3D
 var raiding_entity: Raidable
 
+# Go back to formation
 func _state_returning_formation() -> void:
 	if is_instance_valid(target) and not path_finder.has_path():
 		if in_formation:
@@ -43,7 +42,6 @@ func _state_returning_formation() -> void:
 			rotation.z = 0
 			# Accumulate Raid Wealth
 			accumulate_wealth()
-			returning_from_raid = false
 			state = states.FOLLOW
 
 func _state_follow() -> void:
@@ -55,7 +53,6 @@ func _state_follow() -> void:
 			rotation.z = 0
 			# Accumulate Raid Wealth
 			accumulate_wealth()
-			returning_from_raid = false
 		elif target.is_in_group("Target_Spawn"):
 			# Reached target, return
 			target.queue_free()
