@@ -17,6 +17,7 @@ onready var path_finder: Spatial = $Path_Finder
 onready var attack_time: Timer = $Attack_Timer
 onready var baggage: Spatial = $Baggage
 onready var aggro_rad: Area = $Area
+onready var sword_sound_player = $SwordSoundPlayer
 
 # Minion Variables
 var target: Node = null
@@ -30,6 +31,7 @@ var attack_i: int = -1
 # Raid variables
 var raid_position: Position3D
 var raiding_entity: Raidable
+
 
 func _state_follow() -> void:
 	# Find direction along path
@@ -115,6 +117,8 @@ func _check_bodies():
 
 func _on_Attack_Timer_timeout():
 	attacking = false
+	sword_sound_player.play_random_sound()
+	print("attacking")	
 	if attack_tar:
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		if attack_tar.damage(hit_damage):

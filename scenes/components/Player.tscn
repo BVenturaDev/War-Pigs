@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/components/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/pig.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/components/Formations.gd" type="Script" id=3]
 [ext_resource path="res://assets/ui/cross_hair.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/pigs/charge order.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/pigs/recall order.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -51,3 +53,17 @@ script = ExtResource( 3 )
 
 [node name="pig" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+
+[node name="Listener" type="Listener" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53471, 0 )
+current = true
+
+[node name="ChargeSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.03479, 0 )
+stream = ExtResource( 5 )
+bus = "Sounds"
+
+[node name="RecallSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.03479, 0 )
+stream = ExtResource( 6 )
+bus = "Sounds"
