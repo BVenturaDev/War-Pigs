@@ -117,8 +117,8 @@ func _physics_process(var delta: float) -> void:
 	var _v = move_and_slide(vel, Vector3.UP)
 
 func attacker(var tar: Node) -> void:
-	target = null
-	path_finder.stop()
+	target = tar
+	#path_finder.stop()
 	attack_tar = tar
 	attack_tar.attack(self)
 	state = states.ATTACK
