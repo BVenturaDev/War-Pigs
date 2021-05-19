@@ -5,7 +5,7 @@ var attackers: Array = []
 var target: Node = null
 
 func _in_range(var i: int) -> bool:
-	if i > 7:
+	if i > 7 and i > -1:
 		return false
 	return true
 
@@ -28,18 +28,19 @@ func find_pos() -> int:
 	
 func get_attacker() -> Node:
 	for i in attackers:
-		if not i == null:
+		if not i == null and is_instance_valid(i):
 			target = i
 			return i
 	return null
 
 func add_attacker(var minion: Node, var i: int) -> Node:
 	if _in_range(i):
-		if i == 0:
-			target = minion
-		attackers[i] = minion
-		get_parent().attacker(target)
-		return positions[i]
+		if attackers[i] == null or not is_instance_valid(attackers[i]):
+			if i == 0:
+				target = minion
+			attackers[i] = minion
+			get_parent().attacker(target)
+			return positions[i]
 	return null
 	
 func remove_attacker(var i: int) -> void:

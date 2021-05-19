@@ -11,7 +11,7 @@ var lines: Array = []
 var line_pos: Array = []
 var minions: Array = []
 
-func _process(var delta: float) -> void:
+func _process(var _delta: float) -> void:
 	for i in minions.size():
 		if not is_instance_valid(minions[i]):
 			minions[i] = null
