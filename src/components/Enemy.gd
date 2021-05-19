@@ -72,10 +72,20 @@ func _physics_process(var delta: float) -> void:
 	# Do movement
 	var _v = move_and_slide(vel, Vector3.UP)
 	
+	if state == states.CHARGE and target:
+		var tar: Node = attack_pos.get_attacker()
+		if tar:
+			attacker(tar)
+	
 	# Attack the target
-	if state == states.ATTACK and is_instance_valid(attack_tar) and not attacking:
-		attacking = true
-		attack_time.start()
+	if state == states.ATTACK :
+		if attack_tar:
+			if not attacking:
+				attacking = true
+				attack_time.start()
+		else:
+			_find_attacker()
+			
 		
 	# Check if KO'd
 	if hp < 1 and alive:

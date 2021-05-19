@@ -122,9 +122,10 @@ func _on_Attack_Timer_timeout():
 		line_up()
 
 func attack(var body: Node):
-	target = body.attack_pos.add_attacker(self, attack_i)
-	path_finder.update_path(target)
-	state = states.ATTACK
+	if not body.attack_pos.is_attacker(self):
+		target = body.attack_pos.add_attacker(self, attack_i)
+		path_finder.update_path(target)
+		state = states.ATTACK
 
 func damage(var dam: int) -> bool:
 	hp -= dam

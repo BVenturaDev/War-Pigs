@@ -108,9 +108,10 @@ func attack_individual() -> void:
 	# Find the first minion in formation
 	var i: int = -1
 	for minion in minions:
-		if minion.in_formation:
-			i = minion.form_id
-			break
+		if is_instance_valid(minion):
+			if minion.in_formation:
+				i = minion.form_id
+				break
 	if not i == -1:
 		_attack(i)
 		
