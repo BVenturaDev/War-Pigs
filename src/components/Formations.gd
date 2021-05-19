@@ -11,10 +11,11 @@ var lines: Array = []
 var line_pos: Array = []
 var minions: Array = []
 
-func _process(var delta: float) -> void:
+func _process(var _delta: float) -> void:
 	for i in minions.size():
 		if not is_instance_valid(minions[i]):
 			minions[i] = null
+			reshuffle(i)
 
 func _create_pos(var pos: Node) -> Node:
 	# Transform along local z axis
@@ -108,9 +109,10 @@ func attack_individual() -> void:
 	# Find the first minion in formation
 	var i: int = -1
 	for minion in minions:
-		if minion.in_formation:
-			i = minion.form_id
-			break
+		if is_instance_valid(minion):
+			if minion.in_formation:
+				i = minion.form_id
+				break
 	if not i == -1:
 		_attack(i)
 		

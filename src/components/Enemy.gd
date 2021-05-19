@@ -17,6 +17,7 @@ onready var label = $Recruit_Label
 onready var path_finder = $Path_Finder
 onready var attack_time = $Attack_Timer
 onready var attack_pos = $Attack_Positiions
+onready var aggro_rad = $Area
 
 # Enemy Variables
 var hp: int = 100
@@ -47,17 +48,22 @@ func _on_Attack_Timer_timeout():
 	else:
 		_find_attacker()
 		
-func _on_Area_body_entered(body):
-	if state == states.IDLE and not target:
-		if body.is_in_group("Minions"):
-			target = body
-			state = states.CHARGE
+func _check_bodies():
+	for body in aggro_rad.get_overlapping_bodies():
+		if not target:
+			if body.is_in_group("Minions"):
+				if not body.state == body.states.ATTACK:
+					target = body
+					state = states.CHARGE
+					break
 
 func _physics_process(var delta: float) -> void:
 	if not is_instance_valid(target):
 		target = null
 	if not is_instance_valid(attack_tar):
 		attack_tar = null
+	if state == states.IDLE:
+		_check_bodies()
 		
 	var vel: Vector3 = path_finder.calculate_vel(max_speed, accel, delta)
 	# Do gravity
@@ -66,10 +72,20 @@ func _physics_process(var delta: float) -> void:
 	# Do movement
 	var _v = move_and_slide(vel, Vector3.UP)
 	
+	if state == states.CHARGE and target:
+		var tar: Node = attack_pos.get_attacker()
+		if tar:
+			attacker(tar)
+	
 	# Attack the target
-	if state == states.ATTACK and is_instance_valid(attack_tar) and not attacking:
-		attacking = true
-		attack_time.start()
+	if state == states.ATTACK :
+		if attack_tar:
+			if not attacking:
+				attacking = true
+				attack_time.start()
+		else:
+			_find_attacker()
+			
 		
 	# Check if KO'd
 	if hp < 1 and alive:
@@ -82,12 +98,14 @@ func attacker(var tar: Node) -> void:
 	target = null
 	path_finder.stop()
 	attack_tar = tar
+	attack_tar.attack(self)
 	state = states.ATTACK
 	
 func _find_attacker():
 	attack_tar = attack_pos.get_attacker()
 	if not attack_tar:
 		target = null
+		attack_tar = null
 		state = states.IDLE
 	
 # Convert to a minion

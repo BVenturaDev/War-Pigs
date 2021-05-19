@@ -2,10 +2,9 @@ extends Spatial
 
 var positions: Array = []
 var attackers: Array = []
-var target: Node = null
 
 func _in_range(var i: int) -> bool:
-	if i > 7:
+	if i > 7 and i > -1:
 		return false
 	return true
 
@@ -28,22 +27,23 @@ func find_pos() -> int:
 	
 func get_attacker() -> Node:
 	for i in attackers:
-		if not i == null:
-			target = i
+		if not i == null and is_instance_valid(i):
 			return i
 	return null
 
 func add_attacker(var minion: Node, var i: int) -> Node:
 	if _in_range(i):
-		if i == 0:
-			target = minion
-		attackers[i] = minion
-		get_parent().attacker(target)
-		return positions[i]
+		if attackers[i] == null or not is_instance_valid(attackers[i]):
+			attackers[i] = minion
+			return positions[i]
 	return null
 	
 func remove_attacker(var i: int) -> void:
 	if _in_range(i):
-		if i == 0:
-			target = null
 		attackers[i] = null
+		
+func is_attacker(var body: Node) -> bool:
+	for i in attackers:
+		if body == i:
+			return true
+	return false

@@ -48,6 +48,7 @@ func _state_follow() -> void:
 
 func _state_attack() -> void:
 	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
+		# Select the enemy
 		attack_tar = target.get_parent().get_parent().get_parent()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
@@ -91,10 +92,9 @@ func _check_bodies():
 					attack_i = body.attack_pos.find_pos()
 					# Check if enemy has room for more attackers
 					if attack_i > -1:
-						target = body.attack_pos.add_attacker(self, attack_i)
-						path_finder.update_path(target)
-						state = states.ATTACK
+						attack(body)
 						break
+
 			elif body.is_in_group("raidable"):
 				# Acquire position in hut
 				var body_owner = body.get_raidable()
@@ -122,6 +122,13 @@ func _on_Attack_Timer_timeout():
 	else:
 		line_up()
 
+func attack(var body: Node):
+	if not body.attack_pos.is_attacker(self):
+		in_formation = false
+		target = body.attack_pos.add_attacker(self, attack_i)
+		path_finder.update_path(target)
+		state = states.ATTACK
+
 func damage(var dam: int) -> bool:
 	hp -= dam
 	if hp < 1:
@@ -145,16 +152,19 @@ func target_killed(var tar: Node) -> void:
 	if attack_tar == tar or target == tar:
 		line_up()
 
-func _physics_process(var delta: float) -> void:
+func _physics_process(var delta: float) -> void:	
+	if not is_instance_valid(target):
+		target = null
+	if not is_instance_valid(attack_tar):
+		attack_tar = null
 	_check_bodies()
-		
 	var vel: Vector3 = path_finder.calculate_vel(max_speed, accel, delta)
+	var _v = move_and_slide(vel, Vector3.UP)
 	if state == states.FOLLOW:
 		_state_follow()
 	# Stick to the floor
 	if not is_on_floor():
 		vel.y = Globals.GRAV
-	var _v = move_and_slide(vel, Vector3.UP)
 	
 	if state == states.ATTACK:
 		_state_attack()
