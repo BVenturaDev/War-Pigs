@@ -92,7 +92,7 @@ func _on_Search_Timer_timeout():
 
 func _check_bodies():
 	for body in aggro_rad.get_overlapping_bodies():
-		if state == states.FOLLOW:
+		if state == states.FOLLOW and baggage.has_currency() == false:
 			if body.is_in_group("Enemies"):
 				if body.alive:
 					# Found a live enemy, engage them
