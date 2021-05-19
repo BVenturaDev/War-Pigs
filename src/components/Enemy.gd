@@ -35,11 +35,11 @@ func minion_killed(var minion: Node) -> void:
 
 func _on_Search_Timer_timeout() -> void:
 	# Update our path finding
-		if target:
+		if is_instance_valid(target):
 			path_finder.update_path(target)
 	
 func _on_Attack_Timer_timeout():
-	if not attack_tar == null:
+	if is_instance_valid(attack_tar):
 		attacking = false
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		if attack_tar.damage(hit_damage):
@@ -48,12 +48,17 @@ func _on_Attack_Timer_timeout():
 		_find_attacker()
 		
 func _on_Area_body_entered(body):
-	if state == states.IDLE and target == null:
+	if state == states.IDLE and not target:
 		if body.is_in_group("Minions"):
 			target = body
 			state = states.CHARGE
 
 func _physics_process(var delta: float) -> void:
+	if not is_instance_valid(target):
+		target = null
+	if not is_instance_valid(attack_tar):
+		attack_tar = null
+		
 	var vel: Vector3 = path_finder.calculate_vel(max_speed, accel, delta)
 	# Do gravity
 	if not is_on_floor():
@@ -62,7 +67,7 @@ func _physics_process(var delta: float) -> void:
 	var _v = move_and_slide(vel, Vector3.UP)
 	
 	# Attack the target
-	if state == states.ATTACK and attack_tar and not attacking:
+	if state == states.ATTACK and is_instance_valid(attack_tar) and not attacking:
 		attacking = true
 		attack_time.start()
 		
@@ -81,7 +86,7 @@ func attacker(var tar: Node) -> void:
 	
 func _find_attacker():
 	attack_tar = attack_pos.get_attacker()
-	if attack_tar == null:
+	if not attack_tar:
 		target = null
 		state = states.IDLE
 	

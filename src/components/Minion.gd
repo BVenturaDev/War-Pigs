@@ -33,7 +33,7 @@ var raiding_entity: Raidable
 
 func _state_follow() -> void:
 	# Find direction along path
-	if target and not path_finder.has_path():
+	if is_instance_valid(target) and not path_finder.has_path():
 		if in_formation:
 			look_at(player.global_transform.origin, Vector3.UP)
 			rotation.x = 0
@@ -47,7 +47,7 @@ func _state_follow() -> void:
 			print("Coming back: " + str(form_id))
 
 func _state_attack() -> void:
-	if target and not path_finder.has_path() and not in_formation:
+	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
 		attack_tar = target.get_parent().get_parent().get_parent()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0

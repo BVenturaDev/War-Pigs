@@ -15,6 +15,11 @@ func _ready():
 	for i in positions.size():
 		attackers.append(null)
 		
+func _process(var _delta: float) -> void:
+	for i in attackers.size():
+		if not is_instance_valid(attackers[i]):
+			attackers[i] = null
+		
 func find_pos() -> int:
 	for i in attackers.size():
 		if attackers[i] == null:

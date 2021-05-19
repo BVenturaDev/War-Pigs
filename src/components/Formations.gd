@@ -11,6 +11,11 @@ var lines: Array = []
 var line_pos: Array = []
 var minions: Array = []
 
+func _process(var delta: float) -> void:
+	for i in minions.size():
+		if not is_instance_valid(minions[i]):
+			minions[i] = null
+
 func _create_pos(var pos: Node) -> Node:
 	# Transform along local z axis
 	pos.transform.origin.z += Globals.ATTACKDIST
@@ -77,7 +82,7 @@ func _ready() -> void:
 func reshuffle(var index: int) -> void:
 	for i in range(index, minions.size()):
 		if not i + 1 == minions.size():
-			if not minions[i + 1] == null:
+			if is_instance_valid(minions[i + 1]) and not minions[i + 1] == null:
 				minions[i] = minions[i + 1]
 				minions[i].form_id -= 1
 				if minions[i].in_formation:
@@ -111,7 +116,8 @@ func attack_individual() -> void:
 		
 func return_to_formation() -> void:
 		for i in minions:
-			i.line_up()
+			if is_instance_valid(i) and not i == null:
+				i.line_up()
 
 func charge() -> void:
 	for i in minions:
