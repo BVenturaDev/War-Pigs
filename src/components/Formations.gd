@@ -11,6 +11,12 @@ var lines: Array = []
 var line_pos: Array = []
 var minions: Array = []
 
+func _process(var _delta: float) -> void:
+	for i in minions.size():
+		if not is_instance_valid(minions[i]):
+			minions[i] = null
+			reshuffle(i)
+
 func _create_pos(var pos: Node) -> Node:
 	# Transform along local z axis
 	pos.transform.origin.z += Globals.ATTACKDIST
@@ -73,6 +79,19 @@ func _ready() -> void:
 	_add_line()
 	get_tree().call_group("Minions", "join_formation")
 
+# Move minions above i down 1 position in formation
+func reshuffle(var index: int) -> void:
+	for i in range(index, minions.size()):
+		if not i + 1 == minions.size():
+			if is_instance_valid(minions[i + 1]) and not minions[i + 1] == null:
+				minions[i] = minions[i + 1]
+				minions[i].form_id -= 1
+				if minions[i].in_formation:
+					update_target(i)
+				minions[i + 1] = null
+		else:
+			minions[i] = null
+
 # Give the minion it's target in formation
 func update_target(var i: int) -> void:
 	_set_target(i, _find_pos_loc(i))
@@ -90,15 +109,17 @@ func attack_individual() -> void:
 	# Find the first minion in formation
 	var i: int = -1
 	for minion in minions:
-		if minion.in_formation:
-			i = minion.form_id
-			break
+		if is_instance_valid(minion):
+			if minion.in_formation:
+				i = minion.form_id
+				break
 	if not i == -1:
 		_attack(i)
 		
 func return_to_formation() -> void:
 		for i in minions:
-			i.line_up()
+			if is_instance_valid(i) and not i == null:
+				i.line_up()
 
 func charge() -> void:
 	for i in minions:

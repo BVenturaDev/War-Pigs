@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/components/currency/CurrencyData.gd"
 }, {
-"base": "StaticBody",
+"base": "Spatial",
 "class": "Raidable",
 "language": "GDScript",
 "path": "res://src/components/raid/Raidable.gd"
@@ -41,6 +41,8 @@ config/icon="res://icon.png"
 Globals="*res://src/Globals.gd"
 Options="*res://src/options.gd"
 LevelManager="*res://src/components/transition/level_manager.gd"
+Random="*res://src/Random.gd"
+MusicPlayer="*res://src/audio/music_player.tscn"
 
 [display]
 

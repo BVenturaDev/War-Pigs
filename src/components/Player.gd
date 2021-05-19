@@ -13,6 +13,8 @@ var vel: Vector3 = Vector3()
 onready var camera_control = $Camara_Control
 onready var formations = $Formations
 onready var interact_tar = $Camara_Control/interact_Target
+onready var charge_sound = $ChargeSound
+onready var recall_sound = $RecallSound
 
 func _interact():
 	var col = interact_tar.get_collider()
@@ -59,8 +61,10 @@ func _physics_process(var delta: float) -> void:
 		formations.attack_individual()
 	if Input.is_action_just_pressed("secondary"):
 		formations.return_to_formation()
+		recall_sound.play()
 	if Input.is_action_just_pressed("charge"):
 		formations.charge()
+		charge_sound.play()
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
 

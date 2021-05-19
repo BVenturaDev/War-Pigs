@@ -32,4 +32,4 @@ func add_to_currency(value: int):
 	total_currency += value
 	
 func decrease_currency(amount: int):
-	total_currency -= abs(amount)
+	total_currency -= int(abs(float(amount)))
