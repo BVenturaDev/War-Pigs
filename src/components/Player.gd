@@ -22,6 +22,9 @@ func _interact():
 		if col.is_in_group("Enemies"):
 			if not col.alive:
 				col.recruit()
+		if col.is_in_group("buyable"):
+			var total_spent = buy_item(col, Globals.total_currency)
+			Globals.total_currency -= total_spent
 
 func _ready():
 	main = get_parent()
@@ -64,3 +67,37 @@ func _physics_process(var delta: float) -> void:
 		charge_sound.play()
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
+
+#######
+## Buying Interface
+#######
+func buy_item(item: Buyable, amount: int) -> int:
+	if item.can_buy(amount):
+		var total_spent = item.spent(amount)
+		item_logic(item)
+		item.destroy_item()
+		return total_spent
+	else:
+		print_debug("can't buy anything")
+		# Did not spend anything
+		return 0
+
+# Deals with the various kinds of items that can be bought
+# Not the most scalable approach
+func item_logic(item: Buyable):
+	match item.get_type():
+		"helmet":
+			buy_helmet()
+		"shoulder":
+			buy_shoulders()
+		"breastplate":
+			buy_breastplate()
+
+func buy_shoulders():
+	print_debug("Bought Shoulders")
+	
+func buy_helmet():
+	print_debug("Bought Helmet")
+	
+func buy_breastplate():
+	print_debug("Bought Breastplate")
