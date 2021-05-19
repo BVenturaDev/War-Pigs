@@ -243,5 +243,5 @@ transform = Transform( 3.13428, 0, -5.11628, 0, 6, 0, 5.11628, 0, 3.13428, -16.2
 transform = Transform( -4.94145, 0, 0.762946, 0, 5, 0, -0.762946, 0, -4.94145, 11.3429, -5.42193, -106.164 )
 
 [node name="Area" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2314, -4.81468, 39.7843 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -98.2314, -4.81468, -159.216 )
 scenes = [ "res://scenes/levels/Shop.tscn", "res://scenes/levels/Test_Level.tscn" ]
