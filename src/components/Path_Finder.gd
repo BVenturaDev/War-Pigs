@@ -14,7 +14,7 @@ func move_to(target_pos) -> void:
 	path_node = 0
 
 func update_path(target) -> void:
-	if not target == null:
+	if is_instance_valid(target):
 		# Go to the closest position to target
 		move_to(nav.get_closest_point(target.global_transform.origin))
 
@@ -35,3 +35,7 @@ func calculate_vel(var max_speed: float, var accel: float, var delta: float) -> 
 			return vel.linear_interpolate(dir * max_speed, accel * delta)
 			
 	return Vector3()
+	
+func stop() -> void:
+	path = []
+	path_node = 0
