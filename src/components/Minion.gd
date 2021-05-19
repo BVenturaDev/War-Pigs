@@ -1,7 +1,7 @@
 extends KinematicBody
 
 # States
-enum states {FOLLOW, ATTACK, RAID}
+enum states {FOLLOW, ATTACK, RAID, RETURNING_FORMATION}
 var state: int = states.FOLLOW
 
 # Exports
@@ -29,12 +29,22 @@ var attacking: bool = false
 var alive: bool = true
 var attack_i: int = -1
 # used to have pigs obey the order given by the player.
-var obey_player_order: bool = false
+var returning_from_raid: bool = false
 
 # Raid variables
 var raid_position: Position3D
 var raiding_entity: Raidable
 
+func _state_returning_formation() -> void:
+	if is_instance_valid(target) and not path_finder.has_path():
+		if in_formation:
+			look_at(player.global_transform.origin, Vector3.UP)
+			rotation.x = 0
+			rotation.z = 0
+			# Accumulate Raid Wealth
+			accumulate_wealth()
+			returning_from_raid = false
+			state = states.FOLLOW
 
 func _state_follow() -> void:
 	# Find direction along path
@@ -45,12 +55,11 @@ func _state_follow() -> void:
 			rotation.z = 0
 			# Accumulate Raid Wealth
 			accumulate_wealth()
-			obey_player_order = false
+			returning_from_raid = false
 		elif target.is_in_group("Target_Spawn"):
 			# Reached target, return
 			target.queue_free()
 			line_up()
-			obey_player_order = false
 			#print("Coming back: " + str(form_id))
 
 func _state_attack() -> void:
@@ -101,8 +110,7 @@ func _check_bodies():
 					if attack_i > -1:
 						attack(body)
 						break
-
-			elif body.is_in_group("raidable") and in_formation == false:
+			elif body.is_in_group("raidable"):
 				# Acquire position in hut
 				var body_owner = body.get_raidable()
 				var position = body_owner.give_position(self)
@@ -120,6 +128,15 @@ func _check_bodies():
 					raiding_entity = body_owner
 					state = states.RAID
 					break
+		# Fall back
+		elif state == states.RETURNING_FORMATION and baggage.has_currency() == false:
+			if body.is_in_group("Enemies"):
+				if body.alive:
+					attack_i = body.attack_pos.find_pos()
+					if attack_i > -1:
+						attack(body)
+						break
+					attack_i = body.attack_pos.find_pos()
 			
 
 func _on_Attack_Timer_timeout():
@@ -155,20 +172,22 @@ func join_formation() -> void:
 	attack_tar = null
 
 func line_up():
+	path_finder.stop()
+	attack_tar = null
+	player.formations.update_target(form_id)
+	in_formation = true
+	
 	if state == states.RAID:
 		# Not yet destroyed
+		state = states.RETURNING_FORMATION
 		if is_instance_valid(raiding_entity):
 			# Clear raid
 			# Pass position back
 			raiding_entity.retrieve_position(raid_position, self)
 			raid_position = null
 			raiding_entity = null
-		
-	path_finder.stop()
-	attack_tar = null
-	player.formations.update_target(form_id)
-	in_formation = true
-	state = states.FOLLOW
+	else:
+		state = states.RETURNING_FORMATION
 	
 func target_killed(var tar: Node) -> void:
 	if attack_tar == tar or target == tar:
@@ -193,6 +212,9 @@ func _physics_process(var delta: float) -> void:
 	
 	if state == states.RAID:
 		_state_raid()
+		
+	if state == states.RETURNING_FORMATION:
+		_state_returning_formation()
 		
 	if hp < 1 and alive:
 		alive = false
@@ -220,3 +242,5 @@ func remove_currency():
 	Globals.add_to_currency(c.get_amount())
 	# Do something with currency
 	
+func has_baggage():
+	return baggage.has_currency()
