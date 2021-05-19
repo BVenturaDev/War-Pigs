@@ -3,6 +3,7 @@
 [ext_resource path="res://assets/music/March of the Pigs.ogg" type="AudioStream" id=1]
 
 [node name="MusicPlayer" type="Node"]
+pause_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

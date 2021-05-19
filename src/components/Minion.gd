@@ -46,7 +46,7 @@ func _state_follow() -> void:
 			# Reached target, return
 			target.queue_free()
 			line_up()
-			print("Coming back: " + str(form_id))
+			#print("Coming back: " + str(form_id))
 
 func _state_attack() -> void:
 	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
@@ -118,7 +118,6 @@ func _check_bodies():
 func _on_Attack_Timer_timeout():
 	attacking = false
 	sword_sound_player.play_random_sound()
-	print("attacking")	
 	if attack_tar:
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		if attack_tar.damage(hit_damage):

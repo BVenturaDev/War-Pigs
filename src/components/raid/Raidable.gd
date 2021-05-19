@@ -80,4 +80,4 @@ func spawn_pointer(point: Position3D):
 	var packed: Spatial = poiner_debug.instance()
 	add_child(packed)
 	packed.translation = point.translation
-	print_debug(packed.transform)
+	#print_debug(packed.transform)

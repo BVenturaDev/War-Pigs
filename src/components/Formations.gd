@@ -103,7 +103,7 @@ func add_minion(var minion: KinematicBody) -> void:
 	# Set the target to the position in formation
 	minions[i].form_id = i
 	_set_target(i, _find_pos_loc(i))
-	print("Added Minion: " + str(minion.name))
+	#print("Added Minion: " + str(minion.name))
 	
 func attack_individual() -> void:
 	# Find the first minion in formation
@@ -123,5 +123,6 @@ func return_to_formation() -> void:
 
 func charge() -> void:
 	for i in minions:
-		if i.in_formation:
-			_attack(i.form_id)
+		if i and is_instance_valid(i):
+			if i.in_formation:
+				_attack(i.form_id)
