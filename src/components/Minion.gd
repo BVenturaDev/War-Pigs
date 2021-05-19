@@ -28,6 +28,8 @@ var form_id: int = -1
 var attacking: bool = false
 var alive: bool = true
 var attack_i: int = -1
+# used to have pigs obey the order given by the player.
+var obey_player_order: bool = false
 
 # Raid variables
 var raid_position: Position3D
@@ -43,10 +45,12 @@ func _state_follow() -> void:
 			rotation.z = 0
 			# Accumulate Raid Wealth
 			accumulate_wealth()
+			obey_player_order = false
 		elif target.is_in_group("Target_Spawn"):
 			# Reached target, return
 			target.queue_free()
 			line_up()
+			obey_player_order = false
 			#print("Coming back: " + str(form_id))
 
 func _state_attack() -> void:
@@ -98,7 +102,7 @@ func _check_bodies():
 						attack(body)
 						break
 
-			elif body.is_in_group("raidable"):
+			elif body.is_in_group("raidable") and in_formation == false:
 				# Acquire position in hut
 				var body_owner = body.get_raidable()
 				var position = body_owner.give_position(self)
@@ -109,6 +113,8 @@ func _check_bodies():
 					This caused me a lot of time to figure it out.
 					"""
 					target = position
+					# Store position upon which the pig will be on
+					raid_position = position
 					# Move to that position in Hut
 					path_finder.move_to(target.global_transform.origin)
 					raiding_entity = body_owner
@@ -149,6 +155,15 @@ func join_formation() -> void:
 	attack_tar = null
 
 func line_up():
+	if state == states.RAID:
+		# Not yet destroyed
+		if is_instance_valid(raiding_entity):
+			# Clear raid
+			# Pass position back
+			raiding_entity.retrieve_position(raid_position, self)
+			raid_position = null
+			raiding_entity = null
+		
 	path_finder.stop()
 	attack_tar = null
 	player.formations.update_target(form_id)
