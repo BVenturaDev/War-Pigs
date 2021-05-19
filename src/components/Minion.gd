@@ -125,7 +125,7 @@ func _check_bodies():
 					raiding_entity = body_owner
 					state = states.RAID
 					break
-		# Fall back
+		# Attack enemy if nearby
 		elif state == states.RETURNING_FORMATION and baggage.has_currency() == false:
 			if body.is_in_group("Enemies"):
 				if body.alive:
