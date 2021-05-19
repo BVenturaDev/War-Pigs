@@ -48,6 +48,7 @@ func _state_follow() -> void:
 
 func _state_attack() -> void:
 	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
+		# Select the enemy
 		attack_tar = target.get_parent().get_parent().get_parent()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
@@ -123,6 +124,7 @@ func _on_Attack_Timer_timeout():
 
 func attack(var body: Node):
 	if not body.attack_pos.is_attacker(self):
+		in_formation = false
 		target = body.attack_pos.add_attacker(self, attack_i)
 		path_finder.update_path(target)
 		state = states.ATTACK

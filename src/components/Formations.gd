@@ -15,6 +15,7 @@ func _process(var _delta: float) -> void:
 	for i in minions.size():
 		if not is_instance_valid(minions[i]):
 			minions[i] = null
+			reshuffle(i)
 
 func _create_pos(var pos: Node) -> Node:
 	# Transform along local z axis
