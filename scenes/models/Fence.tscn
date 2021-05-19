@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/models/fence/fence.glb" type="PackedScene" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[node name="Fence" instance=ExtResource( 1 )]
+
+[node name="static_collision" type="StaticBody" parent="Fence" index="0"]
+transform = Transform( 6.01171, 0, 0, 0, -3.5874, 0, 0, 0, 1, -5, 2.41836, 0 )
+
+[node name="shape0" type="CollisionShape" parent="Fence/static_collision" index="0"]
+shape = SubResource( 4 )
+
+[node name="Fence_col" parent="." index="1"]
+visible = false
