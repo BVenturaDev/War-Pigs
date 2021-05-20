@@ -1,21 +1,23 @@
 extends Area
 
 func transition():
-	var next_scene = Globals.next_level()
-	var current_scene = get_tree().current_scene.filename
+	var hut_group: Array  = get_tree().get_nodes_in_group("Huts")
+	if hut_group.size() <= 0:
+		var next_scene = Globals.next_level()
+		var current_scene = get_tree().current_scene.filename
 
-	if next_scene != null:
-		# Avoid changing to current level
-		if current_scene == next_scene:
-			next_scene = Globals.next_level()
-			if next_scene != null:
-				LevelManager.transition_to(next_scene)
+		if next_scene != null:
+			# Avoid changing to current level
+			if current_scene == next_scene:
+				next_scene = Globals.next_level()
+				if next_scene != null:
+					LevelManager.transition_to(next_scene)
+				else:
+					printerr("No more scenes")
 			else:
-				printerr("No more scenes")
+				LevelManager.transition_to(next_scene)
 		else:
-			LevelManager.transition_to(next_scene)
-	else:
-		printerr("No more scenes")
+			printerr("No more scenes")
 	
 
 
