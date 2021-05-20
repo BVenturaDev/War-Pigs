@@ -53,6 +53,8 @@ func _on_Attack_Timer_timeout():
 			boar.anim.play("Attack")
 			attacking = false
 			look_at(attack_tar.global_transform.origin, Vector3.UP)
+			rotation.x = 0
+			rotation.z = 0
 			if attack_tar.damage(hit_damage):
 				_find_attacker()
 		else:

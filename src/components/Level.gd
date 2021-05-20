@@ -7,7 +7,6 @@ func _ready():
 		var pig = pig_scene.instance()
 		var nav = $Navigation
 		
-		
 		nav.add_child(pig)
 		pig.global_transform = $Player.global_transform
 		pig.join_formation()

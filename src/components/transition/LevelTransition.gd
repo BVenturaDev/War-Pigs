@@ -2,15 +2,26 @@ extends Area
 
 var DEBUG = false
 
+onready var flag = $Flag
+
 # count pigs for next scene
 export (bool) var count_pigs = true
 
-func transition():
+var has_huts: bool = true
+
+func _ready():
+	flag.visible = false
+
+func _physics_process(_delta):
 	var hut_group: Array  = get_tree().get_nodes_in_group("Huts")
 	if hut_group.size() <= 0 or DEBUG == true:
+		flag.visible = true
+		has_huts = false
+		
+func transition():
+	if not has_huts:
 		var next_scene = Globals.next_level()
 		var current_scene = get_tree().current_scene.filename
-
 		if next_scene != null:
 			# Avoid changing to current level
 			if current_scene == next_scene:

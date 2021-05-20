@@ -143,6 +143,8 @@ func _on_Attack_Timer_timeout():
 	sword_sound_player.play_random_sound()
 	if attack_tar:
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
+		rotation.x = 0
+		rotation.z = 0
 		if attack_tar.damage(hit_damage):
 			line_up()
 	else:
