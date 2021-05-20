@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Raidable",
 "language": "GDScript",
 "path": "res://src/components/raid/Raidable.gd"
+}, {
+"base": "StaticBody",
+"class": "Sellable",
+"language": "GDScript",
+"path": "res://src/components/shop/Sellable.gd"
 } ]
 _global_script_class_icons={
 "Buyable": "",
 "CurrencyData": "",
-"Raidable": ""
+"Raidable": "",
+"Sellable": ""
 }
 
 [application]

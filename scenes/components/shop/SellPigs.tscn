@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/components/shop/SellableItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/components/currency/CurrencyMesh.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.08615, 0.537323, 1 )
+
+[node name="SellPigs" instance=ExtResource( 1 )]
+item_type = "pig"
+profit_on_selling = 6
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221249, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -0.558081, 0, 0 )
+
+[node name="MeshInstance2" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, 0.474082, 0, 0 )
+
+[node name="MeshInstance3" parent="." index="3" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, 0.947772, 0.127117, 0 )
+
+[node name="MeshInstance6" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -0.0898158, 0.127117, 0 )
+
+[node name="MeshInstance7" parent="." index="5" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -1.14387, 0.127117, 0 )
+
+[node name="MeshInstance8" parent="." index="6" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -0.633314, 0.242404, 0 )
+
+[node name="MeshInstance9" parent="." index="7" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, 0.409764, 0.242404, 0 )
+
+[node name="MeshInstance10" parent="." index="8" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -0.0733464, 0.379651, 0 )
+
+[node name="MeshInstance12" parent="." index="9" instance=ExtResource( 2 )]
+transform = Transform( 0.482082, 0.0148303, 0.00416669, 0.132652, -0.0538962, -0.0151425, 0, 0.00175671, -0.499753, -1.36896, 0.313773, 0 )
+
+[node name="MeshInstance11" parent="." index="10" instance=ExtResource( 2 )]
+transform = Transform( 0.489375, -0.0114627, -0.00322053, -0.10253, -0.0547115, -0.0153716, 0, 0.00175671, -0.499753, 1.1693, 0.307647, 0 )
+
+[node name="MeshInstance4" parent="." index="11" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, -1.61377, 0.0137081, 0 )
+
+[node name="MeshInstance5" parent="." index="12" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, -0.0558994, -0.0157053, 0, 0.00175671, -0.499753, 1.52388, -0.00825143, 0 )

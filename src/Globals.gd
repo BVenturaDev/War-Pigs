@@ -10,6 +10,8 @@ var options: Node = null
 
 # Currency
 var total_currency: int
+# Pigs 
+var total_pigs: int
 
 # Levels
 onready var levels: Array = [
@@ -23,6 +25,8 @@ onready var levels: Array = [
 	"res://scenes/levels/Shop.tscn",
 	"res://scenes/levels/Munro_Test_Level_5.tscn",
 ]
+
+
 
 func _ready() -> void:
 	self.set_pause_mode(Node.PAUSE_MODE_PROCESS)

@@ -126,3 +126,10 @@ func charge() -> void:
 		if i and is_instance_valid(i):
 			if i.in_formation:
 				_attack(i.form_id)
+
+func total_minions() -> int:
+	var total_minions: int = 0
+	for m in minions:
+		if m and is_instance_valid(m):
+			total_minions += 1
+	return total_minions

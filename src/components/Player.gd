@@ -25,6 +25,8 @@ func _interact():
 		if col.is_in_group("buyable"):
 			var total_spent = buy_item(col, Globals.total_currency)
 			Globals.total_currency -= total_spent
+		if col.is_in_group("sellable"):
+			sell_item(col)
 
 func _ready():
 	main = get_parent()
@@ -68,14 +70,22 @@ func _physics_process(var delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
 
+func count_minions():
+	var total_minions = formations.total_minions()
+	Globals.total_pigs = total_minions
+	
+
 #######
-## Buying Interface
+## Buying/Selling Interface
 #######
 func buy_item(item: Buyable, amount: int) -> int:
 	if item.can_buy(amount):
 		var total_spent = item.spent(amount)
 		item_logic(item)
-		item.destroy_item()
+		
+		# Have item remain available
+		if item.is_consumable():
+			item.destroy_item()
 		return total_spent
 	else:
 		print_debug("can't buy anything")
@@ -92,6 +102,8 @@ func item_logic(item: Buyable):
 			buy_shoulders()
 		"breastplate":
 			buy_breastplate()
+		"pig":
+			buy_pig()
 
 func buy_shoulders():
 	print_debug("Bought Shoulders")
@@ -101,3 +113,24 @@ func buy_helmet():
 	
 func buy_breastplate():
 	print_debug("Bought Breastplate")
+	
+func buy_pig():
+	Globals.total_pigs += 1
+	
+func sell_item(item: Sellable):
+	if can_sell_item(item):
+		var item_type = item.get_type()
+		match item_type:
+			"pig":
+				sell_pig()
+		var profit = item.get_profit()
+		Globals.total_currency += profit
+
+func sell_pig():
+	Globals.total_pigs -= 1
+	
+func can_sell_item(item: Sellable):
+	match item.get_type():
+		"pig":
+			return Globals.total_pigs > 0
+	return false

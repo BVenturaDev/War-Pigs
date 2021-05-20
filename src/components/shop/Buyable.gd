@@ -8,6 +8,8 @@ Contain the item that is to be bought.
 """
 # Allow to edit the label view in inspector
 export (NodePath) var buyable_item_path
+# To destroy item once bought
+export (bool) var consumable = true
 
 # Any item to buy (data)
 # Child
@@ -46,3 +48,6 @@ func destroy_item():
 # Called from buyer
 func can_buy(amount: int) -> bool:
 	return amount >= cost
+	
+func is_consumable() -> bool:
+	return consumable
