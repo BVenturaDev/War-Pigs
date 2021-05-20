@@ -195,14 +195,17 @@ func _physics_process(var delta: float) -> void:
 		target = null
 	if not is_instance_valid(attack_tar):
 		attack_tar = null
+		
 	_check_bodies()
+	
 	var vel: Vector3 = path_finder.calculate_vel(max_speed, accel, delta)
-	var _v = move_and_slide(vel, Vector3.UP)
-	if state == states.FOLLOW:
-		_state_follow()
 	# Stick to the floor
 	if not is_on_floor():
 		vel.y = Globals.GRAV
+	var _v = move_and_slide(vel, Vector3.UP)
+	
+	if state == states.FOLLOW:
+		_state_follow()
 	
 	if state == states.ATTACK:
 		_state_attack()

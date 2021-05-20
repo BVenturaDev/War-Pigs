@@ -15,6 +15,7 @@ onready var formations = $Formations
 onready var interact_tar = $Camara_Control/interact_Target
 onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
+onready var banner_pos = $Banner_Pos
 
 func _interact():
 	var col = interact_tar.get_collider()

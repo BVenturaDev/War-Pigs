@@ -51,9 +51,6 @@ texture = ExtResource( 4 )
 [node name="Formations" type="Spatial" parent="."]
 script = ExtResource( 3 )
 
-[node name="pig" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
-
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.53471, 0 )
 current = true
@@ -67,3 +64,9 @@ bus = "Sounds"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.03479, 0 )
 stream = ExtResource( 6 )
 bus = "Sounds"
+
+[node name="pig" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0, 0 )
+
+[node name="Banner_Pos" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0 )
