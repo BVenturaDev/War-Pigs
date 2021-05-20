@@ -16,6 +16,14 @@ export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
 
+# Debug Colors
+export (Color) var debug_idle
+export (Color) var debug_charge
+export (Color) var debug_attack
+export (Color) var debug_ko 
+
+onready var debug_status = $DebugStatus
+
 # Scene Variables
 onready var label = $Recruit_Label
 onready var path_finder = $Path_Finder
@@ -33,6 +41,10 @@ var target: Node = null
 var attack_tar: Node = null
 var attacking: bool = false
 var crawling: bool = false
+
+func _ready():
+	if Globals.DEBUG:
+		debug_status.visible = true
 
 func minion_killed(var minion: Node) -> void:
 	if minion == target or minion == attack_tar:
@@ -84,12 +96,16 @@ func _physics_process(var delta: float) -> void:
 	vel = path_finder.calculate_vel(max_speed, accel, delta)
 	
 	if state == states.CHARGE and target:
+		if Globals.DEBUG:
+			debug_status.change_color(debug_charge)
 		var tar: Node = attack_pos.get_attacker()
 		if tar:
 			attacker(tar)
 	
 	# Attack the target
 	if state == states.ATTACK :
+		if Globals.DEBUG:
+			debug_status.change_color(debug_attack)
 		if attack_tar:
 			if not attacking:
 				attacking = true
@@ -98,6 +114,8 @@ func _physics_process(var delta: float) -> void:
 			_find_attacker()
 			
 	if state == states.KO:
+		if Globals.DEBUG:
+			debug_status.change_color(debug_ko)
 		vel = path_finder.calculate_vel(max_crawl, accel, delta)
 		if not crawling or not is_instance_valid(target) or target == null:
 			target = hut_finder.find_nearest_hut(global_transform.origin)
