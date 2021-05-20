@@ -1,8 +1,13 @@
 extends Area
 
+var DEBUG = false
+
+# count pigs for next scene
+export (bool) var count_pigs = true
+
 func transition():
 	var hut_group: Array  = get_tree().get_nodes_in_group("Huts")
-	if hut_group.size() <= 0:
+	if hut_group.size() <= 0 or DEBUG == true:
 		var next_scene = Globals.next_level()
 		var current_scene = get_tree().current_scene.filename
 
@@ -24,5 +29,5 @@ func transition():
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
 		# Store minions alive for shop
-		body.count_minions()
+		body.count_minions(count_pigs)
 		transition()

@@ -71,9 +71,10 @@ func _physics_process(var delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
 
-func count_minions():
-	var total_minions = formations.total_minions()
-	Globals.total_pigs = total_minions
+func count_minions(save_pigs: bool):
+	if save_pigs:
+		var total_minions = formations.total_minions()
+		Globals.total_pigs = total_minions
 	
 
 #######

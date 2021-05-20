@@ -4,14 +4,17 @@ extends Node
 const GRAV: float = -30.0
 const ATTACKDIST: float = -110.0
 
+# DEBUG
+var DEBUG = true
+
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
 # Currency
-var total_currency: int
+var total_currency: int = 0
 # Pigs 
-var total_pigs: int
+var total_pigs: int = 10
 
 # Levels
 onready var levels: Array = [

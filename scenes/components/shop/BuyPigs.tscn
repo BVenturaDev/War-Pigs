@@ -9,7 +9,7 @@ extents = Vector3( 1, 1.65303, 0.687583 )
 
 [node name="BuyPigs" instance=ExtResource( 1 )]
 consumable = false
-cost = 8
+cost = 6
 item_type = "pig"
 
 [node name="CollisionShape" parent="." index="0"]
