@@ -10,8 +10,12 @@ func transition():
 			next_scene = Globals.next_level()
 			if next_scene != null:
 				LevelManager.transition_to(next_scene)
+			else:
+				printerr("No more scenes")
 		else:
 			LevelManager.transition_to(next_scene)
+	else:
+		printerr("No more scenes")
 	
 
 
