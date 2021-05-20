@@ -18,6 +18,7 @@ onready var attack_time: Timer = $Attack_Timer
 onready var baggage: Spatial = $Baggage
 onready var aggro_rad: Area = $Area
 onready var sword_sound_player = $SwordSoundPlayer
+onready var blood_spot = $Blood_Spot
 
 # Minion Variables
 var target: Node = null
@@ -133,10 +134,13 @@ func attack(var body: Node):
 		state = states.ATTACK
 
 func damage(var dam: int) -> bool:
-	hp -= dam
-	if hp < 1:
-		return true
-	return false
+	if alive:
+		Globals.make_blood(blood_spot.global_transform.origin)
+		hp -= dam
+		if hp < 1:
+			return true
+		return false
+	return true
 
 func join_formation() -> void:
 	player.formations.add_minion(self)

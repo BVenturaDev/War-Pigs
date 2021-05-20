@@ -23,6 +23,7 @@ onready var attack_time = $Attack_Timer
 onready var attack_pos = $Attack_Positiions
 onready var aggro_rad = $Area
 onready var hut_finder = $Hut_Finder
+onready var blood_spot = $Blood_Spot
 
 # Enemy Variables
 var hp: int = MAXHP
@@ -141,7 +142,10 @@ func recruit() -> void:
 		call_deferred("queue_free")
 
 func damage(var dam: int) -> bool:
-	hp -= dam
-	if hp < 1:
-		return true
-	return false
+	if alive:
+		Globals.make_blood(blood_spot.global_transform.origin)
+		hp -= dam
+		if hp < 1:
+			return true
+		return false
+	return true

@@ -76,5 +76,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
 stream = ExtResource( 9 )
 bus = "Sounds"
 
+[node name="Blood_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.42427, 0 )
+
 [connection signal="timeout" from="Search_Timer" to="." method="_on_Search_Timer_timeout"]
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_Attack_Timer_timeout"]

@@ -5,6 +5,7 @@ const GRAV: float = -30.0
 const ATTACKDIST: float = -110.0
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
+var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
 # Currency
@@ -33,3 +34,8 @@ func add_to_currency(value: int):
 	
 func decrease_currency(amount: int):
 	total_currency -= int(abs(float(amount)))
+	
+func make_blood(var pos: Vector3) -> void:
+	var blood_splash = blood.instance()
+	get_tree().get_root().add_child(blood_splash)
+	blood_splash.global_transform.origin = pos
