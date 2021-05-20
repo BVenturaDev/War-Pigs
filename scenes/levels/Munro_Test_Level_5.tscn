@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/components/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/materials/Ground.tres" type="Material" id=2]
 [ext_resource path="res://scenes/models/tree2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/components/transition/LevelTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/models/rock2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/models/rock1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/models/Fence.tscn" type="PackedScene" id=7]
@@ -336,6 +335,3 @@ material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Ground/StaticBody"]
 shape = SubResource( 3 )
-
-[node name="Area" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2314, -4.81468, 39.7843 )

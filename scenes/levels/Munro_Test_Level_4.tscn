@@ -248,5 +248,5 @@ material/0 = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Ground/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="Area" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2314, -4.81468, 39.7843 )
+[node name="LevelTransition" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.10338, -224.868 )
