@@ -91,7 +91,14 @@ func _state_attack() -> void:
 		attack_time.start()
 
 func _state_raid() -> void:
-	# Reached position in Hut
+
+	# Avoid recruits from raiding but never going to hut
+	if is_instance_valid(target) and  is_instance_valid(raid_position):
+		if target != raid_position:
+			target = raid_position
+			path_finder.update_path(target)
+	
+		# Reached position in Hut
 	if path_finder.has_path() == false:
 		# Avoid checking on a freed object
 		if is_instance_valid(raiding_entity):
@@ -241,7 +248,9 @@ func _physics_process(var delta: float) -> void:
 		_state_raid()
 		
 	if state == states.RETURNING_FORMATION:
-		if Globals.DEBUG:
+		if Globals.DEBUG and baggage.has_currency():
+			debug_status.change_color(returning_coin)
+		else:
 			debug_status.change_color(returning_debug)
 		_state_returning_formation()
 		

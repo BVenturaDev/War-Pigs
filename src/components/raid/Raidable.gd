@@ -67,17 +67,18 @@ func give_position(entity: KinematicBody) -> Position3D:
 func retrieve_position(position: Position3D, entity: KinematicBody):
 	position_occupied.erase(position)
 	positions_available.append(position)
-	pigs_attacking.erase(entity)
+	# Keep pigs to iterate through them
+	if is_destroyed() == false:
+		pigs_attacking.erase(entity)
 
 func die():
 	# Give currency
 	for p in pigs_attacking:
-		if is_instance_valid(p):
-			# Create currency
-			# Pass currency to pigs
-			var currency_scene = currency_item.instance()
-			p.pass_currency(currency_scene)
-			p.line_up()
+		# Create currency
+		# Pass currency to pigs
+		var currency_scene = currency_item.instance()
+		p.pass_currency(currency_scene)
+		p.line_up()
 	get_tree().call_group("Minions", "target_killed", self)
 	call_deferred("queue_free")
 
