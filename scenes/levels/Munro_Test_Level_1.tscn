@@ -244,6 +244,5 @@ shape = SubResource( 3 )
 [node name="Banner_Pig" parent="Navigation" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1866, -7.9847, 112.492 )
 
-[node name="Area" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -98.2314, -4.81468, -159.216 )
-scenes = [ "res://scenes/levels/Shop.tscn", "res://scenes/levels/Test_Level.tscn" ]
+[node name="LevelTransition" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 131.734, -4.27187, -19.6444 )

@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/components/transition/LevelTransition.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4.53013, 2.92176, 12.2112 )
 
-[node name="Area" type="Area"]
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 1, 20, 1 )
+
+[node name="LevelTransition" type="Area"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+mesh = SubResource( 2 )
+material/0 = null
 
 [connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]
