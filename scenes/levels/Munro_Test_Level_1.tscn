@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://scenes/components/Minion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/materials/Ground.tres" type="Material" id=2]
 [ext_resource path="res://scenes/models/Palisade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/models/tree2.tscn" type="PackedScene" id=4]
@@ -73,66 +72,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.9231
 
 [node name="Enemy12" parent="Navigation" instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 61.3436, -8.00001, -105.687 )
-
-[node name="Minion1" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8398, -8, 127.631 )
-
-[node name="Minion2" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.1527, -8, 127.631 )
-
-[node name="Minion3" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 105.389, -8, 127.631 )
-
-[node name="Minion4" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 105.389, -8, 141.686 )
-
-[node name="Minion5" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7381, -8, 141.686 )
-
-[node name="Minion6" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7381, -8, 158.461 )
-
-[node name="Minion7" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.278, -8, 158.461 )
-
-[node name="Minion8" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.278, -8, 171.864 )
-
-[node name="Minion9" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86.9674, -8, 171.864 )
-
-[node name="Minion10" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2344, -8, 171.864 )
-
-[node name="Minion11" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2344, -8, 182.746 )
-
-[node name="Minion12" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.4273, -8, 182.746 )
-
-[node name="Minion13" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7974, -8, 182.746 )
-
-[node name="Minion14" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7974, -8, 153.285 )
-
-[node name="Minion15" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7974, -8, 168.317 )
-
-[node name="Minion16" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.8182, -8, 168.317 )
-
-[node name="Minion17" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.8182, -8, 145.85 )
-
-[node name="Minion18" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.1845, -8, 145.85 )
-
-[node name="Minion19" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.1845, -8, 151.478 )
-
-[node name="Minion20" parent="Navigation" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.146, -8, 151.478 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.174149, 1.90735e-06, -0.528149 )
