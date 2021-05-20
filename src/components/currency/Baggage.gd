@@ -5,6 +5,7 @@ var currency
 func give_currency(c):
 	if currency != null:
 		print_debug("WARNING: Adding another coin")
+		c.queue_free()
 	else:
 		currency = c
 		self.add_child(currency)
