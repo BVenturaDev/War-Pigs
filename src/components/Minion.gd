@@ -19,6 +19,7 @@ onready var baggage: Spatial = $Baggage
 onready var aggro_rad: Area = $Area
 onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
+onready var pig = $pig
 
 # Minion Variables
 var target: Node = null
@@ -63,6 +64,7 @@ func _state_attack() -> void:
 	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
 		# Select the enemy
 		attack_tar = target.get_parent().get_parent().get_parent()
+		pig.anim.play("Attack")
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
