@@ -1,7 +1,5 @@
 extends Area
 
-var DEBUG = false
-
 onready var flag = $Flag
 
 # count pigs for next scene
@@ -14,7 +12,7 @@ func _ready():
 
 func _physics_process(_delta):
 	var hut_group: Array  = get_tree().get_nodes_in_group("Huts")
-	if hut_group.size() <= 0 or DEBUG == true:
+	if hut_group.size() <= 0 or Globals.DEBUG == true:
 		flag.visible = true
 		has_huts = false
 		

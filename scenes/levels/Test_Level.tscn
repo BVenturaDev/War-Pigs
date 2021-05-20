@@ -52,8 +52,8 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -86.248
 [node name="Enemy6" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -86.2486, -8, -50.0485 )
 
-[node name="Banner_Pig" parent="Navigation/Enemy6" instance=ExtResource( 14 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.8616, 0, -125.35 )
+[node name="Banner_Pig" parent="Navigation" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1014, -8, 0.813103 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.174149, 1.90735e-06, -0.528149 )

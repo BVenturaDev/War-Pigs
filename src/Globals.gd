@@ -5,7 +5,7 @@ const GRAV: float = -30.0
 const ATTACKDIST: float = -110.0
 
 # DEBUG
-var DEBUG = true
+const DEBUG = true
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")

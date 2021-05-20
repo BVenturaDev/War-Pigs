@@ -4,6 +4,7 @@ extends KinematicBody
 enum states {FOLLOW, ATTACK, RAID, RETURNING_FORMATION}
 var state: int = states.FOLLOW
 
+
 # Exports
 export var max_speed: float = 300.0
 export var accel: float = 6.0
@@ -20,6 +21,7 @@ onready var aggro_rad: Area = $Area
 onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 onready var pig = $pig
+onready var debug_status = $DebugStatus
 
 # Minion Variables
 var target: Node = null
@@ -30,9 +32,24 @@ var attacking: bool = false
 var alive: bool = true
 var attack_i: int = -1
 
+# Debug Colors
+export (Color) var raid_debug = Color(0.8,0.7,0)
+export (Color) var follow_debug = Color(0,1,0)
+export (Color) var returning_debug = Color(0.7,0.4,0.2)
+export (Color) var attack_debug = Color(1,0,0)
+export (Color) var returning_coin = Color(0.5,0.5,0.5)
+export (Color) var contianing_coin = Color(0.2, 0.2, 0.2)
+
+
+
 # Raid variables
 var raid_position: Position3D
 var raiding_entity: Raidable
+
+func _ready():
+	if Globals.DEBUG:
+		$DebugStatus.visible = true
+		
 
 # Go back to formation
 func _state_returning_formation() -> void:
@@ -89,9 +106,9 @@ func _state_raid() -> void:
 					raiding_entity.decrease_health(hit_damage)
 					$Raid_Timer.start()
 		else:	# Hut destroyed
-			raiding_entity = null
-			raid_position = null
 			line_up()
+			
+
 
 func _on_Search_Timer_timeout():
 	# Update our path finding
@@ -185,8 +202,8 @@ func line_up():
 			# Clear raid
 			# Pass position back
 			raiding_entity.retrieve_position(raid_position, self)
-			raid_position = null
-			raiding_entity = null
+		raid_position = null
+		raiding_entity = null
 	else:
 		state = states.RETURNING_FORMATION
 	
@@ -209,15 +226,23 @@ func _physics_process(var delta: float) -> void:
 	var _v = move_and_slide(vel, Vector3.UP)
 	
 	if state == states.FOLLOW:
+		if Globals.DEBUG:
+			debug_status.change_color(follow_debug)
 		_state_follow()
 	
 	if state == states.ATTACK:
+		if Globals.DEBUG:
+			debug_status.change_color(attack_debug)
 		_state_attack()
 	
 	if state == states.RAID:
+		if Globals.DEBUG:
+			debug_status.change_color(raid_debug)
 		_state_raid()
 		
 	if state == states.RETURNING_FORMATION:
+		if Globals.DEBUG:
+			debug_status.change_color(returning_debug)
 		_state_returning_formation()
 		
 	if hp < 1 and alive:
@@ -227,6 +252,11 @@ func _physics_process(var delta: float) -> void:
 		if attack_tar:
 			attack_tar.attack_pos.remove_attacker(attack_i)
 		call_deferred("queue_free")
+
+func clear_raid():
+	raiding_entity.retrieve_position(raid_position, self)
+	raid_position = null
+	raiding_entity = null
 
 ######
 ## Currency

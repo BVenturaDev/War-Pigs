@@ -24,6 +24,7 @@ var position_occupied: Array = []
 
 # Pigs that are inside the hut
 var pigs_attacking: Array = []
+var max_pigs: int
 
 func _ready():
 	# Pass raidable to trigger
@@ -35,6 +36,8 @@ func _ready():
 		positions_available.append(p)
 		if DEBUG:
 			spawn_pointer(p)
+			
+	max_pigs = $Positions.get_children().size()
 		
 	
 
@@ -74,6 +77,7 @@ func die():
 			# Pass currency to pigs
 			var currency_scene = currency_item.instance()
 			p.pass_currency(currency_scene)
+			p.line_up()
 	get_tree().call_group("Minions", "target_killed", self)
 	call_deferred("queue_free")
 

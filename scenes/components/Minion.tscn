@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/components/Minion.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/Path_Finder.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sounds/pigs/normal swing.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sounds/pigs/death.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/sounds/pigs/death 2.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/components/debug/DebugStatus.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -23,6 +24,10 @@ radius = 30.0
 input_ray_pickable = false
 collision_layer = 2
 script = ExtResource( 1 )
+raid_debug = Color( 0.996078, 0.556863, 0.0862745, 1 )
+returning_debug = Color( 0.239216, 0.235294, 0.235294, 1 )
+returning_coin = Color( 0.882353, 1, 0.0588235, 1 )
+contianing_coin = Color( 0.341176, 0.372549, 0.211765, 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
@@ -78,6 +83,9 @@ bus = "Sounds"
 
 [node name="Blood_Spot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.42427, 0 )
+
+[node name="DebugStatus" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72254, 9.70962, 0 )
 
 [connection signal="timeout" from="Search_Timer" to="." method="_on_Search_Timer_timeout"]
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_Attack_Timer_timeout"]
