@@ -11,6 +11,19 @@ var options: Node = null
 # Currency
 var total_currency: int
 
+# Levels
+onready var levels: Array = [
+	"res://scenes/levels/Munro_Test_Level_1.tscn",
+	"res://scenes/levels/Shop.tscn",
+	"res://scenes/levels/Munro_Test_Level_2.tscn",
+	"res://scenes/levels/Shop.tscn",
+	"res://scenes/levels/Munro_Test_Level_3.tscn",
+	"res://scenes/levels/Shop.tscn",
+	"res://scenes/levels/Munro_Test_Level_4.tscn",
+	"res://scenes/levels/Shop.tscn",
+	"res://scenes/levels/Munro_Test_Level_5.tscn",
+]
+
 func _ready() -> void:
 	self.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,3 +52,12 @@ func make_blood(var pos: Vector3) -> void:
 	var blood_splash = blood.instance()
 	get_tree().get_root().add_child(blood_splash)
 	blood_splash.global_transform.origin = pos
+
+
+########
+## Level Transition Interface
+#######
+
+func next_level():
+	var level = levels.pop_front()
+	return level

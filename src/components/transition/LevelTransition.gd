@@ -4,12 +4,18 @@ extends Area
 export (Array, String, FILE,"*.tscn") var scenes
 
 func transition():
-	if scenes.size() > 0:
-		# GIve Manager scenes to transition to
-		LevelManager.scenes_to_transition(scenes)
-	else:
-		# Check for a scene stored in LevelManager
-		LevelManager.back_to_raid()
+	var next_scene = Globals.next_level()
+	var current_scene = get_tree().current_scene.filename
+
+	if next_scene != null:
+		# Avoid changing to current level
+		if current_scene == next_scene:
+			next_scene = Globals.next_level()
+			if next_scene != null:
+				LevelManager.transition_to(next_scene)
+		else:
+			LevelManager.transition_to(next_scene)
+	
 
 
 func _on_Area_body_entered(body):
