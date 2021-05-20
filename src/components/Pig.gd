@@ -13,6 +13,7 @@ func _ready():
 func _process(_delta) -> void:
 	label.text = str(Globals.total_currency)
 
+
 func set_idle() -> void:
 	label.visible = false
 	banner.visible = false

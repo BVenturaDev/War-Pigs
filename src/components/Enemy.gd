@@ -24,6 +24,7 @@ onready var attack_pos = $Attack_Positiions
 onready var aggro_rad = $Area
 onready var hut_finder = $Hut_Finder
 onready var blood_spot = $Blood_Spot
+onready var boar = $boar
 
 # Enemy Variables
 var hp: int = MAXHP
@@ -47,13 +48,15 @@ func _on_Search_Timer_timeout() -> void:
 		path_finder.update_path(target)
 	
 func _on_Attack_Timer_timeout():
-	if is_instance_valid(attack_tar):
-		attacking = false
-		look_at(attack_tar.global_transform.origin, Vector3.UP)
-		if attack_tar.damage(hit_damage):
+	if alive:
+		if is_instance_valid(attack_tar):
+			boar.anim.play("Attack")
+			attacking = false
+			look_at(attack_tar.global_transform.origin, Vector3.UP)
+			if attack_tar.damage(hit_damage):
+				_find_attacker()
+		else:
 			_find_attacker()
-	else:
-		_find_attacker()
 		
 func _check_bodies():
 	for body in aggro_rad.get_overlapping_bodies():
