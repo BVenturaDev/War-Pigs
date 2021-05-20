@@ -1,8 +1,5 @@
 extends Area
 
-# Scenes to transition to upon activation
-export (Array, String, FILE,"*.tscn") var scenes
-
 func transition():
 	var next_scene = Globals.next_level()
 	var current_scene = get_tree().current_scene.filename

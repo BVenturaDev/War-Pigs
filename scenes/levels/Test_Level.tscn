@@ -177,4 +177,3 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -89.2525, -4.66176, 81.5317 )
 
 [node name="Area" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.2314, -4.81468, 39.7843 )
-scenes = [ "res://scenes/levels/Shop.tscn", "res://scenes/levels/Test_Level.tscn" ]
