@@ -1,18 +1,43 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/models/pig/pig.glb" type="PackedScene" id=1]
+[ext_resource path="res://src/components/Pig.gd" type="Script" id=2]
+[ext_resource path="res://scenes/fonts/Roboto_Bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/tools/Viewport.gd" type="Script" id=4]
+[ext_resource path="res://src/tools/3DSprite_Viewport.gd" type="Script" id=5]
 
 [node name="pig" instance=ExtResource( 1 )]
-transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0 )
+transform = Transform( -1.3, 0, -1.1365e-07, 0, 1.3, 0, 1.1365e-07, 0, -1.3, 0, 0, 0 )
+script = ExtResource( 2 )
 
 [node name="BoneAttachment" parent="rig/Skeleton" index="0"]
-transform = Transform( 1, 2.90624e-08, -1.81877e-07, -1.08993e-07, 0.889389, -0.457151, 1.48474e-07, 0.457151, 0.889389, 1.14039e-08, 6.31533, 0.238549 )
+transform = Transform( 1, -1.4823e-13, -2.38418e-07, -1.08993e-07, 0.889389, -0.457151, 2.12047e-07, 0.457151, 0.889389, -2.15123e-10, 6.31533, 0.238549 )
 
 [node name="BoneAttachment2" parent="rig/Skeleton" index="1"]
-transform = Transform( -0.0521151, -0.693236, -0.718824, -0.997179, -0.00280369, 0.0749999, -0.0540081, 0.720705, -0.691134, 1.38437, 4.19038, 1.67499 )
+transform = Transform( -0.0450913, -0.708269, -0.704501, -0.991812, -0.0526071, 0.116369, -0.119482, 0.703979, -0.700097, 0.998221, 3.87847, 1.58534 )
 
 [node name="BoneAttachment3" parent="rig/Skeleton" index="2"]
-transform = Transform( -0.0953518, 0.0477389, 0.994298, 0.992467, -0.0726312, 0.0986632, 0.0769271, 0.996216, -0.0404536, -1.94106, 3.89498, 1.5377 )
+transform = Transform( -0.125113, 0.0777702, 0.989089, 0.972605, -0.187251, 0.137751, 0.195921, 0.979229, -0.0522119, -1.6128, 3.62696, 1.35242 )
+
+[node name="Money_Label" type="Sprite3D" parent="rig/Skeleton/BoneAttachment3/Flag_Staff" index="0"]
+transform = Transform( -0.306991, -3.20375e-07, 0.951712, -3.05474e-07, 0.999999, 1.04308e-07, -0.951712, 1.3411e-07, -0.306991, -3.24072, 9.75914, 0.8306 )
+cast_shadow = 0
+pixel_size = 0.02
+script = ExtResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="rig/Skeleton/BoneAttachment3/Flag_Staff/Money_Label" index="0"]
+size = Vector2( 40, 76 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="rig/Skeleton/BoneAttachment3/Flag_Staff/Money_Label/Viewport" index="0"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+
+[node name="BoneAttachment4" parent="rig/Skeleton" index="3"]
+transform = Transform( -0.125113, 0.0777702, 0.989089, 0.972605, -0.187251, 0.137751, 0.195921, 0.979229, -0.0522119, -1.6128, 3.62696, 1.35242 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
