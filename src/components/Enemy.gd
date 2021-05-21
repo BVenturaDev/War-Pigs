@@ -18,6 +18,7 @@ export var accel: float = 6.0
 export var player_attack_chance: float = 4.0
 
 export (bool) var tutorial_behaviour = false
+export (int) var tutorial_health = 0
 
 # Debug Colors
 export (Color) var debug_idle
@@ -53,7 +54,7 @@ func _ready():
 	if Globals.DEBUG:
 		debug_status.visible = true
 	if tutorial_behaviour:
-		hp = 0
+		hp = 0 + tutorial_health
 		state = states.TUTORIAL
 
 func minion_killed(var minion: Node) -> void:
@@ -75,7 +76,9 @@ func _on_Attack_Timer_timeout():
 		if rand_range(0.0, 10.0) > player_attack_chance:
 			if player and is_instance_valid(player):
 				boar.anim.play("Attack")
-				player.damage()
+				# Don't deal damage to player
+				if not tutorial_behaviour:
+					player.damage()
 				look_at(player.global_transform.origin, Vector3.UP)
 				rotation.x = 0
 				rotation.z = 0
@@ -133,20 +136,23 @@ func _physics_process(var delta: float) -> void:
 	if state == states.KO:
 		if Globals.DEBUG:
 			debug_status.change_color(debug_ko)
+			
 		vel = path_finder.calculate_vel(max_crawl, accel, delta)
-		if not crawling or not is_instance_valid(target) or target == null:
-			target = hut_finder.find_nearest_hut(global_transform.origin)
-			crawling = true
-			path_finder.update_path(target)
-		else:
-			if is_instance_valid(target) and not path_finder.has_path() and target:
-				state = states.IDLE
-				crawling = false
-				target = null
-				attack_tar = null
-				alive = true
-				hp = MAXHP
-				label.visible = false
+		if not tutorial_behaviour:
+			if not crawling or not is_instance_valid(target) or target == null:
+				target = hut_finder.find_nearest_hut(global_transform.origin)
+				crawling = true
+				path_finder.update_path(target)
+			else:
+				if is_instance_valid(target) and not path_finder.has_path() and target:
+					state = states.IDLE
+					crawling = false
+					target = null
+					attack_tar = null
+					alive = true
+					hp = MAXHP
+					label.visible = false
+				
 	if state == states.TUTORIAL:
 		if hp < 1 and alive:
 			alive = false
@@ -157,6 +163,7 @@ func _physics_process(var delta: float) -> void:
 		attack_pos.clear_attackers()
 		alive = false
 		label.visible = true
+		
 		state = states.KO
 	
 	# Do gravity

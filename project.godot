@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Sellable",
 "language": "GDScript",
 "path": "res://src/components/shop/Sellable.gd"
+}, {
+"base": "Resource",
+"class": "TutorialLabel",
+"language": "GDScript",
+"path": "res://src/tools/Tutorial_Label.gd"
 } ]
 _global_script_class_icons={
 "Buyable": "",
 "CurrencyData": "",
 "Raidable": "",
-"Sellable": ""
+"Sellable": "",
+"TutorialLabel": ""
 }
 
 [application]

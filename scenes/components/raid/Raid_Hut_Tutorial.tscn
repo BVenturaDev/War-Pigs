@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/models/Hut.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/components/raid/Raidable.gd" type="Script" id=2]
+[ext_resource path="res://src/components/raid/Raidable_Trigger.gd" type="Script" id=3]
+[ext_resource path="res://src/tools/Viewport.gd" type="Script" id=4]
+[ext_resource path="res://src/tools/3DSprite_Viewport_Tutorial.gd" type="Script" id=5]
+[ext_resource path="res://scenes/fonts/Roboto_Bold.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/tools/Tutorial_Label.gd" type="Script" id=7]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 7 )
+action_string = "charge"
+action_description = "charge"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 7 )
+action_string = "secondary"
+action_description = "return"
+
+[node name="Raid_Hut" type="Spatial"]
+script = ExtResource( 2 )
+max_health = 80.0
+raidable_trigger_path = NodePath("Hut/hut_col/static_collision")
+
+[node name="Hut" parent="." instance=ExtResource( 1 )]
+
+[node name="static_collision" parent="Hut/hut_col" index="0"]
+script = ExtResource( 3 )
+
+[node name="Positions" type="Spatial" parent="."]
+
+[node name="Position3D" type="Position3D" parent="Positions"]
+
+[node name="Position3D2" type="Position3D" parent="Positions"]
+
+[node name="Position3D3" type="Position3D" parent="Positions"]
+
+[node name="Position3D4" type="Position3D" parent="Positions"]
+
+[node name="Position3D5" type="Position3D" parent="Positions"]
+
+[node name="Tutorial_Label" type="Sprite3D" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 9.43938, 22.9765, 14.1123 )
+cast_shadow = 0
+pixel_size = 0.02
+billboard = 1
+script = ExtResource( 5 )
+first_action = SubResource( 2 )
+second_action = SubResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="Tutorial_Label"]
+size = Vector2( 400, 236 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial_Label/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 400, 160 )
+alignment = 1
+
+[node name="Press" type="Label" parent="Tutorial_Label/Viewport/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 6 )
+text = "Press "
+align = 1
+
+[node name="Input" type="Label" parent="Tutorial_Label/Viewport/VBoxContainer"]
+margin_top = 80.0
+margin_right = 400.0
+margin_bottom = 156.0
+custom_fonts/font = ExtResource( 6 )
+
+[node name="Desription" type="Label" parent="Tutorial_Label/Viewport/VBoxContainer"]
+margin_top = 160.0
+margin_right = 400.0
+margin_bottom = 236.0
+custom_fonts/font = ExtResource( 6 )
+text = "Press this"
+align = 1
+
+[editable path="Hut"]

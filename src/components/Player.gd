@@ -26,7 +26,9 @@ onready var pig = $pig
 onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 
-
+# Signals
+signal charge
+signal return_formation
 
 func _interact():
 	var col = interact_tar.get_collider()
@@ -108,9 +110,11 @@ func _physics_process(var delta: float) -> void:
 	if Input.is_action_just_pressed("primary"):
 		formations.attack_individual()
 	if Input.is_action_just_pressed("secondary"):
+		emit_signal("return_formation")
 		formations.return_to_formation()
 		recall_sound.play()
 	if Input.is_action_just_pressed("charge"):
+		emit_signal("charge")
 		formations.charge()
 		charge_sound.play()
 	if Input.is_action_just_pressed("ui_select"):
