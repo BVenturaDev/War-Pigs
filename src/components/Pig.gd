@@ -5,6 +5,7 @@ onready var sword = $rig/Skeleton/BoneAttachment4/Sword
 onready var shield = $rig/Skeleton/BoneAttachment2/shield
 onready var anim = $AnimationPlayer
 onready var label = $rig/Skeleton/BoneAttachment3/Flag_Staff/Money_Label/Viewport/Label
+onready var sword_area = $rig/Skeleton/BoneAttachment4/Sword/Sword_Area
 
 
 func _ready():

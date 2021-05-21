@@ -70,3 +70,8 @@ transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0
 
 [node name="Banner_Pos" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0 )
+
+[node name="Swing_Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Swing_Timer" to="." method="_on_Swing_Timer_timeout"]
