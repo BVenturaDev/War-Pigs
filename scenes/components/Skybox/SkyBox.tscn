@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ProceduralSky" id=6]
+sun_color = Color( 0.847059, 0.85098, 0.317647, 1 )
+sun_curve = 0.263902
+
+[sub_resource type="Environment" id=5]
+background_mode = 3
+background_sky = SubResource( 6 )
+background_color = Color( 0.647059, 0.839216, 0.945098, 1 )
+fog_depth_end = 515.8
+fog_depth_curve = 0.784584
+auto_exposure_scale = 1.23
+auto_exposure_min_luma = 10.06
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 5 )
