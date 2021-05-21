@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/components/raid/Raid_Hut_Tutorial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=2]
@@ -54,6 +54,21 @@ polygon/verts_per_poly = 8.0
 
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.145098, 0.298039, 0.227451, 1 )
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 3 )
+action_string = "charge"
+action_description = "charge"
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 3 )
+action_string = "secondary"
+action_description = "return"
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 3 )
+action_string = "primary"
+action_description = "send individual"
 
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://assets/fonts/Roboto-Bold.ttf"
@@ -482,6 +497,8 @@ material/0 = SubResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0746, -11.1905, -8.96202 )
 
 [node name="Tutorial_Label" parent="Navigation/NavigationMeshInstance/Raid_Hut" index="2"]
+first_action = SubResource( 12 )
+second_action = SubResource( 13 )
 font_size = 0
 
 [node name="rock2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
@@ -502,8 +519,12 @@ transform = Transform( 39.3347, 0, -7.265, 0, 40, 0, 7.265, 0, 39.3347, -83.5369
 [node name="Raid_Hut2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 15 )]
 transform = Transform( 0.19675, 0, 0.980454, 0, 1, 0, -0.980454, 0, 0.19675, -4.83023, -11.5195, -107.522 )
 
-[node name="Raid_Hut3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 15 )]
-transform = Transform( 0.19675, 0, 0.980454, 0, 1, 0, -0.980454, 0, 0.19675, -4.83023, -11.5195, -182.949 )
+[node name="Raid_Hut3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+transform = Transform( 0.28137, 0, 0.959599, 0, 1, 0, -0.959599, 0, 0.28137, -5.16027, -11.3305, -182.875 )
+
+[node name="Tutorial_Label" parent="Navigation/NavigationMeshInstance/Raid_Hut3" index="2"]
+first_action = SubResource( 14 )
+swap_actions = false
 
 [node name="Enemy7" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172, 32.5165, -10.9732, -140.965 )
@@ -519,6 +540,7 @@ transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172,
 
 [node name="Area" parent="." instance=ExtResource( 6 )]
 transform = Transform( -0.208373, 0, -0.97805, 0, 1, 0, 0.97805, 0, -0.208373, -86.1834, -4.81468, -132.773 )
+count_pigs = false
 
 [node name="3D_Label_V2" type="Sprite3D" parent="."]
 transform = Transform( 0.686402, 0, 0.727222, 0, 1, 0, -0.727222, 0, 0.686402, -62.6465, 11.1593, -137.422 )
@@ -545,3 +567,5 @@ custom_fonts/font = SubResource( 11 )
 
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut"]
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut/Hut"]
+[editable path="Navigation/NavigationMeshInstance/Raid_Hut3"]
+[editable path="Navigation/NavigationMeshInstance/Raid_Hut3/Hut"]

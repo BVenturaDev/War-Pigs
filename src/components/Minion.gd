@@ -137,7 +137,7 @@ func _check_bodies():
 				# Acquire position in hut
 				var body_owner = body.get_raidable()
 				var position = body_owner.give_position(self)
-				if position != null:	# Position available
+				if position != null and body_owner.is_destroyed() == false:	# Position available
 					# MESS... Have target be position to move towards.
 					"""
 					Not setting target caused the pig to move to another direction.

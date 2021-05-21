@@ -4,6 +4,7 @@ onready var flag = $Flag
 
 # count pigs for next scene
 export (bool) var count_pigs = true
+export (bool) var store_health = true
 
 var has_huts: bool = true
 
@@ -18,6 +19,9 @@ func _physics_process(_delta):
 		
 func transition():
 	if not has_huts:
+		if not store_health:
+			Globals.hp = Globals.max_hp
+			
 		var next_scene = Globals.next_level()
 		var current_scene = get_tree().current_scene.filename
 		if next_scene != null:
