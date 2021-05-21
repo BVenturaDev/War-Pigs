@@ -89,9 +89,6 @@ func _physics_process(var delta: float) -> void:
 	if state == states.IDLE:
 		_check_bodies()
 	var vel: Vector3 = Vector3()
-	# Do gravity
-	if not is_on_floor():
-		vel.y = Globals.GRAV
 	# Do movement
 	vel = path_finder.calculate_vel(max_speed, accel, delta)
 	
@@ -134,10 +131,14 @@ func _physics_process(var delta: float) -> void:
 	# Check if KO'd
 	if hp < 1 and alive:
 		get_tree().call_group("Minions", "enemy_killed", self)
+		attack_pos.clear_attackers()
 		alive = false
 		label.visible = true
 		state = states.KO
-		
+	
+	# Do gravity
+	if not is_on_floor():
+		vel.y = Globals.GRAV
 	var _v = move_and_slide(vel, Vector3.UP)
 
 func attacker(var tar: Node) -> void:

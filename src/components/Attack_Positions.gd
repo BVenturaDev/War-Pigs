@@ -47,3 +47,9 @@ func is_attacker(var body: Node) -> bool:
 		if body == i:
 			return true
 	return false
+	
+func clear_attackers() -> void:
+	for i in attackers.size():
+		if attackers[i] and is_instance_valid(attackers[i]):
+			attackers[i].line_up()
+		attackers[i] = null

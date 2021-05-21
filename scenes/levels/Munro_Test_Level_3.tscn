@@ -81,10 +81,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.190
 [node name="Enemy20" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.0924, -8, 68.3543 )
 
-[node name="Enemy21" parent="Navigation" instance=ExtResource( 10 )]
-
-[node name="Enemy22" parent="Navigation" instance=ExtResource( 10 )]
-
 [node name="Enemy23" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.1266, -8, 18.5857 )
 
@@ -100,8 +96,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 79.1583
 [node name="Enemy9" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.7379, -8, -63.7018 )
 
-[node name="Enemy8" parent="Navigation" instance=ExtResource( 10 )]
-
 [node name="Enemy7" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 146.58, -8.00001, -82.0753 )
 
@@ -114,8 +108,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 139.322
 [node name="Enemy28" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 96.1937, -8, -42.6747 )
 
-[node name="Enemy27" parent="Navigation" instance=ExtResource( 10 )]
-
 [node name="Enemy26" parent="Navigation" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102.096, -7.99999, -57.3616 )
 
@@ -123,6 +115,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102.096
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.2938, -8.00001, 28.9537 )
 
 [node name="Enemy24" parent="Navigation" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.03254, 0 )
 
 [node name="Banner_Pig" parent="Navigation" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4374, -8.05928, 177.322 )
