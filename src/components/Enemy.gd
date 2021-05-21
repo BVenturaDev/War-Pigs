@@ -4,7 +4,7 @@ extends KinematicBody
 const MAXHP: int = 100
 
 # States
-enum states {IDLE, CHARGE, ATTACK, KO}
+enum states {IDLE, CHARGE, ATTACK, KO, TUTORIAL}
 var state: int = states.IDLE
 
 # Preloads
@@ -16,6 +16,8 @@ export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
 export var player_attack_chance: float = 4.0
+
+export (bool) var tutorial_behaviour = false
 
 # Debug Colors
 export (Color) var debug_idle
@@ -50,6 +52,9 @@ func _ready():
 		player = p
 	if Globals.DEBUG:
 		debug_status.visible = true
+	if tutorial_behaviour:
+		hp = 0
+		state = states.TUTORIAL
 
 func minion_killed(var minion: Node) -> void:
 	if minion == target or minion == attack_tar:
@@ -142,9 +147,12 @@ func _physics_process(var delta: float) -> void:
 				alive = true
 				hp = MAXHP
 				label.visible = false
-				
+	if state == states.TUTORIAL:
+		if hp < 1 and alive:
+			alive = false
+			label.visible = true
 	# Check if KO'd
-	if hp < 1 and alive:
+	elif hp < 1 and alive:
 		get_tree().call_group("Minions", "enemy_killed", self)
 		attack_pos.clear_attackers()
 		alive = false
@@ -172,7 +180,7 @@ func _find_attacker():
 	
 # Convert to a minion
 func recruit() -> void:
-	if state == states.KO:
+	if state == states.KO or state == states.TUTORIAL:
 		var pig = pig_scene.instance()
 		get_parent().add_child(pig)
 		pig.global_transform = global_transform
