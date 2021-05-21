@@ -12,6 +12,7 @@ var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
 # Player hp
+var max_hp = 5
 var hp: int = 0
 
 # Currency
@@ -40,7 +41,10 @@ func _ready() -> void:
 	options = options_scene.instance()
 	get_tree().get_root().call_deferred("add_child", options)
 	options.visible = false
-	hp = 5
+	hp = max_hp
+	if DEBUG:
+		hp = 2
+		total_currency = 20
 	
 func _input(var event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):

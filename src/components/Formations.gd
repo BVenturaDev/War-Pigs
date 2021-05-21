@@ -133,3 +133,11 @@ func total_minions() -> int:
 		if m != null and is_instance_valid(m):
 			total_minions += 1
 	return total_minions
+
+
+func remove_pig(position: int):
+	if minions.size() > 0:
+		minions[position].queue_free()
+
+func remove_last_pig():
+	remove_pig(0)

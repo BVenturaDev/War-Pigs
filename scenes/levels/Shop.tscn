@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/transition/LevelTransition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/components/shop/Breastplate.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/components/shop/ShouldersItem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/components/shop/HelmetItem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/shop/Armor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/components/Level.gd" type="Script" id=4]
 [ext_resource path="res://scenes/components/shop/BuyPigs.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/components/shop/SellPigs.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/components/Banner_Pig.tscn" type="PackedScene" id=8]
@@ -27,6 +26,7 @@ albedo_color = Color( 0.352941, 0.623529, 0.388235, 1 )
 extents = Vector3( 22.5749, 4.00292, 4.52788 )
 
 [node name="Shop" type="Spatial"]
+script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865025, 17.4836 )
@@ -79,17 +79,11 @@ depth = 6.17704
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360236, 0 )
 shape = SubResource( 5 )
 
-[node name="Helmet" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01092, 9.78861, -22.1408 )
-
-[node name="Breastplate" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1539, 10.5544, -21.9284 )
-
-[node name="Shoulders" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49233, 9.95766, -21.9067 )
-
 [node name="BuyPigs" parent="." instance=ExtResource( 6 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -29.9827, 4.72764, -19.2028 )
 
 [node name="SellPigs" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1592, 9.35809, -22.9091 )
+
+[node name="Armor" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 9.85432, -23.8536 )

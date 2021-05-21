@@ -6,6 +6,9 @@ export var max_speed: float = 30.0
 export var accel: float = 6.0
 export var hit_damage: float = 40.0
 
+# Scenes
+var pig_scene = preload("res://scenes/components/Minion.tscn")
+
 # Player Variables
 var main: Node = null
 var vel: Vector3 = Vector3()
@@ -23,6 +26,8 @@ onready var pig = $pig
 onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 
+
+
 func _interact():
 	var col = interact_tar.get_collider()
 	if col:
@@ -30,8 +35,7 @@ func _interact():
 			if not col.alive:
 				col.recruit()
 		if col.is_in_group("buyable"):
-			var total_spent = buy_item(col, Globals.total_currency)
-			Globals.total_currency -= total_spent
+			buy_item(col, Globals.total_currency)
 		if col.is_in_group("sellable"):
 			sell_item(col)
 
@@ -51,12 +55,23 @@ func _attack() -> void:
 func _adjust_gear() -> void:
 	if Globals.hp <= 4:
 		pig.helmet.visible = false
+	else:
+		pig.helmet.visible = true
+		
 	if Globals.hp <= 3:
 		pig.shoulder_pads.visible = false
+	else:
+		pig.shoulder_pads.visible = true
+		
 	if Globals.hp <= 2:
 		pig.breastplate.visible = false
+	else:
+		pig.breastplate.visible = true
+		
 	if Globals.hp <= 1:
 		pig.tunic.visible = false
+	else:
+		pig.tunic.visible = true
 
 func _ready():
 	main = get_parent()
@@ -117,44 +132,49 @@ func count_minions(save_pigs: bool):
 #######
 ## Buying/Selling Interface
 #######
-func buy_item(item: Buyable, amount: int) -> int:
+func buy_item(item: Buyable, amount: int):
 	if item.can_buy(amount):
-		var total_spent = item.spent(amount)
-		item_logic(item)
+		item_logic(item, amount)
 		
 		# Have item remain available
 		if item.is_consumable():
 			item.destroy_item()
-		return total_spent
 	else:
 		print_debug("can't buy anything")
 		# Did not spend anything
-		return 0
+
 
 # Deals with the various kinds of items that can be bought
 # Not the most scalable approach
-func item_logic(item: Buyable):
+func item_logic(item: Buyable, amount: int):
 	match item.get_type():
-		"helmet":
-			buy_helmet()
-		"shoulder":
-			buy_shoulders()
-		"breastplate":
-			buy_breastplate()
+		"health":
+			if buy_health():
+				Globals.total_currency -= item.spent(amount)
 		"pig":
-			buy_pig()
+			if buy_pig():
+				Globals.total_currency -= item.spent(amount)
 
-func buy_shoulders():
-	print_debug("Bought Shoulders")
+func buy_health() -> bool:
+	if Globals.hp < Globals.max_hp:
+		Globals.hp += 1
+		_adjust_gear()
+		return true
+	return false
 	
-func buy_helmet():
-	print_debug("Bought Helmet")
+func buy_pig() -> bool:
+	# Spawn pig
+	var new_minion = pig_scene.instance()
+	var nav = get_parent().get_node("Navigation")
+	nav.add_child(new_minion)
+	new_minion.global_transform = self.global_transform
+	new_minion.join_formation()
 	
-func buy_breastplate():
-	print_debug("Bought Breastplate")
-	
-func buy_pig():
+	#Update total pigs
 	Globals.total_pigs += 1
+	
+	return true
+
 	
 func sell_item(item: Sellable):
 	if can_sell_item(item):
@@ -166,6 +186,8 @@ func sell_item(item: Sellable):
 		Globals.total_currency += profit
 
 func sell_pig():
+	formations.remove_last_pig()
+	
 	Globals.total_pigs -= 1
 	
 func can_sell_item(item: Sellable):
