@@ -20,6 +20,8 @@ onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
 onready var banner_pos = $Banner_Pos
 onready var pig = $pig
+onready var sword_sound_player = $SwordSoundPlayer
+onready var blood_spot = $Blood_Spot
 
 func _interact():
 	var col = interact_tar.get_collider()
@@ -33,7 +35,10 @@ func _interact():
 		if col.is_in_group("sellable"):
 			sell_item(col)
 
-func _attack():
+func _on_Swing_Timer_timeout():
+	can_attack = true
+
+func _attack() -> void:
 	# Only hit while doing attack animation and only hit once per swing
 	if can_hit and not can_attack and pig.anim.is_playing():
 		for body in pig.sword_area.get_overlapping_bodies():
@@ -42,6 +47,16 @@ func _attack():
 					can_hit = false
 					var _live: bool = body.damage(hit_damage)
 					break
+
+func _adjust_gear() -> void:
+	if Globals.hp <= 4:
+		pig.helmet.visible = false
+	if Globals.hp <= 3:
+		pig.shoulder_pads.visible = false
+	if Globals.hp <= 2:
+		pig.breastplate.visible = false
+	if Globals.hp <= 1:
+		pig.tunic.visible = false
 
 func _ready():
 	main = get_parent()
@@ -53,6 +68,7 @@ func _input(var event: InputEvent):
 		camera_control.rotation.x = clamp(camera_control.rotation.x, deg2rad(-89.0), deg2rad(50.0))
 
 func _physics_process(var delta: float) -> void:
+	_adjust_gear()
 	# Get player movement controls
 	var in_vec: Vector2 = Vector2()
 	in_vec.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
@@ -89,6 +105,7 @@ func _physics_process(var delta: float) -> void:
 			can_attack = false
 			pig.anim.play("Attack")
 			can_hit = true
+			sword_sound_player.play_random_sound()
 	_attack()
 
 func count_minions(save_pigs: bool):
@@ -157,6 +174,9 @@ func can_sell_item(item: Sellable):
 			return Globals.total_pigs > 0
 	return false
 
-
-func _on_Swing_Timer_timeout():
-	can_attack = true
+func damage() -> void:
+	Globals.make_blood(blood_spot.global_transform.origin)
+	Globals.hp -= 1
+	_adjust_gear()
+	if Globals.hp <= 0:
+		print("YOU DED")

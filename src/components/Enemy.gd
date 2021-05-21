@@ -15,6 +15,7 @@ export var hit_damage: int = 20
 export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
+export var player_attack_chance: float = 4.0
 
 # Debug Colors
 export (Color) var debug_idle
@@ -39,10 +40,14 @@ var hp: int = MAXHP
 var alive: bool = true
 var target: Node = null
 var attack_tar: Node = null
+var player: Node = null
 var attacking: bool = false
 var crawling: bool = false
+var player_aggro: bool = false
 
 func _ready():
+	for p in get_tree().get_nodes_in_group("player"):
+		player = p
 	if Globals.DEBUG:
 		debug_status.visible = true
 
@@ -60,6 +65,16 @@ func _on_Search_Timer_timeout() -> void:
 		path_finder.update_path(target)
 	
 func _on_Attack_Timer_timeout():
+	# Decide whether or not to attack player
+	if player_aggro:
+		if rand_range(0.0, 10.0) > player_attack_chance:
+			if player and is_instance_valid(player):
+				boar.anim.play("Attack")
+				player.damage()
+				look_at(player.global_transform.origin, Vector3.UP)
+				rotation.x = 0
+				rotation.z = 0
+				return
 	if alive:
 		if is_instance_valid(attack_tar):
 			boar.anim.play("Attack")
@@ -173,3 +188,13 @@ func damage(var dam: int) -> bool:
 			return true
 		return false
 	return true
+
+
+func _on_Player_Aggro_body_entered(body):
+	if body.is_in_group("player"):
+		player_aggro = true
+
+
+func _on_Player_Aggro_body_exited(body):
+	if body.is_in_group("player"):
+		player_aggro = false

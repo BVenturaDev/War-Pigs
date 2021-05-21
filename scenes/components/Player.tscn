@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/components/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/pig.tscn" type="PackedScene" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://assets/ui/cross_hair.png" type="Texture" id=4]
 [ext_resource path="res://assets/sounds/pigs/charge order.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sounds/pigs/recall order.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/pigs/high swing.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/pigs/normal swing.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/pigs/death.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/pigs/death 2.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/audio/random_sound_player.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -73,5 +78,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0 )
 
 [node name="Swing_Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="SwordSoundPlayer" parent="." instance=ExtResource( 11 )]
+
+[node name="NormalSwing" type="AudioStreamPlayer3D" parent="SwordSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 8 )
+unit_size = 30.0
+bus = "Sounds"
+
+[node name="HighSwing" type="AudioStreamPlayer3D" parent="SwordSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 7 )
+unit_size = 30.0
+bus = "Sounds"
+
+[node name="DeathSoundPlayer" parent="." instance=ExtResource( 11 )]
+
+[node name="Death" type="AudioStreamPlayer3D" parent="DeathSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 9 )
+bus = "Sounds"
+
+[node name="Death2" type="AudioStreamPlayer3D" parent="DeathSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 10 )
+bus = "Sounds"
+
+[node name="Blood_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.02076, 0 )
 
 [connection signal="timeout" from="Swing_Timer" to="." method="_on_Swing_Timer_timeout"]

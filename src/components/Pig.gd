@@ -6,14 +6,16 @@ onready var shield = $rig/Skeleton/BoneAttachment2/shield
 onready var anim = $AnimationPlayer
 onready var label = $rig/Skeleton/BoneAttachment3/Flag_Staff/Money_Label/Viewport/Label
 onready var sword_area = $rig/Skeleton/BoneAttachment4/Sword/Sword_Area
-
+onready var helmet = $rig/Skeleton/BoneAttachment/Helmet
+onready var shoulder_pads = $rig/Skeleton/Shoulderpads
+onready var breastplate = $rig/Skeleton/Breastplate
+onready var tunic = $rig/Skeleton/Tunic
 
 func _ready():
 	set_idle()
 
 func _process(_delta) -> void:
 	label.text = str(Globals.total_currency)
-
 
 func set_idle() -> void:
 	label.visible = false
