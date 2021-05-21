@@ -17,9 +17,9 @@ func _ready():
 	texture = $Viewport.get_texture()
 	get_action_string(first_action)
 	
-	description_label.get("custom_fonts/font").size  = font_size # Set Font
-	input_label.get("custom_fonts/font").size  = font_size # Set Font
-	press_label.get("custom_fonts/font").size  = font_size # Set Font
+	#description_label.get("custom_fonts/font").size  = font_size # Set Font
+	#input_label.get("custom_fonts/font").size  = font_size # Set Font
+	#press_label.get("custom_fonts/font").size  = font_size # Set Font
 		
 func get_action_string(scancode: TutorialLabel):
 	var input = scancode.get_scancode_string()
