@@ -164,8 +164,8 @@ func _check_bodies():
 
 func _on_Attack_Timer_timeout():
 	attacking = false
-	sword_sound_player.play_random_sound()
 	if attack_tar:
+		sword_sound_player.play_random_sound()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0

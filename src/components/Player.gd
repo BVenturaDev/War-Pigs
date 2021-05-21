@@ -4,10 +4,13 @@ extends KinematicBody
 export var mouse_sensitivity: float = 0.06
 export var max_speed: float = 30.0
 export var accel: float = 6.0
+export var hit_damage: float = 40.0
 
 # Player Variables
 var main: Node = null
 var vel: Vector3 = Vector3()
+var can_attack: bool = true
+var can_hit: bool = true
 
 # Scene Variables
 onready var camera_control = $Camara_Control
@@ -16,6 +19,9 @@ onready var interact_tar = $Camara_Control/interact_Target
 onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
 onready var banner_pos = $Banner_Pos
+onready var pig = $pig
+onready var sword_sound_player = $SwordSoundPlayer
+onready var blood_spot = $Blood_Spot
 
 func _interact():
 	var col = interact_tar.get_collider()
@@ -29,6 +35,29 @@ func _interact():
 		if col.is_in_group("sellable"):
 			sell_item(col)
 
+func _on_Swing_Timer_timeout():
+	can_attack = true
+
+func _attack() -> void:
+	# Only hit while doing attack animation and only hit once per swing
+	if can_hit and not can_attack and pig.anim.is_playing():
+		for body in pig.sword_area.get_overlapping_bodies():
+			if body.is_in_group("Enemies"):
+				if body.alive:
+					can_hit = false
+					var _live: bool = body.damage(hit_damage)
+					break
+
+func _adjust_gear() -> void:
+	if Globals.hp <= 4:
+		pig.helmet.visible = false
+	if Globals.hp <= 3:
+		pig.shoulder_pads.visible = false
+	if Globals.hp <= 2:
+		pig.breastplate.visible = false
+	if Globals.hp <= 1:
+		pig.tunic.visible = false
+
 func _ready():
 	main = get_parent()
 
@@ -39,6 +68,7 @@ func _input(var event: InputEvent):
 		camera_control.rotation.x = clamp(camera_control.rotation.x, deg2rad(-89.0), deg2rad(50.0))
 
 func _physics_process(var delta: float) -> void:
+	_adjust_gear()
 	# Get player movement controls
 	var in_vec: Vector2 = Vector2()
 	in_vec.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
@@ -70,6 +100,13 @@ func _physics_process(var delta: float) -> void:
 		charge_sound.play()
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
+	if Input.is_action_pressed("attack"):
+		if can_attack:
+			can_attack = false
+			pig.anim.play("Attack")
+			can_hit = true
+			sword_sound_player.play_random_sound()
+	_attack()
 
 func count_minions(save_pigs: bool):
 	if save_pigs:
@@ -136,3 +173,10 @@ func can_sell_item(item: Sellable):
 		"pig":
 			return Globals.total_pigs > 0
 	return false
+
+func damage() -> void:
+	Globals.make_blood(blood_spot.global_transform.origin)
+	Globals.hp -= 1
+	_adjust_gear()
+	if Globals.hp <= 0:
+		print("YOU DED")

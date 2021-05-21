@@ -11,6 +11,9 @@ var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
+# Player hp
+var hp: int = 0
+
 # Currency
 var total_currency: int = 0
 # Pigs 
@@ -37,6 +40,7 @@ func _ready() -> void:
 	options = options_scene.instance()
 	get_tree().get_root().call_deferred("add_child", options)
 	options.visible = false
+	hp = 5
 	
 func _input(var event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
