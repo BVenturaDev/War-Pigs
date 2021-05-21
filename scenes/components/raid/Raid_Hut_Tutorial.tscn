@@ -1,22 +1,42 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/models/Hut.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/components/raid/Raidable.gd" type="Script" id=2]
 [ext_resource path="res://src/components/raid/Raidable_Trigger.gd" type="Script" id=3]
 [ext_resource path="res://src/tools/Viewport.gd" type="Script" id=4]
 [ext_resource path="res://src/tools/3DSprite_Viewport_Tutorial.gd" type="Script" id=5]
-[ext_resource path="res://scenes/fonts/Roboto_Bold.tres" type="DynamicFont" id=6]
 [ext_resource path="res://src/tools/Tutorial_Label.gd" type="Script" id=7]
 
-[sub_resource type="Resource" id=2]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
 action_string = "charge"
 action_description = "charge"
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=2]
 script = ExtResource( 7 )
 action_string = "secondary"
 action_description = "return"
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/Roboto-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
 
 [node name="Raid_Hut" type="Spatial"]
 script = ExtResource( 2 )
@@ -41,13 +61,14 @@ script = ExtResource( 3 )
 [node name="Position3D5" type="Position3D" parent="Positions"]
 
 [node name="Tutorial_Label" type="Sprite3D" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 9.43938, 22.9765, 14.1123 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 24.967, 12.8535 )
 cast_shadow = 0
 pixel_size = 0.02
 billboard = 1
 script = ExtResource( 5 )
-first_action = SubResource( 2 )
-second_action = SubResource( 3 )
+first_action = SubResource( 1 )
+second_action = SubResource( 2 )
+font_size = 64
 
 [node name="Viewport" type="Viewport" parent="Tutorial_Label"]
 size = Vector2( 400, 236 )
@@ -64,7 +85,7 @@ alignment = 1
 [node name="Press" type="Label" parent="Tutorial_Label/Viewport/VBoxContainer"]
 margin_right = 400.0
 margin_bottom = 76.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = SubResource( 4 )
 text = "Press "
 align = 1
 
@@ -72,13 +93,14 @@ align = 1
 margin_top = 80.0
 margin_right = 400.0
 margin_bottom = 156.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = SubResource( 5 )
+align = 1
 
 [node name="Desription" type="Label" parent="Tutorial_Label/Viewport/VBoxContainer"]
 margin_top = 160.0
 margin_right = 400.0
 margin_bottom = 236.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = SubResource( 6 )
 text = "Press this"
 align = 1
 

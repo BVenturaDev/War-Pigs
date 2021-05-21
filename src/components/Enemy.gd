@@ -138,20 +138,19 @@ func _physics_process(var delta: float) -> void:
 			debug_status.change_color(debug_ko)
 			
 		vel = path_finder.calculate_vel(max_crawl, accel, delta)
-		if not tutorial_behaviour:
-			if not crawling or not is_instance_valid(target) or target == null:
-				target = hut_finder.find_nearest_hut(global_transform.origin)
-				crawling = true
-				path_finder.update_path(target)
-			else:
-				if is_instance_valid(target) and not path_finder.has_path() and target:
-					state = states.IDLE
-					crawling = false
-					target = null
-					attack_tar = null
-					alive = true
-					hp = MAXHP
-					label.visible = false
+		if not crawling or not is_instance_valid(target) or target == null:
+			target = hut_finder.find_nearest_hut(global_transform.origin)
+			crawling = true
+			path_finder.update_path(target)
+		else:
+			if is_instance_valid(target) and not path_finder.has_path() and target:
+				state = states.IDLE
+				crawling = false
+				target = null
+				attack_tar = null
+				alive = true
+				hp = MAXHP
+				label.visible = false
 				
 	if state == states.TUTORIAL:
 		if hp < 1 and alive:
