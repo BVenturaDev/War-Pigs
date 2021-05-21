@@ -201,4 +201,5 @@ func damage() -> void:
 	Globals.hp -= 1
 	_adjust_gear()
 	if Globals.hp <= 0:
+		Globals.hp = 0
 		print("YOU DED")
