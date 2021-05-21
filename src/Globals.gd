@@ -43,7 +43,6 @@ func _ready() -> void:
 	options.visible = false
 	hp = max_hp
 	if DEBUG:
-		hp = 2
 		total_currency = 20
 	
 func _input(var event: InputEvent):
