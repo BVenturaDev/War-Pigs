@@ -74,11 +74,12 @@ func retrieve_position(position: Position3D, entity: KinematicBody):
 func die():
 	# Give currency
 	for p in pigs_attacking:
-		# Create currency
-		# Pass currency to pigs
-		var currency_scene = currency_item.instance()
-		p.pass_currency(currency_scene)
-		p.line_up()
+		if is_instance_valid(p):
+			# Create currency
+			# Pass currency to pigs
+			var currency_scene = currency_item.instance()
+			p.pass_currency(currency_scene)
+			p.line_up()
 	get_tree().call_group("Minions", "target_killed", self)
 	call_deferred("queue_free")
 
