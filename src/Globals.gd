@@ -44,10 +44,6 @@ func _ready() -> void:
 	options.visible = false
 	hp = MAXHP
 	total_currency = 20
-
-func _process(_delta) -> void:
-	if total_currency < 0:
-		total_currency = 0
 	
 func _input(var event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
