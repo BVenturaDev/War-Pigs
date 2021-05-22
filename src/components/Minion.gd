@@ -105,6 +105,8 @@ func _state_raid() -> void:
 	
 		# Reached position in Hut
 	if path_finder.has_path() == false:
+		# Attack animation
+		pig.set_attack()
 		# Avoid checking on a freed object
 		if is_instance_valid(raiding_entity):
 			if raiding_entity.is_destroyed():
