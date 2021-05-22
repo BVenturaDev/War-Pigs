@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://src/tools/Viewport.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tools/AnimationTree.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://src/tools/3DSprite_Viewport.gd" type="Script" id=16]
 [ext_resource path="res://assets/models/pig/eye_blue.material" type="Material" id=17]
 [ext_resource path="res://src/components/Pig.gd" type="Script" id=18]
+[ext_resource path="res://scenes/particles/Footstep.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Helmet"
@@ -12982,3 +12983,6 @@ parameters/playback = SubResource( 24 )
 
 [node name="Death_Effect_Spot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73126, 0 )
+
+[node name="Footstep" parent="." instance=ExtResource( 19 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

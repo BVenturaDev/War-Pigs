@@ -12,6 +12,7 @@ onready var shoulder_pads = $rig/Skeleton/Shoulderpads
 onready var breastplate = $rig/Skeleton/Breastplate
 onready var tunic = $rig/Skeleton/Tunic
 onready var death_spot = $Death_Effect_Spot
+onready var footstep = $Footstep/Particles
 
 func _ready():
 	set_idle()
@@ -26,6 +27,7 @@ func set_attack():
 
 func set_idle() -> void:
 	if not state_machine.get_current_node() == "Idle":
+		footstep.emitting = false
 		label.visible = false
 		banner.visible = false
 		sword.visible = true
@@ -34,10 +36,12 @@ func set_idle() -> void:
 	
 func set_run() -> void:
 	if not state_machine.get_current_node() == "Run":
+		footstep.emitting = true
 		state_machine.travel("Run")
 
 func set_banner() -> void:
 	if not state_machine.get_current_node() == "Hold_Banner":
+		footstep.emitting = false
 		label.visible = true
 		banner.visible = true
 		sword.visible = false
@@ -46,5 +50,6 @@ func set_banner() -> void:
 	
 func set_banner_run() -> void:
 	if not state_machine.get_current_node() == "Run_Banner":
+		footstep.emitting = true
 		state_machine.travel("Run_Banner")
 	

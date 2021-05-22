@@ -687,6 +687,27 @@ Lose too much armor,
 
  and you might suffer a mortal wound."
 
+[node name="Pause_Label" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34397, 2.82366, 111.733 )
+cast_shadow = 0
+pixel_size = 0.03
+billboard = 1
+script = ExtResource( 20 )
+
+[node name="Viewport" type="Viewport" parent="Pause_Label"]
+size = Vector2( 663, 234 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Pause_Label/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 19 )
+text = "Press Escape to pause,
+
+and set options."
+
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut"]
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut/Hut"]
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut3"]
