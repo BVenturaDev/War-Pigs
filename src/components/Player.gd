@@ -46,7 +46,7 @@ func _on_Swing_Timer_timeout():
 
 func _attack() -> void:
 	# Only hit while doing attack animation and only hit once per swing
-	if can_hit and not can_attack and pig.anim.is_playing():
+	if can_hit and not can_attack and pig.state_machine.get_current_node() == "Attack":
 		for body in pig.sword_area.get_overlapping_bodies():
 			if body.is_in_group("Enemies"):
 				if body.alive:
@@ -103,8 +103,20 @@ func _physics_process(var delta: float) -> void:
 	# Stay on floor
 	if not is_on_floor():
 		vel.y = Globals.GRAV
-		
+	
 	var _collisions = move_and_slide(vel, Vector3.UP)
+	
+	if Input.is_action_pressed("attack"):
+		if can_attack:
+			can_attack = false
+			pig.set_attack()
+			can_hit = true
+			sword_sound_player.play_random_sound()
+	elif abs(vel.x) + abs(vel.z) >= Globals.ANIM_VEL and can_attack:
+		pig.set_run()
+	else:
+		pig.set_idle()
+	_attack()
 	
 	# Handle other controls
 	if Input.is_action_just_pressed("primary"):
@@ -119,14 +131,7 @@ func _physics_process(var delta: float) -> void:
 		charge_sound.play()
 	if Input.is_action_just_pressed("ui_select"):
 		_interact()
-	if Input.is_action_pressed("attack"):
-		if can_attack:
-			can_attack = false
-			pig.anim.play("Attack")
-			can_hit = true
-			sword_sound_player.play_random_sound()
-	_attack()
-
+		
 func count_minions(save_pigs: bool):
 	if save_pigs:
 		var total_minions = formations.total_minions()
@@ -205,4 +210,5 @@ func damage() -> void:
 	Globals.hp -= 1
 	_adjust_gear()
 	if Globals.hp <= 0:
+		Globals.hp = 0
 		print("YOU DED")

@@ -8,7 +8,7 @@ var shop: bool = false
 func _ready():
 	if name == "Shop":
 		shop = true
-		
+	add_to_group("Levels")
 	for x in Globals.total_pigs:
 		var pig = pig_scene.instance()
 			

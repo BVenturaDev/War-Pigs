@@ -1,0 +1,77 @@
+[gd_scene load_steps=24 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Attack"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Crawl"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Crawl_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Hold_Banner"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Run_Banner"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/Attack/node = SubResource( 1 )
+states/Attack/position = Vector2( 777, 96 )
+states/Crawl/node = SubResource( 2 )
+states/Crawl/position = Vector2( 655, -251 )
+states/Crawl_Idle/node = SubResource( 3 )
+states/Crawl_Idle/position = Vector2( 655, -174 )
+states/Hold_Banner/node = SubResource( 4 )
+states/Hold_Banner/position = Vector2( 536, 181 )
+states/Idle/node = SubResource( 5 )
+states/Idle/position = Vector2( 536, 96 )
+states/Run/node = SubResource( 6 )
+states/Run/position = Vector2( 655, -7 )
+states/Run_Banner/node = SubResource( 7 )
+states/Run_Banner/position = Vector2( 777, 181 )
+transitions = [ "Idle", "Attack", SubResource( 8 ), "Attack", "Idle", SubResource( 9 ), "Idle", "Run", SubResource( 10 ), "Attack", "Run", SubResource( 11 ), "Run", "Attack", SubResource( 13 ), "Hold_Banner", "Run_Banner", SubResource( 14 ), "Run_Banner", "Hold_Banner", SubResource( 15 ), "Crawl_Idle", "Crawl", SubResource( 16 ), "Crawl", "Crawl_Idle", SubResource( 17 ), "Run", "Crawl_Idle", SubResource( 18 ), "Crawl_Idle", "Idle", SubResource( 19 ), "Attack", "Crawl_Idle", SubResource( 20 ), "Idle", "Crawl_Idle", SubResource( 21 ), "Run", "Idle", SubResource( 24 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 59.4027, -42.1204 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource( 22 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 23 )

@@ -3,6 +3,7 @@ extends Node
 # Constants
 const GRAV: float = -30.0
 const ATTACKDIST: float = -110.0
+const ANIM_VEL: float = 1.0
 
 # DEBUG
 const DEBUG = true
@@ -44,6 +45,10 @@ func _ready() -> void:
 	hp = max_hp
 	if DEBUG:
 		total_currency = 20
+
+func _process(_delta) -> void:
+	if total_currency < 0:
+		total_currency = 0
 	
 func _input(var event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):

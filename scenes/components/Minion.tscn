@@ -87,5 +87,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.42427, 0 )
 [node name="DebugStatus" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72254, 9.70962, 0 )
 
+[node name="Upkeep_Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="timeout" from="Search_Timer" to="." method="_on_Search_Timer_timeout"]
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_Attack_Timer_timeout"]
+[connection signal="timeout" from="Upkeep_Timer" to="." method="_on_Upkeep_Timer_timeout"]

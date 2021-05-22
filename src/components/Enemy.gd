@@ -15,7 +15,7 @@ export var hit_damage: int = 20
 export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
-export var player_attack_chance: float = 4.0
+export var player_attack_chance: float = 9.25
 
 export (bool) var tutorial_behaviour = false
 export (int) var tutorial_health = 0
@@ -75,7 +75,7 @@ func _on_Attack_Timer_timeout():
 	if player_aggro:
 		if rand_range(0.0, 10.0) > player_attack_chance:
 			if player and is_instance_valid(player):
-				boar.anim.play("Attack")
+				boar.set_attack()
 				# Don't deal damage to player
 				if not tutorial_behaviour:
 					player.damage()
@@ -85,7 +85,7 @@ func _on_Attack_Timer_timeout():
 				return
 	if alive:
 		if is_instance_valid(attack_tar):
-			boar.anim.play("Attack")
+			boar.set_attack()
 			attacking = false
 			look_at(attack_tar.global_transform.origin, Vector3.UP)
 			rotation.x = 0
@@ -164,11 +164,22 @@ func _physics_process(var delta: float) -> void:
 		label.visible = true
 		
 		state = states.KO
+		boar.set_crawl_idle()
 	
 	# Do gravity
 	if not is_on_floor():
 		vel.y = Globals.GRAV
 	var _v = move_and_slide(vel, Vector3.UP)
+	var dist = abs(vel.x) + abs(vel.z)
+	if dist >= Globals.ANIM_VEL and alive:
+		boar.set_run()
+	elif alive:
+		boar.set_idle()
+	elif dist >= Globals.ANIM_VEL:
+		boar.set_crawl()
+	else:
+		boar.set_crawl_idle()
+	
 
 func attacker(var tar: Node) -> void:
 	target = tar

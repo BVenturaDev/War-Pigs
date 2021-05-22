@@ -22,6 +22,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		vel.y = Globals.GRAV
 	var _v = move_and_slide(vel, Vector3.UP)
+	if abs(vel.x) + abs(vel.z) > Globals.ANIM_VEL:
+		pig.set_banner_run()
+	else:
+		pig.set_banner()
 
 
 func _on_Search_Timer_timeout():
