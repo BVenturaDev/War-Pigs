@@ -440,7 +440,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4279, -4.27187, -211.724 )
 [node name="WorldEnvironment" parent="." instance=ExtResource( 16 )]
 
 [node name="Objective_Label" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.2216, -0.0825646, 80.361 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0208, 1.77585, 80.361 )
 cast_shadow = 0
 pixel_size = 0.02
 billboard = 1

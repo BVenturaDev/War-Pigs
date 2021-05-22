@@ -15,7 +15,7 @@ export var hit_damage: int = 20
 export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
-export var player_attack_chance: float = 9.25
+export var player_attack_chance: float = 9.5
 
 export (bool) var tutorial_behaviour = false
 export (int) var tutorial_health = 0
@@ -47,6 +47,8 @@ var player: Node = null
 var attacking: bool = false
 var crawling: bool = false
 var player_aggro: bool = false
+var fighting_player: bool = false
+var fighting_minion: bool = false
 
 func _ready():
 	for p in get_tree().get_nodes_in_group("player"):
@@ -59,6 +61,7 @@ func _ready():
 
 func minion_killed(var minion: Node) -> void:
 	if minion == target or minion == attack_tar:
+		fighting_minion = false
 		target = null
 		attack_tar = null
 		path_finder.stop()
@@ -71,8 +74,19 @@ func _on_Search_Timer_timeout() -> void:
 		path_finder.update_path(target)
 	
 func _on_Attack_Timer_timeout():
+	attacking = false
+	# Focused on player
+	if player_aggro and fighting_player:
+		if player and is_instance_valid(player):
+			boar.set_attack()
+			# Don't deal damage to player
+			look_at(player.global_transform.origin, Vector3.UP)
+			rotation.x = 0
+			rotation.z = 0
+			player.damage()
+		
 	# Decide whether or not to attack player
-	if player_aggro:
+	elif player_aggro and fighting_minion:
 		if rand_range(0.0, 10.0) > player_attack_chance:
 			if player and is_instance_valid(player):
 				boar.set_attack()
@@ -83,10 +97,10 @@ func _on_Attack_Timer_timeout():
 				rotation.x = 0
 				rotation.z = 0
 				return
-	if alive:
+	# Attack minion	
+	elif alive and fighting_minion:
 		if is_instance_valid(attack_tar):
 			boar.set_attack()
-			attacking = false
 			look_at(attack_tar.global_transform.origin, Vector3.UP)
 			rotation.x = 0
 			rotation.z = 0
@@ -97,19 +111,29 @@ func _on_Attack_Timer_timeout():
 		
 func _check_bodies():
 	for body in aggro_rad.get_overlapping_bodies():
-		if not target:
-			if body.is_in_group("Minions"):
-				if not body.state == body.states.ATTACK:
-					target = body
-					state = states.CHARGE
-					break
+		if body.is_in_group("Minions"):
+			if not fighting_minion:
+				fighting_minion = true
+				fighting_player = false
+				target = body
+				attack_tar = null
+				state = states.CHARGE
+				break
+				
+		if body.is_in_group("player"):
+			if not state == states.ATTACK or state == states.CHARGE and not fighting_minion and not fighting_player:
+				fighting_player = true
+				fighting_minion = false
+				target = body
+				attack_tar = body
+				state = states.ATTACK
 
 func _physics_process(var delta: float) -> void:
 	if not is_instance_valid(target):
 		target = null
 	if not is_instance_valid(attack_tar):
 		attack_tar = null
-	if state == states.IDLE:
+	if not tutorial_behaviour and not state == states.KO:
 		_check_bodies()
 	var vel: Vector3 = Vector3()
 	# Do movement
@@ -194,6 +218,7 @@ func _find_attacker():
 		target = null
 		attack_tar = null
 		state = states.IDLE
+		fighting_minion = false
 	
 # Convert to a minion
 func recruit() -> void:

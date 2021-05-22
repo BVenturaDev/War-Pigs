@@ -165,7 +165,7 @@ func item_logic(item: Buyable, amount: int):
 				Globals.total_currency -= item.spent(amount)
 
 func buy_health() -> bool:
-	if Globals.hp < Globals.max_hp:
+	if Globals.hp < Globals.MAXHP:
 		Globals.hp += 1
 		_adjust_gear()
 		return true

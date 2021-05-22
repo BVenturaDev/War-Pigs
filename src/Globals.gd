@@ -6,7 +6,7 @@ const ATTACKDIST: float = -110.0
 const ANIM_VEL: float = 1.0
 
 # DEBUG
-const DEBUG = false
+const DEBUG = true
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")

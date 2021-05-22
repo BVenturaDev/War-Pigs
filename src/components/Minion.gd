@@ -90,7 +90,7 @@ func _state_attack() -> void:
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
-		target = null
+		#target = null
 	if attack_tar and not attacking:
 		attacking = true
 		attack_time.start()
