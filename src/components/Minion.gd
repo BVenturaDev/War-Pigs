@@ -130,6 +130,9 @@ func _on_Search_Timer_timeout():
 func _on_Upkeep_Timer_timeout():
 	if not shop:
 		Globals.total_currency -= 1
+		if Globals.total_currency < 0:
+			Globals.total_currency = 0
+			_remove_self()
 
 func _check_bodies():
 	for body in aggro_rad.get_overlapping_bodies():
@@ -171,7 +174,7 @@ func _check_bodies():
 					attack_i = body.attack_pos.find_pos()
 			
 
-func _on_Attack_Timer_timeout():
+func _on_Attack_Timer_timeout() -> void:
 	attacking = false
 	if attack_tar:
 		sword_sound_player.play_random_sound()
@@ -182,6 +185,14 @@ func _on_Attack_Timer_timeout():
 			line_up()
 	else:
 		line_up()
+		
+func _remove_self() -> void:
+	alive = false
+	get_tree().call_group("Enemies", "minion_killed", self)
+	player.formations.reshuffle(form_id)
+	if attack_tar:
+		attack_tar.attack_pos.remove_attacker(attack_i)
+	call_deferred("queue_free")
 
 func attack(var body: Node):
 	if not body.attack_pos.is_attacker(self):
@@ -268,12 +279,7 @@ func _physics_process(var delta: float) -> void:
 		_state_returning_formation()
 		
 	if hp < 1 and alive:
-		alive = false
-		get_tree().call_group("Enemies", "minion_killed", self)
-		player.formations.reshuffle(form_id)
-		if attack_tar:
-			attack_tar.attack_pos.remove_attacker(attack_i)
-		call_deferred("queue_free")
+		_remove_self()
 
 func clear_raid():
 	raiding_entity.retrieve_position(raid_position, self)
