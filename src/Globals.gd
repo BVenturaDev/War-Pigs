@@ -6,7 +6,7 @@ const ATTACKDIST: float = -110.0
 const ANIM_VEL: float = 1.0
 
 # DEBUG
-const DEBUG = true
+const DEBUG = false
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
@@ -22,6 +22,7 @@ var hp: int = 0
 var total_currency: int = 0
 # Pigs 
 var total_pigs: int = 10
+var total_combat_pigs: int = 0
 
 # Levels
 onready var levels: Array = [
