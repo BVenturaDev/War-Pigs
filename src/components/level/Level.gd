@@ -45,4 +45,4 @@ func reset_level():
 		Globals.hp = starting_data.health_starting
 		Globals.total_currency = starting_data.currency_starting
 		
-	get_tree().reload_current_scene()
+	var _r = get_tree().reload_current_scene()

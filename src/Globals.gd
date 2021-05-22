@@ -12,6 +12,8 @@ var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
+var win: bool = false
+
 # Player hp
 const MAXHP = 5
 var hp: int = 0
@@ -46,7 +48,7 @@ func _ready() -> void:
 	total_currency = 20
 	
 func _input(var event: InputEvent):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and not win:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			get_tree().paused = true
 			options.visible = true
