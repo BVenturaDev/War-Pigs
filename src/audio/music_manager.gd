@@ -11,63 +11,47 @@ var _is_march_on = true
 
 
 func _ready() -> void:
-	Globals.connect("total_pigs_updated", self, "_update_music_layers")
+	Globals.connect("total_pigs_updated", self, "_update_march_layers")
 	Globals.connect("combat_pigs_updated", self, "_handle_track_switch")
 
 
-func _update_music_layers(total_pigs: int):
-	if _is_march_on:
-		if total_pigs >= MARCH_MINIMUM_PIGS_SECOND_LAYER:
-			for music_layer in _current_music.get_node("SecondLayer").get_children():
-				music_layer.set_volume_db(linear2db(1))
-		elif total_pigs >= MARCH_MINIMUM_PIGS_THIRD_LAYER:
-			for music_layer in _current_music.get_node("SecondLayer").get_children():
-				music_layer.set_volume_db(linear2db(1))
-			for music_layer in _current_music.get_node("ThirdLayer").get_children():
-				music_layer.set_volume_db(linear2db(1))
-		else:
-			for music_layer in _current_music.get_node("SecondLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
-			for music_layer in _current_music.get_node("ThirdLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
+func _set_layer_volume(layer_name: String, volume: float) -> void:
+	for music_layer in _current_music.get_node(layer_name).get_children():
+		music_layer.set_volume_db(linear2db(1))
 
-func _handle_track_switch(total_combat_pigs: int):
+
+func _update_march_layers(total_pigs: int) -> void:
+	if _is_march_on:
+		_update_music_layers(total_pigs, MARCH_MINIMUM_PIGS_SECOND_LAYER, MARCH_MINIMUM_PIGS_THIRD_LAYER)
+
+
+func _update_music_layers(total_pigs: int, first_threshold: int, second_threshold: int) -> void:
+	if total_pigs >= first_threshold:
+		_set_layer_volume("SecondLayer", 1.0)
+	elif total_pigs >= second_threshold:
+		_set_layer_volume("SecondLayer", 1.0)
+		_set_layer_volume("ThirdLayer", 1.0)
+	else:
+		_set_layer_volume("SecondLayer", 0.0)
+		_set_layer_volume("ThirdLayer", 0.0)
+
+
+func _handle_track_switch(total_combat_pigs: int) -> void:
 	if _is_march_on:
 		if total_combat_pigs > 0:
-			for music_layer in _current_music.get_node("MainLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
-			for music_layer in _current_music.get_node("SecondLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
-			for music_layer in _current_music.get_node("ThirdLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
+			_set_layer_volume("MainLayer", 0.0)
+			_set_layer_volume("SecondLayer", 0.0)
+			_set_layer_volume("ThirdLayer", 0.0)
 			_current_music = $War
 			_is_march_on = false
-			for music_layer in _current_music.get_node("MainLayer").get_children():
-				music_layer.set_volume_db(linear2db(1))
-			
+			_set_layer_volume("MainLayer", 1.0)
 	else:
 		if total_combat_pigs == 0:
-			for music_layer in _current_music.get_node("MainLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
-			for music_layer in _current_music.get_node("SecondLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
-			for music_layer in _current_music.get_node("ThirdLayer").get_children():
-				music_layer.set_volume_db(linear2db(0))
+			_set_layer_volume("MainLayer", 0.0)
+			_set_layer_volume("SecondLayer", 0.0)
+			_set_layer_volume("ThirdLayer", 0.0)
 			_current_music = $March
 			_is_march_on = true
-			for music_layer in _current_music.get_node("MainLayer").get_children():
-				music_layer.set_volume_db(linear2db(1))
+			_set_layer_volume("MainLayer", 1.0)
 
-	if total_combat_pigs >= WAR_MINIMUM_PIGS_SECOND_LAYER:
-		for music_layer in _current_music.get_node("SecondLayer").get_children():
-			music_layer.set_volume_db(linear2db(1))
-	elif total_combat_pigs >= WAR_MINIMUM_PIGS_THIRD_LAYER:
-		for music_layer in _current_music.get_node("SecondLayer").get_children():
-			music_layer.set_volume_db(linear2db(0))
-		for music_layer in _current_music.get_node("ThirdLayer").get_children():
-			music_layer.set_volume_db(linear2db(0))
-	else:
-		for music_layer in _current_music.get_node("SecondLayer").get_children():
-			music_layer.set_volume_db(linear2db(0))
-		for music_layer in _current_music.get_node("ThirdLayer").get_children():
-			music_layer.set_volume_db(linear2db(0))
+	_update_music_layers(total_combat_pigs, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
