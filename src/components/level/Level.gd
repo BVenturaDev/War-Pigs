@@ -52,7 +52,7 @@ func show_death_screen():
 		Globals.total_pigs = starting_data.pigs_starting
 		Globals.hp = starting_data.health_starting
 		Globals.total_currency = starting_data.currency_starting
-	#remove_player()
+	remove_player()
 	get_tree().paused = true
 
 func reset_level():
@@ -60,6 +60,6 @@ func reset_level():
 	
 func remove_player():
 	var player = $Player
-	player.queue_free()
+	player.visible = false
 
 
