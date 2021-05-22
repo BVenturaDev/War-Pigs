@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/music/March of the Pigs/March Rhythm.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/music/March of the Pigs/March Cello.ogg" type="AudioStream" id=2]
@@ -12,6 +12,288 @@
 [ext_resource path="res://assets/music/Pigs At War/War Pigs Synth.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/music/Pigs At War/War Pigs Lead.ogg" type="AudioStream" id=11]
 
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Drums:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Drums:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/LeadHarmony:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/LeadHarmony:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Violin:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Cello:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Violin:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Cello:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -20.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Drums:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tracks/Drums:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -20.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Synth:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Synth:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
 [node name="MusicManager" type="Node"]
 pause_mode = 2
 script = ExtResource( 7 )
@@ -20,57 +302,86 @@ script = ExtResource( 7 )
 
 [node name="MainLayer" type="Node" parent="March"]
 
-[node name="Drums" type="AudioStreamPlayer" parent="March/MainLayer"]
-stream = ExtResource( 3 )
-volume_db = -6.0
+[node name="Tween" type="Tween" parent="March/MainLayer"]
+
+[node name="Tracks" type="Node" parent="March/MainLayer"]
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="March/MainLayer/Tracks"]
+stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"
 
-[node name="Rhythm" type="AudioStreamPlayer" parent="March/MainLayer"]
-stream = ExtResource( 1 )
-volume_db = -6.0
+[node name="Drums" type="AudioStreamPlayer" parent="March/MainLayer/Tracks"]
+stream = ExtResource( 3 )
 autoplay = true
 bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/MainLayer"]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="SecondLayer" type="Node" parent="March"]
 
-[node name="Lead" type="AudioStreamPlayer" parent="March/SecondLayer"]
+[node name="Tween" type="Tween" parent="March/SecondLayer"]
+
+[node name="Tracks" type="Node" parent="March/SecondLayer"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="March/SecondLayer/Tracks"]
 stream = ExtResource( 4 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"
 
-[node name="LeadHarmony" type="AudioStreamPlayer" parent="March/SecondLayer"]
+[node name="LeadHarmony" type="AudioStreamPlayer" parent="March/SecondLayer/Tracks"]
 stream = ExtResource( 5 )
 volume_db = -80.0
-autoplay = true
 bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/SecondLayer"]
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
 
 [node name="ThirdLayer" type="Node" parent="March"]
 
-[node name="Violin" type="AudioStreamPlayer" parent="March/ThirdLayer"]
+[node name="Tween" type="Tween" parent="March/ThirdLayer"]
+
+[node name="Tracks" type="Node" parent="March/ThirdLayer"]
+
+[node name="Violin" type="AudioStreamPlayer" parent="March/ThirdLayer/Tracks"]
 stream = ExtResource( 6 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"
 
-[node name="Cello" type="AudioStreamPlayer" parent="March/ThirdLayer"]
+[node name="Cello" type="AudioStreamPlayer" parent="March/ThirdLayer/Tracks"]
 stream = ExtResource( 2 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/ThirdLayer"]
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
+
 [node name="War" type="Node" parent="."]
 
 [node name="MainLayer" type="Node" parent="War"]
 
-[node name="Rhythm" type="AudioStreamPlayer" parent="War/MainLayer"]
+[node name="Tween" type="Tween" parent="War/MainLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/MainLayer"]
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
+
+[node name="Tracks" type="Node" parent="War/MainLayer"]
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="War/MainLayer/Tracks"]
 stream = ExtResource( 8 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"
 
-[node name="Drums" type="AudioStreamPlayer" parent="War/MainLayer"]
+[node name="Drums" type="AudioStreamPlayer" parent="War/MainLayer/Tracks"]
 stream = ExtResource( 9 )
 volume_db = -80.0
 autoplay = true
@@ -78,7 +389,15 @@ bus = "Music"
 
 [node name="SecondLayer" type="Node" parent="War"]
 
-[node name="Synth" type="AudioStreamPlayer" parent="War/SecondLayer"]
+[node name="Tween" type="Tween" parent="War/SecondLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/SecondLayer"]
+anims/fade_in = SubResource( 9 )
+anims/fade_out = SubResource( 10 )
+
+[node name="Tracks" type="Node" parent="War/SecondLayer"]
+
+[node name="Synth" type="AudioStreamPlayer" parent="War/SecondLayer/Tracks"]
 stream = ExtResource( 10 )
 volume_db = -80.0
 autoplay = true
@@ -86,7 +405,15 @@ bus = "Music"
 
 [node name="ThirdLayer" type="Node" parent="War"]
 
-[node name="Lead" type="AudioStreamPlayer" parent="War/ThirdLayer"]
+[node name="Tween" type="Tween" parent="War/ThirdLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/ThirdLayer"]
+anims/fade_in = SubResource( 11 )
+anims/fade_out = SubResource( 12 )
+
+[node name="Tracks" type="Node" parent="War/ThirdLayer"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="War/ThirdLayer/Tracks"]
 stream = ExtResource( 11 )
 volume_db = -80.0
 autoplay = true
