@@ -23,10 +23,14 @@ radius = 17.5
 [node name="Boarminius" type="KinematicBody" groups=[
 "Enemies",
 ]]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 input_ray_pickable = false
 collision_layer = 4
 script = ExtResource( 1 )
+hit_damage = 50
+max_speed = 400.0
 boss = true
+max_hp = 100000
 debug_idle = Color( 0.960784, 0.909804, 0.909804, 1 )
 debug_charge = Color( 0.964706, 0.690196, 0.298039, 1 )
 debug_attack = Color( 0.513726, 0.266667, 0.266667, 1 )
@@ -43,14 +47,13 @@ autostart = true
 
 [node name="Recruit_Label" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.1183, 0 )
-visible = false
 cast_shadow = 0
 pixel_size = 0.02
 billboard = 1
 script = ExtResource( 6 )
 
 [node name="Viewport" type="Viewport" parent="Recruit_Label"]
-size = Vector2( 510, 76 )
+size = Vector2( 328, 76 )
 transparent_bg = true
 render_target_v_flip = true
 script = ExtResource( 4 )
@@ -59,7 +62,7 @@ script = ExtResource( 4 )
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 5 )
-text = "Press E to Recruit"
+text = "Boarminius"
 
 [node name="boar" parent="." instance=ExtResource( 2 )]
 

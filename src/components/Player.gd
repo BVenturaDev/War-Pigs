@@ -47,11 +47,13 @@ func _on_Swing_Timer_timeout():
 
 func _attack() -> void:
 	# Only hit while doing attack animation and only hit once per swing
-	if can_hit and not can_attack and pig.state_machine.get_current_node() == "Attack":
+	if can_hit and can_attack and pig.state_machine.get_current_node() == "Attack":
 		for body in pig.sword_area.get_overlapping_bodies():
 			if body.is_in_group("Enemies"):
 				if body.alive:
+					print("Hit")
 					can_hit = false
+					can_attack = false
 					var _live: bool = body.damage(hit_damage)
 					break
 

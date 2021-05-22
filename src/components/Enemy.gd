@@ -1,8 +1,5 @@
 extends KinematicBody
 
-# Constants
-const MAXHP: int = 100
-
 # States
 enum states {IDLE, CHARGE, ATTACK, KO, TUTORIAL}
 var state: int = states.IDLE
@@ -20,6 +17,7 @@ export var boss: bool = false
 
 export (bool) var tutorial_behaviour = false
 export (int) var tutorial_health = 0
+export (int) var max_hp = 100
 
 # Debug Colors
 export (Color) var debug_idle
@@ -40,7 +38,7 @@ onready var blood_spot = $Blood_Spot
 onready var boar = $boar
 
 # Enemy Variables
-var hp: int = MAXHP
+var hp: int = max_hp
 var alive: bool = true
 var target: Node = null
 var attack_tar: Node = null
@@ -174,7 +172,7 @@ func _physics_process(var delta: float) -> void:
 				target = null
 				attack_tar = null
 				alive = true
-				hp = MAXHP
+				hp = max_hp
 				label.visible = false
 				
 	if state == states.TUTORIAL:
@@ -183,11 +181,13 @@ func _physics_process(var delta: float) -> void:
 			label.visible = true
 	# Check if KO'd
 	elif hp < 1 and alive:
+		if boss:
+			#print(str(max_hp))
+			LevelManager.transition_to("res://scenes/levels/End_Credits.tscn")
 		get_tree().call_group("Minions", "enemy_killed", self)
 		attack_pos.clear_attackers()
 		alive = false
 		label.visible = true
-		
 		state = states.KO
 		boar.set_crawl_idle()
 	
