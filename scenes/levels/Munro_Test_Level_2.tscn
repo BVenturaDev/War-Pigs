@@ -263,6 +263,18 @@ transform = Transform( 11.9833, 0, -10.6019, 0, 16, 0, 10.6019, 0, 11.9833, 87.4
 [node name="rock23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
 transform = Transform( 15.7398, 0, 2.87349, 0, 16, 0, -2.87349, 0, 15.7398, 205.866, -1.13505, -121.405 )
 
+[node name="rock27" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+transform = Transform( 32.8409, 0, 5.9955, 0, 77.8331, 0, -6.05623, 0, 33.1735, 200.78, -1.13505, -96.3943 )
+
+[node name="rock28" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+transform = Transform( -11.7589, 0.0140315, -31.5095, -0.478024, 77.8239, 0.189754, 31.2522, 1.19565, -11.9811, 208.603, 18.0873, -198.463 )
+
+[node name="rock29" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+transform = Transform( 32.8409, 0, 5.9955, 0, 77.8331, 0, -6.05623, 0, 33.1735, 211.465, 25.0231, -142.51 )
+
+[node name="rock30" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+transform = Transform( 32.8409, 0, 5.9955, 0, 77.8331, 0, -6.05623, 0, 33.1735, 151.511, 6.48771, -197.386 )
+
 [node name="rock24" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
 transform = Transform( 12.8119, 0, 9.58417, 0, 16, 0, -9.58417, 0, 12.8119, 204.292, -1.13505, -147.566 )
 
