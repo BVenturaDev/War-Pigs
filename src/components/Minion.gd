@@ -81,7 +81,7 @@ func _state_attack() -> void:
 	if is_instance_valid(target) and not path_finder.has_path() and not in_formation:
 		# Select the enemy
 		attack_tar = target.get_parent().get_parent().get_parent()
-		pig.anim.play("Attack")
+		pig.set_attack()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
@@ -231,6 +231,10 @@ func _physics_process(var delta: float) -> void:
 	if not is_on_floor():
 		vel.y = Globals.GRAV
 	var _v = move_and_slide(vel, Vector3.UP)
+	if abs(vel.x) + abs(vel.z) >= Globals.ANIM_VEL:
+		pig.set_run()
+	else:
+		pig.set_idle()
 	
 	if state == states.FOLLOW:
 		if Globals.DEBUG:

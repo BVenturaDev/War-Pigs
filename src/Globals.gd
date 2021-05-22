@@ -3,6 +3,7 @@ extends Node
 # Constants
 const GRAV: float = -30.0
 const ATTACKDIST: float = -110.0
+const ANIM_VEL: float = 1.0
 
 # DEBUG
 const DEBUG = true
