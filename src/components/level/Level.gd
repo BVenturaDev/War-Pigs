@@ -6,8 +6,12 @@ var shop: bool = false
 export (bool) var spawn_pigs = true
 export (bool) var save_starting = true
 
+onready var death_screen = $DeathScreen
+
 # Data stored when starting
 var starting_data: StartingData
+
+
 
 func _ready():
 	if name == "Shop":
@@ -31,16 +35,31 @@ func _ready():
 		
 	# Connect to player
 	var player = get_node("Player")
-	player.connect("died", self, "reset_level")
+	player.connect("died", self, "show_death_screen")
+	death_screen.visible = false
+
 	
 func save_starting_data():
 	var data = StartingData.new(Globals.total_pigs, Globals.hp, Globals.total_currency)
 	starting_data = data
+	
 
-func reset_level():
+func show_death_screen():
+	# Store values
+	death_screen.visible = true
+	death_screen.player_dead = true
 	if starting_data != null:
 		Globals.total_pigs = starting_data.pigs_starting
 		Globals.hp = starting_data.health_starting
 		Globals.total_currency = starting_data.currency_starting
-		
+	#remove_player()
+	get_tree().paused = true
+
+func reset_level():
 	var _r = get_tree().reload_current_scene()
+	
+func remove_player():
+	var player = $Player
+	player.queue_free()
+
+
