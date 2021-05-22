@@ -29,6 +29,7 @@ onready var blood_spot = $Blood_Spot
 # Signals
 signal charge
 signal return_formation
+signal died
 
 func _interact():
 	var col = interact_tar.get_collider()
@@ -211,4 +212,5 @@ func damage() -> void:
 	_adjust_gear()
 	if Globals.hp <= 0:
 		Globals.hp = 0
+		emit_signal("died")
 		print("YOU DED")

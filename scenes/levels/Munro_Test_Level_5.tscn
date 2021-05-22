@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://src/components/Level.gd" type="Script" id=1]
+[ext_resource path="res://src/components/level/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/materials/Ground.tres" type="Material" id=2]
 [ext_resource path="res://scenes/models/tree2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/models/rock2.tscn" type="PackedScene" id=5]
