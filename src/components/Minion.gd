@@ -18,7 +18,6 @@ onready var path_finder: Spatial = $Path_Finder
 onready var attack_time: Timer = $Attack_Timer
 onready var baggage: Spatial = $Baggage
 onready var aggro_rad: Area = $Area
-onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 onready var pig = $pig
 onready var debug_status = $DebugStatus
@@ -177,7 +176,6 @@ func _check_bodies():
 func _on_Attack_Timer_timeout() -> void:
 	attacking = false
 	if attack_tar:
-		sword_sound_player.play_random_sound()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0

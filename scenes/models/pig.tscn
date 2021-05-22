@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/tools/Viewport.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tools/AnimationTree.tscn" type="PackedScene" id=2]
@@ -18,6 +18,13 @@
 [ext_resource path="res://src/tools/3DSprite_Viewport.gd" type="Script" id=16]
 [ext_resource path="res://assets/models/pig/eye_blue.material" type="Material" id=17]
 [ext_resource path="res://src/components/Pig.gd" type="Script" id=18]
+[ext_resource path="res://assets/sounds/pigs/normal swing.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/sounds/pigs/high swing.wav" type="AudioStream" id=20]
+[ext_resource path="res://src/audio/random_sound_player.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/sounds/pigs/sword scrape 1.wav" type="AudioStream" id=22]
+[ext_resource path="res://assets/sounds/pigs/sword scrape 3.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/sounds/pigs/sword scrape 2.wav" type="AudioStream" id=24]
+[ext_resource path="res://assets/sounds/pigs/death 2.wav" type="AudioStream" id=25]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Helmet"
@@ -2481,6 +2488,34 @@ tracks/217/loop_wrap = true
 tracks/217/imported = true
 tracks/217/enabled = true
 tracks/217/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.07181e-29, 1.08723e-14, 7.4242e-15, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, -8.07181e-29, 1.08723e-14, 7.4242e-15, 1, 1, 1, 1 )
+tracks/218/type = "method"
+tracks/218/path = NodePath("SwordSwingSoundPlayer")
+tracks/218/interp = 1
+tracks/218/loop_wrap = true
+tracks/218/imported = false
+tracks/218/enabled = true
+tracks/218/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_random_sound"
+} ]
+}
+tracks/219/type = "method"
+tracks/219/path = NodePath("SwordScrapeSoundPlayer")
+tracks/219/interp = 1
+tracks/219/loop_wrap = true
+tracks/219/imported = false
+tracks/219/enabled = true
+tracks/219/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_random_sound"
+} ]
+}
 
 [sub_resource type="Animation" id=18]
 length = 0.833333
@@ -12979,3 +13014,48 @@ anims/Run_Banner = SubResource( 23 )
 active = true
 parameters/playback = SubResource( 24 )
 "parameters/BlendTree 2/Blend2/blend_amount" = 0.5
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( -0.8, 0, -6.99379e-08, 0, 0.8, 0, 6.99379e-08, 0, -0.8, 0, 4.67546, 0 )
+stream = ExtResource( 25 )
+unit_size = 30.0
+bus = "Sounds"
+
+[node name="SwordSwingSoundPlayer" parent="." instance=ExtResource( 21 )]
+
+[node name="NormalSwing" type="AudioStreamPlayer3D" parent="SwordSwingSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 19 )
+unit_db = 2.0
+unit_size = 70.0
+bus = "Sounds"
+
+[node name="HighSwing" type="AudioStreamPlayer3D" parent="SwordSwingSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 20 )
+unit_db = 2.0
+unit_size = 70.0
+bus = "Sounds"
+
+[node name="SwordScrapeSoundPlayer" parent="." instance=ExtResource( 21 )]
+
+[node name="SwordScrape" type="AudioStreamPlayer3D" parent="SwordScrapeSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 22 )
+unit_db = 4.0
+unit_size = 70.0
+bus = "Sounds"
+
+[node name="SwordScrape2" type="AudioStreamPlayer3D" parent="SwordScrapeSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 24 )
+unit_db = 4.0
+unit_size = 70.0
+bus = "Sounds"
+
+[node name="SwordScrape3" type="AudioStreamPlayer3D" parent="SwordScrapeSoundPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 23 )
+unit_db = 4.0
+unit_size = 70.0
+bus = "Sounds"
