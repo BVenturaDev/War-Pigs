@@ -12979,3 +12979,6 @@ anims/Run_Banner = SubResource( 23 )
 active = true
 parameters/playback = SubResource( 24 )
 "parameters/BlendTree 2/Blend2/blend_amount" = 0.5
+
+[node name="Death_Effect_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73126, 0 )

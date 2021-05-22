@@ -181,6 +181,7 @@ func _physics_process(var delta: float) -> void:
 			label.visible = true
 	# Check if KO'd
 	elif hp < 1 and alive:
+		Globals.make_death(boar.death_spot.global_transform.origin)
 		if boss:
 			#print(str(max_hp))
 			LevelManager.transition_to("res://scenes/levels/End_Credits.tscn")

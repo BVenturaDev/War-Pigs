@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/flame_01.png-e61191ce2f364bdc40cf86c9202ca01b.s3tc.stex"
-path.etc2="res://.import/flame_01.png-e61191ce2f364bdc40cf86c9202ca01b.etc2.stex"
+path.s3tc="res://.import/twirl_01.png-c018ee3cd0e49d1d02515b63d5eefe0e.s3tc.stex"
+path.etc2="res://.import/twirl_01.png-c018ee3cd0e49d1d02515b63d5eefe0e.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/flame_01.png"
-dest_files=[ "res://.import/flame_01.png-e61191ce2f364bdc40cf86c9202ca01b.s3tc.stex", "res://.import/flame_01.png-e61191ce2f364bdc40cf86c9202ca01b.etc2.stex" ]
+source_file="res://assets/textures/twirl_01.png"
+dest_files=[ "res://.import/twirl_01.png-c018ee3cd0e49d1d02515b63d5eefe0e.s3tc.stex", "res://.import/twirl_01.png-c018ee3cd0e49d1d02515b63d5eefe0e.etc2.stex" ]
 
 [params]
 

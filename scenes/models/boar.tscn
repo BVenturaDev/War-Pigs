@@ -12247,7 +12247,7 @@ bones/108/name = "head"
 bones/108/parent = 107
 bones/108/rest = Transform( 1, -2.55795e-13, -2.38419e-07, -2.12047e-07, -0.457151, -0.889389, -1.08993e-07, 0.889389, -0.457151, -1.23207e-14, -6.32385e-08, -4.83946e-07 )
 bones/108/enabled = true
-bones/108/bound_children = [  ]
+bones/108/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3"), NodePath("BoneAttachment4"), NodePath("BoneAttachment5") ]
 bones/109/name = "tweak_spine.004"
 bones/109/parent = 106
 bones/109/rest = Transform( 1, 4.95576e-08, 5.20745e-09, -4.95576e-08, 0.978159, 0.207859, 5.20729e-09, -0.207859, 0.978159, -2.79251e-14, 4.85049e-07, -3.95104e-08 )
@@ -12307,7 +12307,7 @@ bones/120/name = "hand_tweak.L"
 bones/120/parent = 119
 bones/120/rest = Transform( 1, -3.01469e-06, 7.16839e-06, 3.01469e-06, 1, 5.47163e-07, -7.16839e-06, -5.47141e-07, 1, 4.47965e-07, 1.78815e-07, -2.3842e-07 )
 bones/120/enabled = true
-bones/120/bound_children = [  ]
+bones/120/bound_children = [ NodePath("BoneAttachment6") ]
 bones/121/name = "MCH-forearm_tweak.L"
 bones/121/parent = 117
 bones/121/rest = Transform( 1.01045, -1.628e-06, 3.22624e-06, 1.628e-06, 1.01045, 5.19541e-07, -3.22624e-06, -5.19536e-07, 1.01045, 1.89989e-07, -3.35277e-08, -8.56817e-08 )
@@ -12457,7 +12457,7 @@ bones/150/name = "hand_tweak.R"
 bones/150/parent = 149
 bones/150/rest = Transform( 1, 2.997e-06, -7.37794e-06, -2.99699e-06, 1, 7.8791e-07, 7.37794e-06, -7.87888e-07, 1, -1.57393e-07, 5.88269e-11, 5.96029e-08 )
 bones/150/enabled = true
-bones/150/bound_children = [  ]
+bones/150/bound_children = [ NodePath("BoneAttachment7") ]
 bones/151/name = "MCH-forearm_tweak.R"
 bones/151/parent = 147
 bones/151/rest = Transform( 1.00276, 1.68475e-06, -3.36763e-06, -1.68475e-06, 1.00276, 4.81914e-07, 3.36763e-06, -4.81908e-07, 1.00276, 4.7614e-07, 2.01165e-07, -3.94879e-07 )
@@ -12886,3 +12886,6 @@ anims/Run_Banner = SubResource( 17 )
 [node name="AnimationTree" parent="." instance=ExtResource( 14 )]
 active = true
 parameters/playback = SubResource( 18 )
+
+[node name="Death_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 4.67371, 0 )
