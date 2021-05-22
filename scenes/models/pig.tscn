@@ -12978,3 +12978,4 @@ anims/Run_Banner = SubResource( 23 )
 [node name="AnimationTree" parent="." instance=ExtResource( 2 )]
 active = true
 parameters/playback = SubResource( 24 )
+"parameters/BlendTree 2/Blend2/blend_amount" = 0.5

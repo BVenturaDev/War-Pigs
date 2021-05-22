@@ -6,14 +6,14 @@ const ATTACKDIST: float = -110.0
 const ANIM_VEL: float = 1.0
 
 # DEBUG
-const DEBUG = true
+const DEBUG = false
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
 var options: Node = null
 
 # Player hp
-var max_hp = 5
+const MAXHP = 5
 var hp: int = 0
 
 # Currency
@@ -42,9 +42,8 @@ func _ready() -> void:
 	options = options_scene.instance()
 	get_tree().get_root().call_deferred("add_child", options)
 	options.visible = false
-	hp = max_hp
-	if DEBUG:
-		total_currency = 20
+	hp = MAXHP
+	total_currency = 20
 
 func _process(_delta) -> void:
 	if total_currency < 0:

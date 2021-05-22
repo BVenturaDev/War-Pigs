@@ -8,6 +8,8 @@ var shop: bool = false
 func _ready():
 	if name == "Shop":
 		shop = true
+	elif name == "Test_Level1":
+		Globals.hp = Globals.MAXHP
 	add_to_group("Levels")
 	for x in Globals.total_pigs:
 		var pig = pig_scene.instance()

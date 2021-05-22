@@ -112,7 +112,7 @@ func _physics_process(var delta: float) -> void:
 			pig.set_attack()
 			can_hit = true
 			sword_sound_player.play_random_sound()
-	elif abs(vel.x) + abs(vel.z) >= Globals.ANIM_VEL and can_attack:
+	elif abs(vel.x) + abs(vel.z) >= max_speed and can_attack:
 		pig.set_run()
 	else:
 		pig.set_idle()

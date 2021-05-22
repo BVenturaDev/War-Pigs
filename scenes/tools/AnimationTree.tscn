@@ -1,44 +1,71 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=36 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Attack"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "Crawl"
-
-[sub_resource type="AnimationNodeAnimation" id=3]
-animation = "Crawl_Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "Hold_Banner"
-
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=6]
-animation = "Run"
-
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=30]
 animation = "Run_Banner"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Hold_Banner"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
-switch_mode = 2
+[sub_resource type="AnimationNodeBlend2" id=32]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeBlendTree" id=33]
+nodes/Animation/node = SubResource( 31 )
+nodes/Animation/position = Vector2( 160, 100 )
+"nodes/Animation 2/node" = SubResource( 30 )
+"nodes/Animation 2/position" = Vector2( 160, 200 )
+nodes/Blend2/node = SubResource( 32 )
+nodes/Blend2/position = Vector2( 480, 120 )
+nodes/output/position = Vector2( 860, 160 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Run"
+
+[sub_resource type="AnimationNodeBlend2" id=4]
+
+[sub_resource type="AnimationNodeBlendTree" id=5]
+graph_offset = Vector2( 165, 16 )
+nodes/Animation/node = SubResource( 3 )
+nodes/Animation/position = Vector2( 420, 60 )
+"nodes/Animation 2/node" = SubResource( 2 )
+"nodes/Animation 2/position" = Vector2( 420, 240 )
+nodes/Blend2/node = SubResource( 4 )
+nodes/Blend2/position = Vector2( 620, 120 )
+nodes/output/position = Vector2( 800, 140 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Crawl"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Crawl_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Hold_Banner"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Run_Banner"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
@@ -48,30 +75,54 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
-[sub_resource type="AnimationNodeStateMachine" id=22]
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachine" id=28]
 states/Attack/node = SubResource( 1 )
 states/Attack/position = Vector2( 777, 96 )
-states/Crawl/node = SubResource( 2 )
+states/BlendTree/node = SubResource( 5 )
+states/BlendTree/position = Vector2( 441.403, -28.1204 )
+"states/BlendTree 2/node" = SubResource( 33 )
+"states/BlendTree 2/position" = Vector2( 655, 275.88 )
+states/Crawl/node = SubResource( 6 )
 states/Crawl/position = Vector2( 655, -251 )
-states/Crawl_Idle/node = SubResource( 3 )
+states/Crawl_Idle/node = SubResource( 7 )
 states/Crawl_Idle/position = Vector2( 655, -174 )
-states/Hold_Banner/node = SubResource( 4 )
+states/Hold_Banner/node = SubResource( 8 )
 states/Hold_Banner/position = Vector2( 536, 181 )
-states/Idle/node = SubResource( 5 )
+states/Idle/node = SubResource( 9 )
 states/Idle/position = Vector2( 536, 96 )
-states/Run/node = SubResource( 6 )
-states/Run/position = Vector2( 655, -7 )
-states/Run_Banner/node = SubResource( 7 )
+states/Run/node = SubResource( 10 )
+states/Run/position = Vector2( 655, -60 )
+states/Run_Banner/node = SubResource( 11 )
 states/Run_Banner/position = Vector2( 777, 181 )
-transitions = [ "Idle", "Attack", SubResource( 8 ), "Attack", "Idle", SubResource( 9 ), "Idle", "Run", SubResource( 10 ), "Attack", "Run", SubResource( 11 ), "Run", "Attack", SubResource( 13 ), "Hold_Banner", "Run_Banner", SubResource( 14 ), "Run_Banner", "Hold_Banner", SubResource( 15 ), "Crawl_Idle", "Crawl", SubResource( 16 ), "Crawl", "Crawl_Idle", SubResource( 17 ), "Run", "Crawl_Idle", SubResource( 18 ), "Crawl_Idle", "Idle", SubResource( 19 ), "Attack", "Crawl_Idle", SubResource( 20 ), "Idle", "Crawl_Idle", SubResource( 21 ), "Run", "Idle", SubResource( 24 ) ]
+transitions = [ "Idle", "Attack", SubResource( 12 ), "Attack", "Idle", SubResource( 13 ), "Attack", "Run", SubResource( 14 ), "Run", "Attack", SubResource( 15 ), "Crawl_Idle", "Crawl", SubResource( 18 ), "Crawl", "Crawl_Idle", SubResource( 19 ), "Run", "Crawl_Idle", SubResource( 20 ), "Crawl_Idle", "Idle", SubResource( 21 ), "Attack", "Crawl_Idle", SubResource( 22 ), "Idle", "Crawl_Idle", SubResource( 23 ), "Idle", "BlendTree", SubResource( 24 ), "BlendTree", "Run", SubResource( 25 ), "Run", "BlendTree", SubResource( 26 ), "BlendTree", "Idle", SubResource( 27 ), "Hold_Banner", "BlendTree 2", SubResource( 34 ), "BlendTree 2", "Run_Banner", SubResource( 35 ), "Run_Banner", "BlendTree 2", SubResource( 36 ), "BlendTree 2", "Hold_Banner", SubResource( 37 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 59.4027, -42.1204 )
+graph_offset = Vector2( -21.5973, -133.12 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
 [node name="AnimationTree" type="AnimationTree"]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 28 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 23 )
+parameters/playback = SubResource( 29 )
+parameters/BlendTree/Blend2/blend_amount = 0
+"parameters/BlendTree 2/Blend2/blend_amount" = 0

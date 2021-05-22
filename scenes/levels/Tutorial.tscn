@@ -93,10 +93,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64127, -8, 212.203 )
 
 [node name="Navigation" type="Navigation" parent="."]
 
-[node name="Enemy" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.6698, -8, 141.99 )
-tutorial_behaviour = true
-
 [node name="Enemy2" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 0.780812, 0, -0.624766, 0, 1, 0, 0.624766, 0, 0.780812, 42.3101, -8, 112.521 )
 tutorial_behaviour = true
@@ -109,20 +105,8 @@ tutorial_behaviour = true
 transform = Transform( 0.905783, 0, -0.423741, 0, 1, 0, 0.423741, 0, 0.905783, 30.9379, -8, 128.749 )
 tutorial_behaviour = true
 
-[node name="Enemy6" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 0.905783, 0, -0.423741, 0, 1, 0, 0.423741, 0, 0.905783, 57.3316, -8, 128.749 )
-tutorial_behaviour = true
-
-[node name="Enemy11" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 58.9887, -8, 139.42 )
-tutorial_behaviour = true
-
 [node name="Enemy12" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 0.780812, 0, -0.624766, 0, 1, 0, 0.624766, 0, 0.780812, 57.629, -8, 109.951 )
-tutorial_behaviour = true
-
-[node name="Enemy13" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( -0.344987, 0, -0.938608, 0, 1, 0, 0.938608, 0, -0.344987, 82.3351, -8, 109.328 )
 tutorial_behaviour = true
 
 [node name="Enemy5" parent="Navigation" instance=ExtResource( 4 )]
@@ -536,7 +520,7 @@ transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172,
 transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172, 32.5165, -10.9732, -110.777 )
 
 [node name="Enemy9" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172, 32.5165, -10.9732, -110.777 )
+transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172, 32.5165, -10.9732, -124.947 )
 
 [node name="Enemy10" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( -0.232172, 0, -0.972675, 0, 1, 0, 0.972675, 0, -0.232172, 34.4711, -10.9732, -176.133 )
@@ -594,6 +578,31 @@ per 30 seconds each
 when on the battlefield.  
 
 Be mindful of your numbers."
+
+[node name="Combat_Label" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6591, -1.93657, -66.0069 )
+cast_shadow = 0
+pixel_size = 0.02
+billboard = 1
+script = ExtResource( 20 )
+
+[node name="Viewport" type="Viewport" parent="Combat_Label"]
+size = Vector2( 1089, 550 )
+transparent_bg = true
+render_target_v_flip = true
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Combat_Label/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 19 )
+text = "You can attack with space.
+
+Beware, the boars can attack back.
+
+Lose too much armor,
+
+ and you might suffer a mortal wound."
 
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut"]
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut/Hut"]
