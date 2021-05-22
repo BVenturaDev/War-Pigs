@@ -182,7 +182,7 @@ func buy_pig() -> bool:
 	new_minion.join_formation()
 	
 	#Update total pigs
-	Globals.total_pigs += 1
+	Globals.add_pig_to_count()
 	
 	return true
 
@@ -199,7 +199,7 @@ func sell_item(item: Sellable):
 func sell_pig():
 	formations.remove_last_pig()
 	
-	Globals.total_pigs -= 1
+	Globals.remove_pig_from_count()
 	
 func can_sell_item(item: Sellable):
 	match item.get_type():

@@ -60,7 +60,7 @@ Globals="*res://src/Globals.gd"
 Options="*res://src/options.gd"
 LevelManager="*res://src/components/transition/level_manager.gd"
 Random="*res://src/Random.gd"
-MusicPlayer="*res://src/audio/music_player.tscn"
+MusicManager="*res://src/audio/music_manager.tscn"
 
 [display]
 

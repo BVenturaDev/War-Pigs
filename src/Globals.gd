@@ -21,8 +21,11 @@ var hp: int = 0
 # Currency
 var total_currency: int = 0
 # Pigs 
-var total_pigs: int = 10
+var total_pigs: int = 0
+signal total_pigs_updated
+
 var total_combat_pigs: int = 0
+signal combat_pigs_updated
 
 # Levels
 onready var levels: Array = [
@@ -64,7 +67,17 @@ func add_to_currency(value: int):
 	
 func decrease_currency(amount: int):
 	total_currency -= int(abs(float(amount)))
-	
+
+
+func add_pig_to_count():
+	total_pigs += 1
+	emit_signal("total_pigs_updated", total_pigs)
+
+
+func remove_pig_from_count():
+	total_pigs -= 1
+	emit_signal("total_pigs_updated", total_pigs)
+
 func make_blood(var pos: Vector3) -> void:
 	var blood_splash = blood.instance()
 	get_tree().get_root().add_child(blood_splash)

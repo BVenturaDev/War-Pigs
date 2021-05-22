@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/music/March Rhythm.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/March Cello.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/March Drums.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/March Lead.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/March Lead Harmony.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/March Violin.ogg" type="AudioStream" id=6]
+[ext_resource path="res://src/audio/music_manager.gd" type="Script" id=7]
+
+[node name="MusicManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="March" type="Node" parent="."]
+
+[node name="MainLayer" type="Node" parent="March"]
+
+[node name="Drums" type="AudioStreamPlayer" parent="March/MainLayer"]
+stream = ExtResource( 3 )
+volume_db = -6.0
+autoplay = true
+bus = "Music"
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="March/MainLayer"]
+stream = ExtResource( 1 )
+volume_db = -6.0
+autoplay = true
+bus = "Music"
+
+[node name="SecondLayer" type="Node" parent="March"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="March/SecondLayer"]
+stream = ExtResource( 4 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="LeadHarmony" type="AudioStreamPlayer" parent="March/SecondLayer"]
+stream = ExtResource( 5 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="ThirdLayer" type="Node" parent="March"]
+
+[node name="Violin" type="AudioStreamPlayer" parent="March/ThirdLayer"]
+stream = ExtResource( 6 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="Cello" type="AudioStreamPlayer" parent="March/ThirdLayer"]
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"

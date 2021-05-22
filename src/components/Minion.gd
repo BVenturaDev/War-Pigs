@@ -187,6 +187,7 @@ func _on_Attack_Timer_timeout() -> void:
 func _remove_self() -> void:
 	if state == states.ATTACK:
 		Globals.total_combat_pigs -= 1
+	Globals.remove_pig_from_count()
 	alive = false
 	get_tree().call_group("Enemies", "minion_killed", self)
 	player.formations.reshuffle(form_id)
