@@ -19,6 +19,7 @@ func _physics_process(_delta):
 		
 func transition():
 	if not has_huts:
+		# Reset health for next level
 		if not store_health:
 			Globals.hp = Globals.max_hp
 			
