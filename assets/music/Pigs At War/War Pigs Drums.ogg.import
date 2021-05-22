@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/War Pigs Drums.ogg-b28198b207f8a2e7a582292aa33800e0.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Pigs At War/War Pigs Drums.ogg"
+dest_files=[ "res://.import/War Pigs Drums.ogg-b28198b207f8a2e7a582292aa33800e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

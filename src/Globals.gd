@@ -78,6 +78,17 @@ func remove_pig_from_count():
 	total_pigs -= 1
 	emit_signal("total_pigs_updated", total_pigs)
 
+	
+func add_pig_to_combat_count():
+	total_combat_pigs += 1
+	emit_signal("combat_pigs_updated", total_combat_pigs)
+
+
+func remove_pig_from_combat_count():
+	total_combat_pigs -= 1
+	emit_signal("combat_pigs_updated", total_combat_pigs)
+
+
 func make_blood(var pos: Vector3) -> void:
 	var blood_splash = blood.instance()
 	get_tree().get_root().add_child(blood_splash)

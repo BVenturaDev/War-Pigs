@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/music/March Rhythm.ogg" type="AudioStream" id=1]
-[ext_resource path="res://assets/music/March Cello.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/music/March Drums.ogg" type="AudioStream" id=3]
-[ext_resource path="res://assets/music/March Lead.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/music/March Lead Harmony.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/music/March Violin.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/music/March of the Pigs/March Rhythm.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/March of the Pigs/March Cello.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/March of the Pigs/March Drums.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/March of the Pigs/March Lead.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/March of the Pigs/March Lead Harmony.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/March of the Pigs/March Violin.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/audio/music_manager.gd" type="Script" id=7]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs Rhythm.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs Drums.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs Synth.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs Lead.ogg" type="AudioStream" id=11]
 
 [node name="MusicManager" type="Node"]
 pause_mode = 2
@@ -52,6 +56,38 @@ bus = "Music"
 
 [node name="Cello" type="AudioStreamPlayer" parent="March/ThirdLayer"]
 stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="War" type="Node" parent="."]
+
+[node name="MainLayer" type="Node" parent="War"]
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="War/MainLayer"]
+stream = ExtResource( 8 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="Drums" type="AudioStreamPlayer" parent="War/MainLayer"]
+stream = ExtResource( 9 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="SecondLayer" type="Node" parent="War"]
+
+[node name="Synth" type="AudioStreamPlayer" parent="War/SecondLayer"]
+stream = ExtResource( 10 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="ThirdLayer" type="Node" parent="War"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="War/ThirdLayer"]
+stream = ExtResource( 11 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"

@@ -186,7 +186,7 @@ func _on_Attack_Timer_timeout() -> void:
 		
 func _remove_self() -> void:
 	if state == states.ATTACK:
-		Globals.total_combat_pigs -= 1
+		Globals.remove_pig_from_combat_count()
 	Globals.remove_pig_from_count()
 	alive = false
 	get_tree().call_group("Enemies", "minion_killed", self)
@@ -198,7 +198,7 @@ func _remove_self() -> void:
 func attack(var body: Node):
 	if not body.attack_pos.is_attacker(self):
 		if not state == states.ATTACK:
-			Globals.total_combat_pigs += 1
+			Globals.add_pig_to_combat_count()
 		in_formation = false
 		target = body.attack_pos.add_attacker(self, attack_i)
 		path_finder.update_path(target)
@@ -221,7 +221,7 @@ func join_formation() -> void:
 
 func line_up():
 	if state == states.ATTACK:
-		Globals.total_combat_pigs -= 1
+		Globals.remove_pig_from_combat_count()
 	path_finder.stop()
 	attack_tar = null
 	player.formations.update_target(form_id)
