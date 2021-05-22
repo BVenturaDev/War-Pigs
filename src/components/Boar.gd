@@ -4,6 +4,7 @@ onready var sword = $rig/Skeleton/BoneAttachment7/Sword
 onready var shield = $rig/Skeleton/BoneAttachment6/Shield
 onready var anim = $AnimationTree
 onready var state_machine = anim["parameters/playback"]
+onready var death_spot = $Death_Spot
 
 func _ready():
 	set_idle()

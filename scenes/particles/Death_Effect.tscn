@@ -1,10 +1,109 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/tools/Death_Effect.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/smoke_04.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/twirl_03.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.48062, 1 )
+colors = PoolColorArray( 0.917647, 0.713726, 0.886275, 1, 0.0745098, 0.0745098, 0.0745098, 0.768627, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_box_extents = Vector3( 0.1, 2, 0.1 )
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angular_velocity = 75.0
+angular_velocity_random = 1.0
+angle = 180.0
+angle_random = 1.0
+scale = 4.0
+scale_random = 0.5
+color_ramp = SubResource( 5 )
+
+[sub_resource type="QuadMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.426357, 0.744186, 1 )
+colors = PoolColorArray( 0.898039, 0.870588, 0.65098, 0, 0.917647, 0.435294, 0.807843, 1, 0.917647, 0.435294, 0.807843, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_box_extents = Vector3( 0.1, 2, 0.1 )
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 0.25
+radial_accel = 1.0
+radial_accel_random = 0.5
+angle = 360.0
+angle_random = 1.0
+scale = 0.5
+scale_random = 0.5
+color_ramp = SubResource( 9 )
 
 [node name="Death_Effect" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Clean_Up" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Particles" type="Particles" parent="."]
+material_override = SubResource( 1 )
+cast_shadow = 0
+emitting = false
+amount = 150
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Particles2" type="Particles" parent="."]
+material_override = SubResource( 6 )
+cast_shadow = 0
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 3 )
 
 [connection signal="timeout" from="Clean_Up" to="." method="_on_Clean_Up_timeout"]

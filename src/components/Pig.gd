@@ -11,6 +11,7 @@ onready var helmet = $rig/Skeleton/BoneAttachment/Helmet
 onready var shoulder_pads = $rig/Skeleton/Shoulderpads
 onready var breastplate = $rig/Skeleton/Breastplate
 onready var tunic = $rig/Skeleton/Tunic
+onready var death_spot = $Death_Effect_Spot
 
 func _ready():
 	set_idle()
