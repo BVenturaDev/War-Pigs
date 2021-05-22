@@ -1,7 +1,5 @@
 extends Spatial
 
-export (bool) var DEBUG = false
-
 var pig_scene = preload("res://scenes/components/Minion.tscn")
 var shop: bool = false
 
