@@ -3,12 +3,14 @@ extends Node
 const MARCH_MINIMUM_PIGS_SECOND_LAYER = 5
 const MARCH_MINIMUM_PIGS_THIRD_LAYER = 10
 
-const WAR_MINIMUM_PIGS_SECOND_LAYER = 5
-const WAR_MINIMUM_PIGS_THIRD_LAYER = 10
+const WAR_MINIMUM_PIGS_SECOND_LAYER = 3
+const WAR_MINIMUM_PIGS_THIRD_LAYER = 6
 
 onready var _march: Node = $March
 onready var _war: Node = $War
 var _is_march_on = true
+
+var _switch_track = false
 
 var last_pig_count = 0
 var last_combat_pig_count = 0
@@ -46,8 +48,24 @@ func _update_music_layers(music_node: Node, total_pigs: int, last_pig_count: int
 
 
 func _handle_track_switch(total_combat_pigs: int) -> void:
+	if _switch_track == false:
+		if _is_march_on:
+			if total_combat_pigs > 0:
+				_switch_track = true
+				$Timer.start()
+		else:
+			if total_combat_pigs == 0:
+				_switch_track = true
+				$Timer.start()
+			_update_music_layers(_war, total_combat_pigs, last_combat_pig_count, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
+			
+	
+	last_combat_pig_count = total_combat_pigs
+
+
+func _on_Timer_timeout() -> void:
 	if _is_march_on:
-		if total_combat_pigs > 0:
+		if Globals.total_combat_pigs > 0:
 			_fade_out_layer(_march, "MainLayer")
 			if Globals.total_pigs >= MARCH_MINIMUM_PIGS_SECOND_LAYER:
 				_fade_out_layer(_march, "SecondLayer")
@@ -56,11 +74,8 @@ func _handle_track_switch(total_combat_pigs: int) -> void:
 			_is_march_on = false
 			_fade_in_layer(_war, "MainLayer")
 	else:
-		if total_combat_pigs == 0:
+		if Globals.total_combat_pigs == 0:
 			_fade_out_layer(_war, "MainLayer")
 			_is_march_on = true
 			_fade_in_layer(_march, "MainLayer")
-		else:
-			_update_music_layers(_war, total_combat_pigs, last_combat_pig_count, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
-	last_combat_pig_count = total_combat_pigs
-
+	_switch_track = false
