@@ -75,6 +75,7 @@ shape = SubResource( 2 )
 one_shot = true
 
 [node name="Attack_Positiions" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
 
 [node name="Hut_Finder" parent="." instance=ExtResource( 8 )]
 

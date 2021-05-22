@@ -1,7 +1,7 @@
 extends Spatial
 
 var currency
-export (int) var value = 1
+export (int) var value = 2
 
 func _ready():
 	currency = CurrencyData.new(value)

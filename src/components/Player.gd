@@ -51,7 +51,6 @@ func _attack() -> void:
 		for body in pig.sword_area.get_overlapping_bodies():
 			if body.is_in_group("Enemies"):
 				if body.alive:
-					print("Hit")
 					can_hit = false
 					can_attack = false
 					var _live: bool = body.damage(hit_damage)
