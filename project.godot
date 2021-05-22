@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="War Pigs"
-run/main_scene="res://scenes/levels/Munro_Test_Level_1.tscn"
+run/main_scene="res://scenes/levels/Tutorial.tscn"
 config/icon="res://icon.png"
 
 [autoload]
