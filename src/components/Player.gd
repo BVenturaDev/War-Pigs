@@ -214,4 +214,4 @@ func damage() -> void:
 	if Globals.hp <= 0:
 		Globals.hp = 0
 		emit_signal("died")
-		print("YOU DED")
+		#print("YOU DED")
