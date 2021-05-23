@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/ui/options/rebindable_action.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/JosefinSlab_regular_font_data.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/options/volume_slider.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
 
 [node name="Options" type="Control"]
 pause_mode = 2
@@ -17,97 +22,21 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color( 0, 0, 0, 0.392157 )
-margin_left = 240.0
-margin_top = 135.0
-margin_right = 1680.0
-margin_bottom = 945.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hotkeys" type="GridContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -44.5
-margin_top = -20.0
-margin_right = 44.5
-margin_bottom = 20.0
-columns = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RebindableAction" parent="Hotkeys" instance=ExtResource( 1 )]
-margin_right = 119.0
-action = "move_forward"
-
-[node name="Label" parent="Hotkeys/RebindableAction" index="0"]
-margin_right = 90.0
-text = "Move forward:"
-
-[node name="Button" parent="Hotkeys/RebindableAction" index="1"]
-margin_left = 94.0
-margin_right = 119.0
-text = "W"
-
-[node name="RebindableAction5" parent="Hotkeys" instance=ExtResource( 1 )]
-margin_left = 123.0
-margin_right = 248.0
-action = "move_backward"
-
-[node name="Label" parent="Hotkeys/RebindableAction5" index="0"]
-margin_right = 102.0
-text = "Move backward:"
-
-[node name="Button" parent="Hotkeys/RebindableAction5" index="1"]
-margin_left = 106.0
-margin_right = 125.0
-text = "S"
-
-[node name="RebindableAction6" parent="Hotkeys" instance=ExtResource( 1 )]
-margin_top = 24.0
-margin_right = 119.0
-margin_bottom = 44.0
-action = "move_left"
-
-[node name="RebindableAction2" parent="Hotkeys" instance=ExtResource( 1 )]
-margin_left = 123.0
-margin_top = 24.0
-margin_right = 248.0
-margin_bottom = 44.0
-action = "move_right"
-
-[node name="Label" parent="Hotkeys/RebindableAction2" index="0"]
-margin_right = 72.0
-text = "Move right:"
-
-[node name="Button" parent="Hotkeys/RebindableAction2" index="1"]
-margin_left = 76.0
-margin_right = 98.0
-text = "D"
-
-[node name="RebindableAction4" parent="Hotkeys" instance=ExtResource( 1 )]
-margin_top = 48.0
-margin_right = 119.0
-margin_bottom = 68.0
-action = "attack"
-
-[node name="Label" parent="Hotkeys/RebindableAction4" index="0"]
-margin_right = 44.0
-text = "Attack:"
-
-[node name="Button" parent="Hotkeys/RebindableAction4" index="1"]
-margin_left = 48.0
-margin_right = 97.0
-text = "Space"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 343.846
-margin_top = 488.799
-margin_right = 440.846
-margin_bottom = 598.799
+margin_left = -221.359
+margin_top = -52.7551
+margin_right = -124.359
+margin_bottom = 57.2449
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,48 +44,182 @@ __meta__ = {
 [node name="VolumeControl" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 97.0
-margin_bottom = 34.0
-
-[node name="Label" parent="VBoxContainer/VolumeControl" index="0"]
-margin_right = 97.0
-
-[node name="VolumeSlider" parent="VBoxContainer/VolumeControl" index="1"]
-margin_right = 97.0
+margin_right = 183.0
+margin_bottom = 48.0
 
 [node name="VolumeControl2" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 38.0
-margin_right = 97.0
-margin_bottom = 72.0
+margin_top = 52.0
+margin_right = 183.0
+margin_bottom = 100.0
 
 [node name="Label" parent="VBoxContainer/VolumeControl2" index="0"]
-margin_right = 97.0
 text = "Music"
 
 [node name="VolumeSlider" parent="VBoxContainer/VolumeControl2" index="1"]
-margin_right = 97.0
 bus_name = "Music"
 
 [node name="VolumeControl3" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 76.0
-margin_right = 97.0
-margin_bottom = 110.0
+margin_top = 104.0
+margin_right = 183.0
+margin_bottom = 152.0
 
 [node name="Label" parent="VBoxContainer/VolumeControl3" index="0"]
-margin_right = 97.0
 text = "Sounds"
 
 [node name="VolumeSlider" parent="VBoxContainer/VolumeControl3" index="1"]
-margin_right = 97.0
 bus_name = "Sounds"
 
-[editable path="Hotkeys/RebindableAction"]
-[editable path="Hotkeys/RebindableAction5"]
-[editable path="Hotkeys/RebindableAction6"]
-[editable path="Hotkeys/RebindableAction2"]
-[editable path="Hotkeys/RebindableAction4"]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 9.79944
+margin_top = -100.49
+margin_right = 609.799
+margin_bottom = 91.5101
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hotkeys" type="GridContainer" parent="HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 96.0
+custom_constants/vseparation = 6
+custom_constants/hseparation = 12
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RebindableAction" parent="HBoxContainer/Hotkeys" instance=ExtResource( 1 )]
+margin_right = 205.0
+margin_bottom = 28.0
+action = "move_forward"
+
+[node name="Label" parent="HBoxContainer/Hotkeys/RebindableAction" index="0"]
+margin_right = 176.0
+text = "Move forward:"
+
+[node name="Button" parent="HBoxContainer/Hotkeys/RebindableAction" index="1"]
+margin_left = 180.0
+margin_right = 205.0
+text = "W"
+
+[node name="RebindableAction5" parent="HBoxContainer/Hotkeys" instance=ExtResource( 1 )]
+margin_left = 217.0
+margin_right = 440.0
+margin_bottom = 28.0
+action = "move_backward"
+
+[node name="Label" parent="HBoxContainer/Hotkeys/RebindableAction5" index="0"]
+margin_right = 200.0
+text = "Move backward:"
+
+[node name="Button" parent="HBoxContainer/Hotkeys/RebindableAction5" index="1"]
+margin_left = 204.0
+margin_right = 223.0
+text = "S"
+
+[node name="RebindableAction6" parent="HBoxContainer/Hotkeys" instance=ExtResource( 1 )]
+margin_top = 34.0
+margin_right = 205.0
+margin_bottom = 62.0
+action = "move_left"
+
+[node name="RebindableAction2" parent="HBoxContainer/Hotkeys" instance=ExtResource( 1 )]
+margin_left = 217.0
+margin_top = 34.0
+margin_right = 440.0
+margin_bottom = 62.0
+action = "move_right"
+
+[node name="Label" parent="HBoxContainer/Hotkeys/RebindableAction2" index="0"]
+margin_right = 137.0
+text = "Move right:"
+
+[node name="Button" parent="HBoxContainer/Hotkeys/RebindableAction2" index="1"]
+margin_left = 141.0
+margin_right = 163.0
+text = "D"
+
+[node name="RebindableAction4" parent="HBoxContainer/Hotkeys" instance=ExtResource( 1 )]
+margin_top = 68.0
+margin_right = 205.0
+margin_bottom = 96.0
+action = "attack"
+
+[node name="Label" parent="HBoxContainer/Hotkeys/RebindableAction4" index="0"]
+margin_right = 86.0
+text = "Attack:"
+
+[node name="Button" parent="HBoxContainer/Hotkeys/RebindableAction4" index="1"]
+margin_left = 90.0
+margin_right = 139.0
+text = "Space"
+
+[node name="Hotkeys2" type="GridContainer" parent="HBoxContainer"]
+margin_top = 136.0
+margin_right = 600.0
+margin_bottom = 164.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 12
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RebindableAction7" parent="HBoxContainer/Hotkeys2" instance=ExtResource( 1 )]
+margin_right = 142.0
+margin_bottom = 28.0
+action = "primary"
+
+[node name="RebindableAction8" parent="HBoxContainer/Hotkeys2" instance=ExtResource( 1 )]
+margin_left = 154.0
+margin_right = 296.0
+margin_bottom = 28.0
+action = "charge"
+
+[node name="RebindableAction9" parent="HBoxContainer/Hotkeys2" instance=ExtResource( 1 )]
+margin_left = 308.0
+margin_right = 450.0
+margin_bottom = 28.0
+action = "secondary"
+
+[node name="Hotkeys3" type="GridContainer" parent="HBoxContainer"]
+margin_top = 204.0
+margin_right = 600.0
+margin_bottom = 232.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RebindableAction10" parent="HBoxContainer/Hotkeys3" instance=ExtResource( 1 )]
+margin_right = 142.0
+margin_bottom = 28.0
+action = "ui_select"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -98.5
+margin_top = 120.0
+margin_right = 98.5
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "PAUSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [editable path="VBoxContainer/VolumeControl"]
 [editable path="VBoxContainer/VolumeControl2"]
 [editable path="VBoxContainer/VolumeControl3"]
+[editable path="HBoxContainer/Hotkeys/RebindableAction"]
+[editable path="HBoxContainer/Hotkeys/RebindableAction5"]
+[editable path="HBoxContainer/Hotkeys/RebindableAction6"]
+[editable path="HBoxContainer/Hotkeys/RebindableAction2"]
+[editable path="HBoxContainer/Hotkeys/RebindableAction4"]

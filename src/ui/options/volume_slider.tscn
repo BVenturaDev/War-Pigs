@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/ui/options/volume_slider.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/JosefinSlab_regular_font_data.tres" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 2 )
 
 [node name="VolumeControl" type="VBoxContainer"]
 margin_left = 183.0
@@ -12,14 +17,15 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 106.0
-margin_bottom = 14.0
+margin_right = 183.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
 text = "Master Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="."]
-margin_top = 18.0
-margin_right = 106.0
-margin_bottom = 34.0
+margin_top = 32.0
+margin_right = 183.0
+margin_bottom = 48.0
 max_value = 1.0
 step = 0.05
 value = 0.5

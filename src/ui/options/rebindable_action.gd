@@ -19,10 +19,12 @@ func _input(input_event: InputEvent) -> void:
 
 func _update_button_text(input_event: InputEvent) -> void:
 	if input_event is InputEventMouseButton:
-			if input_event.button_index == 1:
-				_button.text = "mouse left"
-			elif input_event.button_index == 2:
-				_button.text = "mouse right"
+			if input_event.button_index == BUTTON_LEFT:
+				_button.text = "Mouse Left"
+			elif input_event.button_index == BUTTON_RIGHT:
+				_button.text = "Mouse Right"
+			elif input_event.button_index == BUTTON_MIDDLE:
+				_button.text = "Mouse Middle"
 	else:
 		_button.text = input_event.as_text()
 
