@@ -18,6 +18,7 @@ func _ready():
 		shop = true
 	elif name == "Test_Level1":
 		Globals.hp = Globals.MAXHP
+		Globals.total_pigs = 10
 	add_to_group("Levels")
 	
 	if spawn_pigs:

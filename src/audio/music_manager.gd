@@ -5,11 +5,11 @@ const TRANSITION_TO_MARCH_TIMER = 4.0
 
 const LAYER_UPDATE_TIMER = 1.0
 
-const MARCH_MINIMUM_PIGS_SECOND_LAYER = 5
-const MARCH_MINIMUM_PIGS_THIRD_LAYER = 10
+const MARCH_MINIMUM_PIGS_SECOND_LAYER = 10
+const MARCH_MINIMUM_PIGS_THIRD_LAYER = 15
 
-const WAR_MINIMUM_PIGS_SECOND_LAYER = 3
-const WAR_MINIMUM_PIGS_THIRD_LAYER = 6
+const WAR_MINIMUM_PIGS_SECOND_LAYER = 6
+const WAR_MINIMUM_PIGS_THIRD_LAYER = 9
 
 
 
@@ -19,15 +19,13 @@ onready var _timer: Timer = $Timer
 
 var _is_march_on: bool = true
 
-var _switch_track: bool = false
-
 var last_pig_count: int = 0
 var last_combat_pig_count: int = 0
 
 
 func _ready() -> void:
-	Globals.connect("total_pigs_updated", self, "_update_march_layers")
-	Globals.connect("combat_pigs_updated", self, "_handle_track_switch")
+	var _r = Globals.connect("total_pigs_updated", self, "_update_march_layers")
+	var _r2d2 = Globals.connect("combat_pigs_updated", self, "_handle_track_switch")
 	
 
 func _update_march_layers(total_pigs: int) -> void:
@@ -36,26 +34,23 @@ func _update_march_layers(total_pigs: int) -> void:
 		last_pig_count = total_pigs
 
 
-func _update_music_layers(music_node: Node, total_pigs: int, last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
+func _update_music_layers(_music_node: Node, total_pigs: int, last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
 	if total_pigs == first_threshold or total_pigs == second_threshold:
 		_timer.start(LAYER_UPDATE_TIMER)
-	
+		print("Second layer to be faded in")
 	else:
 		if last_pig_count >= first_threshold and total_pigs < first_threshold or last_pig_count >= second_threshold and total_pigs < second_threshold:
 			_timer.start(LAYER_UPDATE_TIMER)
+			print("Third layer to be faded in")
 
 
 func _handle_track_switch(total_combat_pigs: int) -> void:
 	if _is_march_on:
 		if total_combat_pigs > 0:
-			if _switch_track == false:
 				_timer.start(TRANSITION_TO_WAR_TIMER)
-				_switch_track = true
 	else:
 		if total_combat_pigs == 0:
-			if _switch_track == false:
 				_timer.start(TRANSITION_TO_MARCH_TIMER)
-				_switch_track = true
 		else:
 			_update_music_layers(_war, total_combat_pigs, last_combat_pig_count, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
 	
@@ -96,9 +91,9 @@ func _fade_out_all_layers_if_playing(music_node: Node) -> void:
 func _on_Timer_timeout() -> void:
 	if _is_march_on:
 		if Globals.total_combat_pigs > 0:
+			print("Switching to War")
 			_fade_out_all_layers_if_playing(_march)
 			_is_march_on = false
-			_switch_track = false
 			
 			_fade_in_layers_if_thresholds_reached(_war, Globals.total_combat_pigs, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
 		else:
@@ -114,9 +109,9 @@ func _on_Timer_timeout() -> void:
 				_fade_out_if_not_muted(_march, "ThirdLayer")
 	else:
 		if Globals.total_combat_pigs == 0:
+			print("Switching to March")
 			_fade_out_all_layers_if_playing(_war)
 			_is_march_on = true
-			_switch_track = false
 			
 			_fade_in_layers_if_thresholds_reached(_march, Globals.total_pigs, MARCH_MINIMUM_PIGS_SECOND_LAYER, MARCH_MINIMUM_PIGS_THIRD_LAYER)
 		else:

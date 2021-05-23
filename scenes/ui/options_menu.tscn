@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/JosefinSlab_regular_font_data.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/options/volume_slider.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
@@ -17,7 +17,7 @@ grow_vertical = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Panel" type="Panel" parent="."]
@@ -72,21 +72,18 @@ text = "Sounds"
 bus_name = "Sounds"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 9.79944
-margin_top = -100.49
-margin_right = 609.799
-margin_bottom = 91.5101
+anchor_left = 0.505104
+anchor_top = 0.406954
+anchor_right = 0.817604
+anchor_bottom = 0.621769
+margin_bottom = -39.9999
 custom_constants/separation = 40
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Hotkeys" type="GridContainer" parent="HBoxContainer"]
-margin_right = 600.0
+margin_right = 599.0
 margin_bottom = 96.0
 custom_constants/vseparation = 6
 custom_constants/hseparation = 12
@@ -163,7 +160,7 @@ text = "Space"
 
 [node name="Hotkeys2" type="GridContainer" parent="HBoxContainer"]
 margin_top = 136.0
-margin_right = 600.0
+margin_right = 599.0
 margin_bottom = 164.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 12
@@ -191,7 +188,7 @@ action = "secondary"
 
 [node name="Hotkeys3" type="GridContainer" parent="HBoxContainer"]
 margin_top = 204.0
-margin_right = 600.0
+margin_right = 599.0
 margin_bottom = 232.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -209,7 +206,7 @@ margin_left = -98.5
 margin_top = 120.0
 margin_right = 98.5
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false

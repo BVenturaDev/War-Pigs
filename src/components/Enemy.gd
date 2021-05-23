@@ -12,7 +12,7 @@ export var hit_damage: int = 20
 export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
-export var player_attack_chance: float = 9.75
+export var player_attack_chance: float = 9.6
 export var boss: bool = false
 
 export (bool) var tutorial_behaviour = false
@@ -181,7 +181,7 @@ func _physics_process(var delta: float) -> void:
 			label.visible = true
 	# Check if KO'd
 	elif hp < 1 and alive:
-		Globals.make_death(boar.death_spot.global_transform.origin)
+		Globals.make_death(boar.death_spot.global_transform.origin, false)
 		if boss:
 			#print(str(max_hp))
 			LevelManager.transition_to("res://scenes/levels/End_Credits.tscn")
