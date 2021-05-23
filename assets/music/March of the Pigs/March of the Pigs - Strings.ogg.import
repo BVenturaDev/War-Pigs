@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/March of the Pigs - Strings.ogg-c842ca06f1cccee7d4ee211d7f07c035.oggstr"
+
+[deps]
+
+source_file="res://assets/music/March of the Pigs/March of the Pigs - Strings.ogg"
+dest_files=[ "res://.import/March of the Pigs - Strings.ogg-c842ca06f1cccee7d4ee211d7f07c035.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
