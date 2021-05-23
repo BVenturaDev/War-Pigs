@@ -55,7 +55,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865025, 53.0679 )
 
 [node name="Area" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0493, 4.12317, -61.3154 )
-count_pigs = false
 
 [node name="Navigation" type="Navigation" parent="."]
 

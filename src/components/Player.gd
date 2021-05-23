@@ -37,6 +37,7 @@ func _interact():
 		if col.is_in_group("Enemies"):
 			if not col.alive:
 				col.recruit()
+				Globals.add_pig_to_count()
 		if col.is_in_group("buyable"):
 			buy_item(col, Globals.total_currency)
 		if col.is_in_group("sellable"):
@@ -180,7 +181,7 @@ func buy_pig() -> bool:
 	nav.add_child(new_minion)
 	new_minion.global_transform = self.global_transform
 	new_minion.join_formation()
-
+	Globals.add_pig_to_count()
 	
 	return true
 
