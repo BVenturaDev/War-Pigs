@@ -58,7 +58,7 @@ _global_script_class_icons={
 
 config/name="War Pigs"
 run/main_scene="res://scenes/levels/Tutorial.tscn"
-config/icon="res://icon.png"
+config/icon="res://war_pigs_ico.png"
 
 [autoload]
 
