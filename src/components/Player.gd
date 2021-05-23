@@ -21,6 +21,7 @@ onready var formations = $Formations
 onready var interact_tar = $Camara_Control/interact_Target
 onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
+onready var single_attack_sound = $SingleAttackSound
 onready var banner_pos = $Banner_Pos
 onready var pig = $pig
 onready var blood_spot = $Blood_Spot
@@ -121,6 +122,7 @@ func _physics_process(var delta: float) -> void:
 	# Handle other controls
 	if Input.is_action_just_pressed("primary"):
 		formations.attack_individual()
+		single_attack_sound.play()
 	if Input.is_action_just_pressed("secondary"):
 		emit_signal("return_formation")
 		formations.return_to_formation()
