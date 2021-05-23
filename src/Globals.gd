@@ -14,6 +14,7 @@ var death = preload("res://scenes/particles/Death_Effect.tscn")
 var options: Node = null
 
 var win: bool = false
+var shadows: bool = true
 
 # Player hp
 const MAXHP = 5

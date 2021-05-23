@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/options/rebindable_action.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/JosefinSlab_regular_font_data.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/options/volume_slider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/fonts/Fancy.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/ui/Shadows.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 32
 font_data = ExtResource( 2 )
 
 [node name="Options" type="Control"]
@@ -83,7 +85,7 @@ __meta__ = {
 }
 
 [node name="Hotkeys" type="GridContainer" parent="HBoxContainer"]
-margin_right = 599.0
+margin_right = 600.0
 margin_bottom = 96.0
 custom_constants/vseparation = 6
 custom_constants/hseparation = 12
@@ -160,7 +162,7 @@ text = "Space"
 
 [node name="Hotkeys2" type="GridContainer" parent="HBoxContainer"]
 margin_top = 136.0
-margin_right = 599.0
+margin_right = 600.0
 margin_bottom = 164.0
 custom_constants/vseparation = 0
 custom_constants/hseparation = 12
@@ -188,16 +190,26 @@ action = "secondary"
 
 [node name="Hotkeys3" type="GridContainer" parent="HBoxContainer"]
 margin_top = 204.0
-margin_right = 599.0
-margin_bottom = 232.0
+margin_right = 600.0
+margin_bottom = 276.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RebindableAction10" parent="HBoxContainer/Hotkeys3" instance=ExtResource( 1 )]
-margin_right = 142.0
+margin_right = 146.0
 margin_bottom = 28.0
 action = "ui_select"
+
+[node name="Shadows" type="CheckBox" parent="HBoxContainer/Hotkeys3"]
+margin_top = 128.0
+margin_right = 146.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+pressed = true
+text = "Shadows"
+align = 1
+script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -206,11 +218,13 @@ margin_left = -98.5
 margin_top = 120.0
 margin_right = 98.5
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="toggled" from="HBoxContainer/Hotkeys3/Shadows" to="HBoxContainer/Hotkeys3/Shadows" method="_on_Shadows_toggled"]
 
 [editable path="VBoxContainer/VolumeControl"]
 [editable path="VBoxContainer/VolumeControl2"]
