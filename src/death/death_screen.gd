@@ -15,4 +15,4 @@ func _input(event):
 	if player_dead:
 		if event.is_action_pressed(input_action.action_string):
 			get_tree().paused = false
-			get_tree().reload_current_scene()
+			var _r = get_tree().reload_current_scene()
