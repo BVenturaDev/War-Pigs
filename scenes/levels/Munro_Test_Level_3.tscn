@@ -363,6 +363,9 @@ transform = Transform( -0.508996, 0, -0.860769, 0, 1, 0, 0.860769, 0, -0.508996,
 [node name="Palisade6" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.508996, 0, -0.860769, 0, 1, 0, 0.860769, 0, -0.508996, -81.5887, -7.99994, -118.013 )
 
+[node name="Palisade23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.508996, 0, -0.860769, 0, 1, 0, 0.860769, 0, -0.508996, -83.6247, -7.99994, -114.57 )
+
 [node name="Palisade7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.218518, 0, -0.975833, 0, 1, 0, 0.975833, 0, -0.218518, -117.518, -7.99994, -26.1456 )
 
@@ -372,17 +375,29 @@ transform = Transform( -0.218518, 0, -0.975833, 0, 1, 0, 0.975833, 0, -0.218518,
 [node name="Palisade9" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.218518, 0, -0.975833, 0, 1, 0, 0.975833, 0, -0.218518, -108.945, -7.99994, -64.4321 )
 
+[node name="Palisade22" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.218518, 0, -0.975833, 0, 1, 0, 0.975833, 0, -0.218518, -108.508, -7.99994, -66.3838 )
+
 [node name="Palisade10" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -115.812, -7.99994, 33.3877 )
+
+[node name="Palisade20" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -115.557, -7.99994, 37.3796 )
 
 [node name="Palisade11" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -117.053, -7.99994, 13.961 )
 
 [node name="Palisade12" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -118.314, -7.99994, -5.76681 )
+transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -118.25, -7.99994, -4.76885 )
+
+[node name="Palisade21" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 0.0637663, 0, -0.997965, 0, 1, 0, 0.997965, 0, 0.0637663, -118.505, -7.99994, -8.7607 )
 
 [node name="Palisade13" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( 0.368628, 0, -0.929578, 0, 1, 0, 0.929578, 0, 0.368628, -97.702, -7.99994, 91.0453 )
+
+[node name="Palisade19" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 0.368628, 0, -0.929578, 0, 1, 0, 0.929578, 0, 0.368628, -95.4902, -7.99994, 96.6228 )
 
 [node name="Palisade14" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( 0.368628, 0, -0.929578, 0, 1, 0, 0.929578, 0, 0.368628, -104.878, -7.99994, 72.95 )
@@ -397,7 +412,7 @@ transform = Transform( 0.440175, 0, -0.897913, 0, 1, 0, 0.897913, 0, 0.440175, -
 transform = Transform( 0.440175, 0, -0.897913, 0, 1, 0, 0.897913, 0, 0.440175, -80.5832, -7.99992, 129.147 )
 
 [node name="Palisade18" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( 0.440175, 0, -0.897913, 0, 1, 0, 0.897913, 0, 0.440175, -89.7759, -7.99992, 110.261 )
+transform = Transform( 0.440175, 0, -0.897913, 0, 1, 0, 0.897913, 0, 0.440175, -88.4554, -7.99992, 112.955 )
 
 [node name="Palisade43" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.290802, 0, 0.956783, 0, 1, 0, -0.956783, 0, -0.290802, 171.286, -7.99994, 15.4348 )
@@ -408,8 +423,14 @@ transform = Transform( -0.157658, 0, 0.987494, 0, 1, 0, -0.987494, 0, -0.157658,
 [node name="Palisade47" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.157658, 0, 0.987494, 0, 1, 0, -0.987494, 0, -0.157658, 164.037, -7.99994, -25.7135 )
 
+[node name="Palisade57" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.157658, 0, 0.987494, 0, 1, 0, -0.987494, 0, -0.157658, 164.352, -7.99994, -23.7385 )
+
 [node name="Palisade48" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.157658, 0, 0.987494, 0, 1, 0, -0.987494, 0, -0.157658, 167.29, -7.99994, -4.96311 )
+
+[node name="Palisade58" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.157658, 0, 0.987494, 0, 1, 0, -0.987494, 0, -0.157658, 167.605, -7.99994, -2.98812 )
 
 [node name="Palisade49" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.454706, 0, 0.890642, 0, 1, 0, -0.890642, 0, -0.454706, 136.304, -7.99994, -98.6143 )
@@ -420,6 +441,9 @@ transform = Transform( -0.454706, 0, 0.890642, 0, 1, 0, -0.890642, 0, -0.454706,
 [node name="Palisade51" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.454706, 0, 0.890642, 0, 1, 0, -0.890642, 0, -0.454706, 154.144, -7.99994, -63.6702 )
 
+[node name="Palisade56" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.454706, 0, 0.890642, 0, 1, 0, -0.890642, 0, -0.454706, 155.053, -7.99994, -61.8889 )
+
 [node name="Palisade52" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.686123, 0, 0.727485, 0, 1, 0, -0.727485, 0, -0.686123, 96.9877, -7.99994, -143.35 )
 
@@ -428,6 +452,9 @@ transform = Transform( -0.686123, 0, 0.727485, 0, 1, 0, -0.727485, 0, -0.686123,
 
 [node name="Palisade54" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.686123, 0, 0.727485, 0, 1, 0, -0.727485, 0, -0.686123, 123.908, -7.99994, -114.808 )
+
+[node name="Palisade55" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -0.686123, 0, 0.727485, 0, 1, 0, -0.727485, 0, -0.686123, 125.28, -7.99994, -113.353 )
 
 [node name="Ground" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 180, 0, 0, 0, 2, 0, 0, 0, 180, 1.43822, -10, 0.657013 )
