@@ -196,6 +196,9 @@ func _remove_self() -> void:
 	player.formations.reshuffle(form_id)
 	if attack_tar:
 		attack_tar.attack_pos.remove_attacker(attack_i)
+	
+	if is_instance_valid(raiding_entity):
+		clear_raid()
 	call_deferred("queue_free")
 
 func attack(var body: Node):
@@ -293,6 +296,7 @@ func _physics_process(var delta: float) -> void:
 		_remove_self()
 
 func clear_raid():
+	
 	raiding_entity.retrieve_position(raid_position, self)
 	raid_position = null
 	raiding_entity = null
