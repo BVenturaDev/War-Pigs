@@ -21,6 +21,7 @@ onready var aggro_rad: Area = $Area
 onready var blood_spot = $Blood_Spot
 onready var pig = $pig
 onready var debug_status = $DebugStatus
+onready var coin_loot_sound = $CoinLootedSound
 
 # Minion Variables
 var target: Node = null
@@ -308,6 +309,7 @@ func clear_raid():
 func accumulate_wealth():
 	if baggage.has_currency():
 		remove_currency()
+		coin_loot_sound.play()
 
 ### Baggage Interface
 func pass_currency(c):
