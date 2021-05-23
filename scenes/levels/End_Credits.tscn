@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/fonts/Roboto_Bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/components/End_Credits.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui/cover logo.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0.223529, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://assets/fonts/Roboto-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = SubResource( 2 )
 
 [node name="End_Credits" type="Control"]
 anchor_right = 1.0
@@ -11,11 +29,93 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 798.268
-margin_top = 149.733
-margin_right = 1053.27
-margin_bottom = 225.733
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1080.0
+margin_right = -840.0
+margin_bottom = 1920.0
+rect_rotation = -90.0
+texture = SubResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1900.0
+margin_bottom = 1060.0
+
+[node name="TeamText" type="Label" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -940.0
+margin_top = -82.0
+margin_right = 940.0
+margin_bottom = 140.0
+custom_fonts/font = SubResource( 1 )
+custom_constants/line_spacing = 10
+text = "Ben Ventura - Oeslian: Project Lead, Programming, Character Art / Animations
+Vikfro: Music, Sound Effects, Audio/UI Programming
+Jonas:  Programming, Level Design
+Munro: Design and Testing"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AssetsText" type="Label" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -700.0
+margin_top = -260.0
+margin_right = 700.0
+custom_fonts/font = SubResource( 4 )
+custom_constants/line_spacing = 5
+text = "All assets were made specifically for the jam, except for
+- most sounds are from GameAudioGDC 2020 pack by Sonniss
+- cha-ching sound from freesound.org by creek23 (\"75235\")
+- coins sound from freesound.org by DWOBoyle (\"140382\")
+- sword & shield icon from flaticon.com by Icongeek26 (\"weapons_4054757\")"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -284.0
+margin_top = 140.0
+margin_right = 284.0
+margin_bottom = 354.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.5
+margin_right = 127.5
+margin_bottom = 76.0
 custom_fonts/font = ExtResource( 1 )
 text = "You Win!"
 align = 1
