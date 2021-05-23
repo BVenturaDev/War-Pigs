@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/models/boar/Eye.material" type="Material" id=1]
 [ext_resource path="res://assets/models/boar/eye_blue.material" type="Material" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/models/boar/Pig_Nose.material" type="Material" id=12]
 [ext_resource path="res://src/components/Boar.gd" type="Script" id=13]
 [ext_resource path="res://scenes/tools/AnimationTree.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/particles/Footstep.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Eye"
@@ -12886,3 +12887,9 @@ anims/Run_Banner = SubResource( 17 )
 [node name="AnimationTree" parent="." instance=ExtResource( 14 )]
 active = true
 parameters/playback = SubResource( 18 )
+
+[node name="Death_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 4.67371, 0 )
+
+[node name="Footstep" parent="." instance=ExtResource( 15 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

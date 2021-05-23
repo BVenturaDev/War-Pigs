@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://src/tools/Viewport.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tools/AnimationTree.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/sounds/pigs/sword scrape 3.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets/sounds/pigs/sword scrape 2.wav" type="AudioStream" id=24]
 [ext_resource path="res://assets/sounds/pigs/death 2.wav" type="AudioStream" id=25]
+[ext_resource path="res://scenes/particles/Footstep.tscn" type="PackedScene" id=26]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Helmet"
@@ -12336,7 +12337,7 @@ bones/108/name = "head"
 bones/108/parent = 107
 bones/108/rest = Transform( 1, -1.56319e-13, -2.38419e-07, -2.12047e-07, -0.457151, -0.889389, -1.08993e-07, 0.889389, -0.457151, 5.68512e-14, -6.32385e-08, -4.83946e-07 )
 bones/108/enabled = true
-bones/108/bound_children = [  ]
+bones/108/bound_children = [ NodePath("BoneAttachment") ]
 bones/109/name = "tweak_spine.004"
 bones/109/parent = 106
 bones/109/rest = Transform( 1, 4.95576e-08, 5.20741e-09, -4.95576e-08, 0.978159, 0.207859, 5.20733e-09, -0.207859, 0.978159, 1.4194e-14, 4.85049e-07, -3.95104e-08 )
@@ -12396,7 +12397,7 @@ bones/120/name = "hand_tweak.L"
 bones/120/parent = 119
 bones/120/rest = Transform( 1, -3.02587e-06, 7.1777e-06, 3.02587e-06, 1, 5.02226e-07, -7.1777e-06, -5.02205e-07, 1, -2.66359e-07, -2.98024e-08, -2.68221e-07 )
 bones/120/enabled = true
-bones/120/bound_children = [  ]
+bones/120/bound_children = [ NodePath("BoneAttachment2") ]
 bones/121/name = "MCH-forearm_tweak.L"
 bones/121/parent = 117
 bones/121/rest = Transform( 1.00919, -1.65486e-06, 3.27656e-06, 1.65486e-06, 1.00919, 2.33793e-07, -3.27656e-06, -2.33788e-07, 1.00919, -2.07452e-07, -5.6997e-07, 2.83123e-07 )
@@ -12546,7 +12547,7 @@ bones/150/name = "hand_tweak.R"
 bones/150/parent = 149
 bones/150/rest = Transform( 1, 2.99979e-06, -7.37607e-06, -2.99979e-06, 1, 7.60436e-07, 7.37608e-06, -7.60414e-07, 1, 2.55183e-07, 2.38418e-07, -2.38419e-07 )
 bones/150/enabled = true
-bones/150/bound_children = [  ]
+bones/150/bound_children = [ NodePath("BoneAttachment3"), NodePath("BoneAttachment4") ]
 bones/151/name = "MCH-forearm_tweak.R"
 bones/151/parent = 147
 bones/151/rest = Transform( 1.00835, 1.62465e-06, -3.41996e-06, -1.62465e-06, 1.00835, 5.1219e-07, 3.41996e-06, -5.12185e-07, 1.00835, -2.67988e-07, 2.04891e-07, 2.98023e-08 )
@@ -13059,3 +13060,9 @@ stream = ExtResource( 23 )
 unit_db = 4.0
 unit_size = 70.0
 bus = "Sounds"
+
+[node name="Death_Effect_Spot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73126, 0 )
+
+[node name="Footstep" parent="." instance=ExtResource( 26 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

@@ -17,13 +17,18 @@ script = ExtResource( 3 )
 [node name="Positions" type="Spatial" parent="."]
 
 [node name="Position3D" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63371, 0, -3.52719 )
 
 [node name="Position3D2" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.553572, 9.53674e-07, -7.82352 )
 
 [node name="Position3D3" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87244, 0, -2.24991 )
 
 [node name="Position3D4" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.788, 0, 3.19443 )
 
 [node name="Position3D5" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51741, -9.53674e-07, 3.64903 )
 
 [editable path="Hut"]

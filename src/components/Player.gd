@@ -23,7 +23,6 @@ onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
 onready var banner_pos = $Banner_Pos
 onready var pig = $pig
-onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 
 # Signals
@@ -113,7 +112,6 @@ func _physics_process(var delta: float) -> void:
 			can_attack = false
 			pig.set_attack()
 			can_hit = true
-			sword_sound_player.play_random_sound()
 	elif abs(vel.x) + abs(vel.z) >= max_speed and can_attack:
 		pig.set_run()
 	else:
@@ -214,4 +212,4 @@ func damage() -> void:
 	if Globals.hp <= 0:
 		Globals.hp = 0
 		emit_signal("died")
-		print("YOU DED")
+		#print("YOU DED")

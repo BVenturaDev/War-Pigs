@@ -40,14 +40,19 @@ script = ExtResource( 3 )
 [node name="Positions" type="Spatial" parent="."]
 
 [node name="Position3D" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179395, 0, -6.05423 )
 
 [node name="Position3D2" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.60485, 4.76837e-07, -2.84169 )
 
 [node name="Position3D3" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3116, -9.53674e-07, -2.83004 )
 
 [node name="Position3D4" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7071, 0, 2.84267 )
 
 [node name="Position3D5" type="Position3D" parent="Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.569, -4.76837e-07, 3.28114 )
 
 [node name="Tutorial_Label" type="Sprite3D" parent="."]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 24.967, 12.8535 )

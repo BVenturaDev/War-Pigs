@@ -10,6 +10,7 @@ const DEBUG = false
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 var blood = preload("res://scenes/particles/Blood_Splash.tscn")
+var death = preload("res://scenes/particles/Death_Effect.tscn")
 var options: Node = null
 
 var win: bool = false
@@ -35,7 +36,7 @@ onready var levels: Array = [
 	"res://scenes/levels/Shop.tscn",
 	"res://scenes/levels/Munro_Test_Level_3.tscn",
 	"res://scenes/levels/Shop.tscn",
-	"res://scenes/levels/Munro_Test_Level_4.tscn",
+	"res://scenes/levels/CarMunro_Test_Level_4.tscn",
 	"res://scenes/levels/Shop.tscn",
 	"res://scenes/levels/Munro_Test_Level_5.tscn",
 ]
@@ -93,7 +94,12 @@ func make_blood(var pos: Vector3) -> void:
 	var blood_splash = blood.instance()
 	get_tree().get_root().add_child(blood_splash)
 	blood_splash.global_transform.origin = pos
-
+	
+func make_death(var pos: Vector3) -> void:
+	var death_effect = death.instance()
+	get_tree().get_root().add_child(death_effect)
+	death_effect.global_transform.origin = pos
+	
 
 ########
 ## Level Transition Interface

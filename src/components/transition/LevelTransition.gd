@@ -1,6 +1,7 @@
 extends Area
 
 onready var flag = $Flag
+onready var label = $"3D_Label"
 
 # count pigs for next scene
 export (bool) var count_pigs = true
@@ -10,11 +11,13 @@ var has_huts: bool = true
 
 func _ready():
 	flag.visible = false
+	label.visible = false
 
 func _physics_process(_delta):
 	var hut_group: Array  = get_tree().get_nodes_in_group("Huts")
 	if hut_group.size() <= 0 or Globals.DEBUG == true:
 		flag.visible = true
+		label.visible = true
 		has_huts = false
 		
 func transition():

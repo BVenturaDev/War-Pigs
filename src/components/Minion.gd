@@ -104,6 +104,8 @@ func _state_raid() -> void:
 	
 		# Reached position in Hut
 	if path_finder.has_path() == false:
+		# Attack animation
+		pig.set_attack()
 		# Avoid checking on a freed object
 		if is_instance_valid(raiding_entity):
 			if raiding_entity.is_destroyed():
@@ -185,6 +187,7 @@ func _on_Attack_Timer_timeout() -> void:
 		line_up()
 		
 func _remove_self() -> void:
+	Globals.make_death(pig.death_spot.global_transform.origin)
 	if state == states.ATTACK:
 		Globals.remove_pig_from_combat_count()
 	Globals.remove_pig_from_count()
