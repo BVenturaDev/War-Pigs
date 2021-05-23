@@ -8,6 +8,10 @@ to display in the tutorial
 
 export (String) var action_string
 export (String) var action_description
+var string_value
+
+func _init():
+	string_value = get_scancode_string()
 
 func get_scancode_string() -> String:
 	var event = InputMap.get_action_list(action_string)
