@@ -3,7 +3,7 @@ extends Node
 # You can adjust the starting values here while debugging so the music/sounds don't annoy you every time
 # the _ready() will set those volumes so you don't have to go through the options. 
 # Can be useful to load preferences from a file too (not necessary for the jam)
-var _buses_volumes = {"Master": 0.5, "Music": 1, "Sounds": 1}
+var _buses_volumes = {"Master": 0.5, "Music": 0.75, "Sounds": 1}
 
 func get_volume(bus_name: String) -> float:
 	return _buses_volumes[bus_name]
