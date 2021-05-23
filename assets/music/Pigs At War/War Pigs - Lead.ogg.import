@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/War Pigs - Lead.ogg-235fcff24f3d5ac7bb9403f849a98dd7.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Pigs At War/War Pigs - Lead.ogg"
+dest_files=[ "res://.import/War Pigs - Lead.ogg-235fcff24f3d5ac7bb9403f849a98dd7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

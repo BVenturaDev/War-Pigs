@@ -1,0 +1,310 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/music/March of the Pigs/March of the Pigs - Lead.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/music/March of the Pigs/March of the Pigs - Rhythm.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/March of the Pigs/March of the Pigs - Strings.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs - Synth.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs - Rhythm.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/Pigs At War/War Pigs - Lead.ogg" type="AudioStream" id=6]
+[ext_resource path="res://src/audio/music_manager.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Strings:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Strings:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Rhythm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Synth:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Synth:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tracks/Lead:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, -80.0 ]
+}
+
+[node name="MusicManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="March" type="Node" parent="."]
+
+[node name="MainLayer" type="Node" parent="March"]
+
+[node name="Tween" type="Tween" parent="March/MainLayer"]
+
+[node name="Tracks" type="Node" parent="March/MainLayer"]
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="March/MainLayer/Tracks"]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/MainLayer"]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
+
+[node name="SecondLayer" type="Node" parent="March"]
+
+[node name="Tween" type="Tween" parent="March/SecondLayer"]
+
+[node name="Tracks" type="Node" parent="March/SecondLayer"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="March/SecondLayer/Tracks"]
+stream = ExtResource( 1 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/SecondLayer"]
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
+
+[node name="ThirdLayer" type="Node" parent="March"]
+
+[node name="Tween" type="Tween" parent="March/ThirdLayer"]
+
+[node name="Tracks" type="Node" parent="March/ThirdLayer"]
+
+[node name="Strings" type="AudioStreamPlayer" parent="March/ThirdLayer/Tracks"]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="March/ThirdLayer"]
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
+
+[node name="War" type="Node" parent="."]
+
+[node name="MainLayer" type="Node" parent="War"]
+
+[node name="Tween" type="Tween" parent="War/MainLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/MainLayer"]
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
+
+[node name="Tracks" type="Node" parent="War/MainLayer"]
+
+[node name="Rhythm" type="AudioStreamPlayer" parent="War/MainLayer/Tracks"]
+stream = ExtResource( 5 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="SecondLayer" type="Node" parent="War"]
+
+[node name="Tween" type="Tween" parent="War/SecondLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/SecondLayer"]
+anims/fade_in = SubResource( 9 )
+anims/fade_out = SubResource( 10 )
+
+[node name="Tracks" type="Node" parent="War/SecondLayer"]
+
+[node name="Synth" type="AudioStreamPlayer" parent="War/SecondLayer/Tracks"]
+stream = ExtResource( 4 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="ThirdLayer" type="Node" parent="War"]
+
+[node name="Tween" type="Tween" parent="War/ThirdLayer"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="War/ThirdLayer"]
+anims/fade_in = SubResource( 11 )
+anims/fade_out = SubResource( 12 )
+
+[node name="Tracks" type="Node" parent="War/ThirdLayer"]
+
+[node name="Lead" type="AudioStreamPlayer" parent="War/ThirdLayer/Tracks"]
+stream = ExtResource( 6 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

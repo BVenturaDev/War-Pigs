@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/tools/Death_Effect.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/smoke_04.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/twirl_03.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/pigs/death.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/pigs/death 2.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/textures/twirl_03.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/smoke_04.png" type="Texture" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -13,16 +15,16 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 5 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.48062, 1 )
 colors = PoolColorArray( 0.917647, 0.713726, 0.886275, 1, 0.0745098, 0.0745098, 0.0745098, 0.768627, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 lifetime_randomness = 0.5
 emission_shape = 2
 emission_box_extents = Vector3( 0.1, 2, 0.1 )
@@ -37,9 +39,9 @@ angle = 180.0
 angle_random = 1.0
 scale = 4.0
 scale_random = 0.5
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=5]
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
@@ -50,16 +52,16 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 3 )
+albedo_texture = ExtResource( 4 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.426357, 0.744186, 1 )
 colors = PoolColorArray( 0.898039, 0.870588, 0.65098, 0, 0.917647, 0.435294, 0.807843, 1, 0.917647, 0.435294, 0.807843, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=9]
 lifetime_randomness = 0.5
 emission_shape = 2
 emission_box_extents = Vector3( 0.1, 2, 0.1 )
@@ -76,7 +78,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 0.5
 scale_random = 0.5
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 8 )
 
 [node name="Death_Effect" type="Spatial"]
 script = ExtResource( 1 )
@@ -92,8 +94,8 @@ amount = 150
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 3 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="Particles2" type="Particles" parent="."]
 material_override = SubResource( 6 )
@@ -103,7 +105,19 @@ amount = 12
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 7 )
-draw_pass_1 = SubResource( 3 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="DeathPig" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 2 )
+unit_size = 70.0
+bus = "Sounds"
+
+[node name="DeathBoar" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
+stream = ExtResource( 3 )
+unit_size = 70.0
+bus = "Sounds"
 
 [connection signal="timeout" from="Clean_Up" to="." method="_on_Clean_Up_timeout"]

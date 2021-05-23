@@ -21,9 +21,9 @@ onready var formations = $Formations
 onready var interact_tar = $Camara_Control/interact_Target
 onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
+onready var single_attack_sound = $SingleAttackSound
 onready var banner_pos = $Banner_Pos
 onready var pig = $pig
-onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 
 # Signals
@@ -37,6 +37,7 @@ func _interact():
 		if col.is_in_group("Enemies"):
 			if not col.alive:
 				col.recruit()
+				Globals.add_pig_to_count()
 		if col.is_in_group("buyable"):
 			buy_item(col, Globals.total_currency)
 		if col.is_in_group("sellable"):
@@ -113,7 +114,6 @@ func _physics_process(var delta: float) -> void:
 			can_attack = false
 			pig.set_attack()
 			can_hit = true
-			sword_sound_player.play_random_sound()
 	elif abs(vel.x) + abs(vel.z) >= max_speed and can_attack:
 		pig.set_run()
 	else:
@@ -123,6 +123,7 @@ func _physics_process(var delta: float) -> void:
 	# Handle other controls
 	if Input.is_action_just_pressed("primary"):
 		formations.attack_individual()
+		single_attack_sound.play()
 	if Input.is_action_just_pressed("secondary"):
 		emit_signal("return_formation")
 		formations.return_to_formation()
@@ -180,9 +181,7 @@ func buy_pig() -> bool:
 	nav.add_child(new_minion)
 	new_minion.global_transform = self.global_transform
 	new_minion.join_formation()
-	
-	#Update total pigs
-	Globals.total_pigs += 1
+	Globals.add_pig_to_count()
 	
 	return true
 
@@ -199,7 +198,7 @@ func sell_item(item: Sellable):
 func sell_pig():
 	formations.remove_last_pig()
 	
-	Globals.total_pigs -= 1
+	Globals.remove_pig_from_count()
 	
 func can_sell_item(item: Sellable):
 	match item.get_type():

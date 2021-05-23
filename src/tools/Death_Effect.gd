@@ -10,10 +10,10 @@ func _ready() -> void:
 	particles1.emitting = true
 	particles2.emitting = true
 	if is_pig:
-		# Sound 1
+		$DeathPig.play()
 		pass
 	else:
-		# Sound 2
+		$DeathBoar.play()
 		pass
 
 func _on_Clean_Up_timeout():

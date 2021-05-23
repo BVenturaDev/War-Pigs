@@ -18,7 +18,6 @@ onready var path_finder: Spatial = $Path_Finder
 onready var attack_time: Timer = $Attack_Timer
 onready var baggage: Spatial = $Baggage
 onready var aggro_rad: Area = $Area
-onready var sword_sound_player = $SwordSoundPlayer
 onready var blood_spot = $Blood_Spot
 onready var pig = $pig
 onready var debug_status = $DebugStatus
@@ -179,7 +178,6 @@ func _check_bodies():
 func _on_Attack_Timer_timeout() -> void:
 	attacking = false
 	if attack_tar:
-		sword_sound_player.play_random_sound()
 		look_at(attack_tar.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
@@ -191,7 +189,8 @@ func _on_Attack_Timer_timeout() -> void:
 func _remove_self() -> void:
 	Globals.make_death(pig.death_spot.global_transform.origin)
 	if state == states.ATTACK:
-		Globals.total_combat_pigs -= 1
+		Globals.remove_pig_from_combat_count()
+	Globals.remove_pig_from_count()
 	alive = false
 	get_tree().call_group("Enemies", "minion_killed", self)
 	player.formations.reshuffle(form_id)
@@ -202,7 +201,7 @@ func _remove_self() -> void:
 func attack(var body: Node):
 	if not body.attack_pos.is_attacker(self):
 		if not state == states.ATTACK:
-			Globals.total_combat_pigs += 1
+			Globals.add_pig_to_combat_count()
 		in_formation = false
 		target = body.attack_pos.add_attacker(self, attack_i)
 		path_finder.update_path(target)
@@ -225,7 +224,7 @@ func join_formation() -> void:
 
 func line_up():
 	if state == states.ATTACK:
-		Globals.total_combat_pigs -= 1
+		Globals.remove_pig_from_combat_count()
 	path_finder.stop()
 	attack_tar = null
 	player.formations.update_target(form_id)
@@ -286,6 +285,9 @@ func _physics_process(var delta: float) -> void:
 		else:
 			debug_status.change_color(returning_debug)
 		_state_returning_formation()
+		
+	if state != states.RAID and is_instance_valid(raiding_entity):
+		clear_raid()
 		
 	if hp < 1 and alive:
 		_remove_self()

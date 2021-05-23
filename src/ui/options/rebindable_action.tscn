@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/ui/options/rebindable_action.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/JosefinSlab_regular_font_data.tres" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 2 )
 
 [node name="RebindableAction" type="HBoxContainer"]
 margin_right = 89.0
@@ -11,18 +16,18 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_top = 3.0
-margin_right = 64.0
-margin_bottom = 17.0
+margin_right = 117.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
 text = "Move left:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 68.0
-margin_right = 89.0
-margin_bottom = 20.0
+margin_left = 121.0
+margin_right = 142.0
+margin_bottom = 28.0
 text = "A"
 __meta__ = {
 "_edit_use_anchors_": false

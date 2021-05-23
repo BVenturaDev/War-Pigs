@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/War Pigs - Synth.ogg-3484a65357ae64b561b48aec6401801f.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Pigs At War/War Pigs - Synth.ogg"
+dest_files=[ "res://.import/War Pigs - Synth.ogg-3484a65357ae64b561b48aec6401801f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
