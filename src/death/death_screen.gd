@@ -4,7 +4,7 @@ var player_dead = false
 
 export (Resource) var input_action
 
-onready var basic_info = $VBoxContainer/Label
+onready var basic_info = $CenterContainer/VBoxContainer/Label
 onready var key_info = $CenterContainer/VBoxContainer/InputInfo
 
 func _ready():
