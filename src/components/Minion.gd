@@ -187,7 +187,7 @@ func _on_Attack_Timer_timeout() -> void:
 		line_up()
 		
 func _remove_self() -> void:
-	Globals.make_death(pig.death_spot.global_transform.origin)
+	Globals.make_death(pig.death_spot.global_transform.origin, true)
 	if state == states.ATTACK:
 		Globals.remove_pig_from_combat_count()
 	Globals.remove_pig_from_count()

@@ -95,8 +95,9 @@ func make_blood(var pos: Vector3) -> void:
 	get_tree().get_root().add_child(blood_splash)
 	blood_splash.global_transform.origin = pos
 	
-func make_death(var pos: Vector3) -> void:
+func make_death(var pos: Vector3, is_pig: bool) -> void:
 	var death_effect = death.instance()
+	death_effect.is_pig = is_pig
 	get_tree().get_root().add_child(death_effect)
 	death_effect.global_transform.origin = pos
 	

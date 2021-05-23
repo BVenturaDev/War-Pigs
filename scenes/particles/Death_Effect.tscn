@@ -111,12 +111,14 @@ draw_pass_1 = SubResource( 5 )
 [node name="DeathPig" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
 stream = ExtResource( 2 )
+unit_db = 4.0
 unit_size = 70.0
 bus = "Sounds"
 
 [node name="DeathBoar" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.84432, 0 )
 stream = ExtResource( 3 )
+unit_db = 4.0
 unit_size = 70.0
 bus = "Sounds"
 
