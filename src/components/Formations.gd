@@ -103,7 +103,7 @@ func add_minion(var minion: KinematicBody) -> void:
 	# Set the target to the position in formation
 	minions[i].form_id = i
 	_set_target(i, _find_pos_loc(i))
-	Globals.add_pig_to_count()
+
 	#print("Added Minion: " + str(minion.name))
 	
 func attack_individual() -> void:

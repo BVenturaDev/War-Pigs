@@ -37,6 +37,7 @@ func _interact():
 		if col.is_in_group("Enemies"):
 			if not col.alive:
 				col.recruit()
+				Globals.add_pig_to_count()
 		if col.is_in_group("buyable"):
 			buy_item(col, Globals.total_currency)
 		if col.is_in_group("sellable"):
@@ -137,7 +138,6 @@ func _physics_process(var delta: float) -> void:
 func count_minions(save_pigs: bool):
 	if save_pigs:
 		var total_minions = formations.total_minions()
-		
 		Globals.total_pigs = total_minions
 	
 
@@ -181,7 +181,7 @@ func buy_pig() -> bool:
 	nav.add_child(new_minion)
 	new_minion.global_transform = self.global_transform
 	new_minion.join_formation()
-
+	Globals.add_pig_to_count()
 	
 	return true
 
