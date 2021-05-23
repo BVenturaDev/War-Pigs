@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/components/raid/Raid_Hut_Tutorial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://src/components/level/Level.gd" type="Script" id=21]
 [ext_resource path="res://scenes/models/campfire_prop.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/components/death/Death_Screen.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/textures/wgj33 cards.png" type="Texture" id=24]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -711,6 +712,10 @@ and set options."
 
 [node name="DeathScreen" parent="." instance=ExtResource( 23 )]
 pause_mode = 2
+
+[node name="Wildcards" type="Sprite3D" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 13.603, -1.63563, 100.891 )
+texture = ExtResource( 24 )
 
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut"]
 [editable path="Navigation/NavigationMeshInstance/Raid_Hut/Hut"]
