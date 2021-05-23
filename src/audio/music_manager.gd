@@ -41,10 +41,7 @@ func _update_music_layers(music_node: Node, total_pigs: int, last_pig_count: int
 		_timer.start(LAYER_UPDATE_TIMER)
 	
 	else:
-		if last_pig_count >= second_threshold and total_pigs < second_threshold:
-			_timer.start(LAYER_UPDATE_TIMER)
-	
-		if last_pig_count >= first_threshold and total_pigs < first_threshold:
+		if last_pig_count >= first_threshold and total_pigs < first_threshold or last_pig_count >= second_threshold and total_pigs < second_threshold:
 			_timer.start(LAYER_UPDATE_TIMER)
 
 
@@ -106,11 +103,13 @@ func _on_Timer_timeout() -> void:
 			_fade_in_layers_if_thresholds_reached(_war, Globals.total_combat_pigs, WAR_MINIMUM_PIGS_SECOND_LAYER, WAR_MINIMUM_PIGS_THIRD_LAYER)
 		else:
 			if Globals.total_pigs >= MARCH_MINIMUM_PIGS_SECOND_LAYER:
-				_fade_in_layer(_march, "SecondLayer")
+				if _is_layer_muted(_march, "SecondLayer"):
+					_fade_in_layer(_march, "SecondLayer")
 			else:
 				_fade_out_if_not_muted(_march, "SecondLayer")
 			if Globals.total_pigs >= MARCH_MINIMUM_PIGS_THIRD_LAYER:
-				_fade_in_layer(_march, "ThirdLayer")
+				if _is_layer_muted(_march, "ThirdLayer"):
+					_fade_in_layer(_march, "ThirdLayer")
 			else:
 				_fade_out_if_not_muted(_march, "ThirdLayer")
 	else:

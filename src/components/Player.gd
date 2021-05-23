@@ -178,9 +178,7 @@ func buy_pig() -> bool:
 	nav.add_child(new_minion)
 	new_minion.global_transform = self.global_transform
 	new_minion.join_formation()
-	
-	#Update total pigs
-	Globals.add_pig_to_count()
+
 	
 	return true
 
