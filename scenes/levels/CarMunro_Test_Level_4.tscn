@@ -429,7 +429,7 @@ transform = Transform( 0.244872, 0, -5.995, 0, 6, 0, 5.995, 0, 0.244872, -286.31
 transform = Transform( -5.45515, 0, -2.49826, 0, 6, 0, 2.49826, 0, -5.45515, -271.789, -8, -105.316 )
 
 [node name="Tree39" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
-transform = Transform( 5.96997, 0, 0.599566, 0, 6, 0, -0.599566, 0, 5.96997, -252.33, 25.9494, -135.175 )
+transform = Transform( 7.95996, 0, 0.799421, 0, 8, 0, -0.799421, 0, 7.95996, -252.33, -15.0506, -135.175 )
 
 [node name="Tree3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 143.854, -7.99997, 50.0998 )
