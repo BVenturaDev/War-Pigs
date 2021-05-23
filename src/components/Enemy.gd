@@ -12,7 +12,7 @@ export var hit_damage: int = 20
 export var max_speed: float = 300.0
 export var max_crawl: float = 150.0
 export var accel: float = 6.0
-export var player_attack_chance: float = 9.75
+export var player_attack_chance: float = 9.6
 export var boss: bool = false
 
 export (bool) var tutorial_behaviour = false
