@@ -286,6 +286,9 @@ func _physics_process(var delta: float) -> void:
 			debug_status.change_color(returning_debug)
 		_state_returning_formation()
 		
+	if state != states.RAID and is_instance_valid(raiding_entity):
+		clear_raid()
+		
 	if hp < 1 and alive:
 		_remove_self()
 

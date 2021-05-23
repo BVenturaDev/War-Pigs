@@ -137,6 +137,7 @@ func _physics_process(var delta: float) -> void:
 func count_minions(save_pigs: bool):
 	if save_pigs:
 		var total_minions = formations.total_minions()
+		
 		Globals.total_pigs = total_minions
 	
 
