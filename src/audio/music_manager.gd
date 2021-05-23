@@ -34,7 +34,7 @@ func _update_march_layers(total_pigs: int) -> void:
 		last_pig_count = total_pigs
 
 
-func _update_music_layers(_music_node: Node, total_pigs: int, last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
+func _update_music_layers(_music_node: Node, total_pigs: int, in_last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
 	if total_pigs == first_threshold or total_pigs == second_threshold:
 		_timer.start(LAYER_UPDATE_TIMER)
 		print("Second layer to be faded in")
