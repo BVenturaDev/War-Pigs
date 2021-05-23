@@ -38,7 +38,7 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.2174, 0 )
 visible = false
 cast_shadow = 0
-pixel_size = 0.02
+pixel_size = 0.03
 billboard = 1
 script = ExtResource( 6 )
 
