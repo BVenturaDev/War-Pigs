@@ -36,7 +36,7 @@ onready var levels: Array = [
 	"res://scenes/levels/Shop.tscn",
 	"res://scenes/levels/Munro_Test_Level_3.tscn",
 	"res://scenes/levels/Shop.tscn",
-	"res://scenes/levels/CarMunro_Test_Level_4.tscn",
+	"res://scenes/levels/CarMunro_Test_Level_4_Small.tscn",
 	"res://scenes/levels/Shop.tscn",
 	"res://scenes/levels/Munro_Test_Level_5.tscn",
 ]

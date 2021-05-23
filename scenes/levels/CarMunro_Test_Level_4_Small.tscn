@@ -188,7 +188,7 @@ transform = Transform( 1, 0, 0, 0, 0.832486, 0.554046, 0, -0.554046, 0.832486, 0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.961899, 0, 0.273405, 0, 1, 0, -0.273405, 0, 0.961899, -58.9084, -8, 133.034 )
+transform = Transform( 0.961899, 0, 0.273405, 0, 1, 0, -0.273405, 0, 0.961899, -109.648, -8, 103.581 )
 
 [node name="Navigation" type="Navigation" parent="."]
 
@@ -199,82 +199,55 @@ transform = Transform( -0.58811, 0, -0.808781, 0, 1, 0, 0.808781, 0, -0.58811, -
 transform = Transform( -0.120795, 0, -0.992678, 0, 1, 0, 0.992678, 0, -0.120795, -176.906, -7.99999, -30.0027 )
 
 [node name="Enemy16" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.120795, 0, -0.992678, 0, 1, 0, 0.992678, 0, -0.120795, -155.192, -7.99999, -158.542 )
+transform = Transform( -0.606835, 0, -0.794828, 0, 1, 0, 0.794828, 0, -0.606835, -155.192, -7.99999, -158.542 )
 
 [node name="Enemy17" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( -0.120795, 0, -0.992678, 0, 1, 0, 0.992678, 0, -0.120795, -149.209, -7.99999, -86.6833 )
 
-[node name="Enemy18" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.480943, 0, -0.876752, 0, 1, 0, 0.876752, 0, -0.480943, 30.5435, -8, 19.105 )
-
 [node name="Enemy19" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.679659, 0, -0.733528, 0, 1, 0, 0.733528, 0, -0.679659, -34.0107, -7.99999, 0.991345 )
+transform = Transform( -0.76061, 0, 0.649209, 0, 1, 0, -0.649209, 0, -0.76061, -34.0107, -7.99999, 0.991344 )
 
 [node name="Enemy20" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( 0.326855, 0, -0.945075, 0, 1, 0, 0.945075, 0, 0.326855, -44.5583, -7.99999, 42.8111 )
-
-[node name="Enemy21" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.951519, 0, -0.307589, 0, 1, 0, 0.307589, 0, -0.951519, 83.2176, -7.99999, -156.158 )
+transform = Transform( 0.695625, 0, 0.718406, 0, 1, 0, -0.718406, 0, 0.695625, -44.5583, -7.99999, 42.8111 )
 
 [node name="Enemy22" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( -0.00478235, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00478235, -132.874, -7.99999, -128.158 )
 
 [node name="Enemy23" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.00478235, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00478235, -123.269, -7.99999, -100.36 )
-
-[node name="Enemy24" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -0.949798, 0, -0.312865, 0, 1, 0, 0.312865, 0, -0.949798, 46.3056, -7.99999, -9.77537 )
+transform = Transform( -0.729256, 0, -0.684242, 0, 1, 0, 0.684242, 0, -0.729256, -123.269, -7.99999, -100.36 )
 
 [node name="Enemy2" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.4801, -8, -100.032 )
-
-[node name="Enemy5" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.1619, -8, -111.681 )
+transform = Transform( -0.886171, 0, 0.463358, 0, 1, 0, -0.463358, 0, -0.886171, -44.4801, -8, -100.032 )
 
 [node name="Enemy25" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -168.582, -7.99999, 45.6067 )
 
 [node name="Enemy26" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -66.3172, -7.99999, 31.8549 )
+transform = Transform( -0.0670053, 0, 0.997753, 0, 1, 0, -0.997753, 0, -0.0670053, -66.3172, -7.99999, 31.8549 )
 
 [node name="Enemy27" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -87.4802, -7.99999, 1.86082 )
+transform = Transform( -0.965281, 0, -0.261212, 0, 1, 0, 0.261212, 0, -0.965281, -87.4802, -7.99999, 1.86082 )
 
 [node name="Enemy28" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -118.41, -7.99999, 28.9178 )
 
 [node name="Enemy29" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.1454, -7.99999, 15.166 )
+transform = Transform( 0.504859, 0, 0.863202, 0, 1, 0, -0.863202, 0, 0.504859, -16.1454, -7.99999, 15.166 )
 
 [node name="Enemy30" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.3084, -7.99999, -14.8281 )
+transform = Transform( -0.951777, 0, 0.306792, 0, 1, 0, -0.306792, 0, -0.951777, -37.3084, -7.99999, -14.8281 )
 
 [node name="Enemy31" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -39.9707, -7.99998, -56.0161 )
-
-[node name="Enemy32" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 62.2944, -7.99998, -69.7679 )
-
-[node name="Enemy33" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.1314, -7.99998, -99.762 )
-
-[node name="Enemy6" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 52.5823, -8.00001, -101.313 )
-
-[node name="Enemy7" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.9009, -8, -33.7075 )
-
-[node name="Enemy9" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 79.1583, -8.00001, -53.3338 )
+transform = Transform( 0.952055, 0, 0.305928, 0, 1, 0, -0.305928, 0, 0.952055, -39.9707, -7.99998, -56.0161 )
 
 [node name="Enemy10" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -69.1778, -8, -84.7029 )
+transform = Transform( -0.328042, 0, 0.944663, 0, 1, 0, -0.944663, 0, -0.328042, -69.1778, -8, -84.7029 )
 
 [node name="Enemy11" parent="Navigation" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -90.3409, -8, -114.698 )
+transform = Transform( -0.966672, 0, -0.256019, 0, 1, 0, 0.256019, 0, -0.966672, -90.3409, -8, -114.698 )
 
 [node name="Banner_Pig" parent="Navigation" instance=ExtResource( 5 )]
-transform = Transform( 0.961899, 0, 0.273405, 0, 1, 0, -0.273405, 0, 0.961899, -49.6971, -7.87538, 143.254 )
+transform = Transform( 0.961899, 0, 0.273405, 0, 1, 0, -0.273405, 0, 0.961899, -100.437, -7.87538, 113.801 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146424, -0.00398064, -0.538861 )
@@ -301,33 +274,6 @@ transform = Transform( -0.814146, 0, -0.58066, 0, 1, 0, 0.58066, 0, -0.814146, -
 [node name="Fence23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.814146, 0, -0.58066, 0, 1, 0, 0.58066, 0, -0.814146, -110.826, -7.81466, 74.4213 )
 
-[node name="Fence16" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.863193, 0, 0.504874, 0, 1, 0, -0.504874, 0, 0.863193, 30.9609, -7.81466, 83.9286 )
-
-[node name="Fence17" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.863193, 0, 0.504874, 0, 1, 0, -0.504874, 0, 0.863193, 41.3201, -7.81466, 77.8696 )
-
-[node name="Fence18" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.863193, 0, 0.504874, 0, 1, 0, -0.504874, 0, 0.863193, 51.6784, -7.81466, 71.8111 )
-
-[node name="Fence13" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -4.17348, -7.81466, 88.2158 )
-
-[node name="Fence14" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, 7.82613, -7.81466, 88.0335 )
-
-[node name="Fence15" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, 19.8248, -7.81466, 87.8513 )
-
-[node name="Fence21" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, 88.9579, -7.81466, -205.515 )
-
-[node name="Fence24" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, 100.958, -7.81466, -205.698 )
-
-[node name="Fence25" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, 112.984, -7.81466, -205.88 )
-
 [node name="Fence26" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -129.485, -7.81467, -207.679 )
 
@@ -336,47 +282,6 @@ transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885,
 
 [node name="Fence30" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -105.458, -7.81467, -208.044 )
-
-[node name="Fence31" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -93.3964, -7.81467, -208.725 )
-
-[node name="Fence32" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -81.3968, -7.81467, -208.908 )
-
-[node name="Fence33" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -69.3701, -7.81467, -209.09 )
-
-[node name="Fence34" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -57.2105, -7.81467, -208.841 )
-
-[node name="Fence35" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -45.2109, -7.81467, -209.023 )
-
-[node name="Fence36" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.999885, 0, 0.0151838, 0, 1, 0, -0.0151838, 0, 0.999885, -33.1842, -7.81467, -209.205 )
-
-[node name="Fence37" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.336964, 0, 0.941518, 0, 1, 0, -0.941518, 0, 0.336964, -24.534, -7.81467, -215.172 )
-
-[node name="Fence38" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.336964, 0, 0.941518, 0, 1, 0, -0.941518, 0, 0.336964, -20.4901, -7.81467, -226.471 )
-
-[node name="Fence39" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.336964, 0, 0.941518, 0, 1, 0, -0.941518, 0, 0.336964, -16.4367, -7.81467, -237.796 )
-
-[node name="Fence27" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, 0.662698, 71.8621, -7.81466, -218.311 )
-
-[node name="Fence28" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.662698, 0, -0.748886, 0, 1, 0, 0.748886, 0, 0.662698, 79.8145, -7.81466, -209.324 )
-
-[node name="Raid_Hut" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
-transform = Transform( 0.396587, 0, -0.917997, 0, 1, 0, 0.917997, 0, 0.396587, 70.8812, -7.62595, -37.887 )
-DEBUG = true
-
-[node name="Raid_Hut4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
-transform = Transform( 0.396587, 0, -0.917997, 0, 1, 0, 0.917997, 0, 0.396587, 119.791, -7.62593, -137.526 )
-DEBUG = true
 
 [node name="Raid_Hut5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
 transform = Transform( 0.396587, 0, -0.917997, 0, 1, 0, 0.917997, 0, 0.396587, -29.1115, -7.62595, -122.402 )
@@ -388,10 +293,6 @@ DEBUG = true
 
 [node name="Raid_Hut7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
 transform = Transform( -0.239245, 0, 0.970959, 0, 1, 0, -0.970959, 0, -0.239245, -198.361, -7.62597, -3.67256 )
-DEBUG = true
-
-[node name="Raid_Hut2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
-transform = Transform( -0.993351, 0, 0.115128, 0, 1, 0, -0.115128, 0, -0.993351, 6.94106, -8.52865, 47.4575 )
 DEBUG = true
 
 [node name="Raid_Hut3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
@@ -464,18 +365,6 @@ transform = Transform( -0.998409, 0, 0.0563792, 0, 1, 0, -0.0563792, 0, -0.99840
 [node name="Palisade29" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 9 )]
 transform = Transform( -0.998409, 0, 0.0563792, 0, 1, 0, -0.0563792, 0, -0.998409, -145.712, -8, -207.906 )
 
-[node name="Palisade20" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 9 )]
-transform = Transform( -0.680695, 0, 0.732567, 0, 1, 0, -0.732567, 0, -0.680695, 126.738, -7.70113, -198.734 )
-
-[node name="Palisade21" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 9 )]
-transform = Transform( -0.680695, 0, 0.732567, 0, 1, 0, -0.732567, 0, -0.680695, 140.161, -7.70113, -184.635 )
-
-[node name="Palisade22" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 9 )]
-transform = Transform( -0.680695, 0, 0.732567, 0, 1, 0, -0.732567, 0, -0.680695, 153.411, -7.70113, -170.375 )
-
-[node name="Palisade23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 9 )]
-transform = Transform( -0.680695, 0, 0.732567, 0, 1, 0, -0.732567, 0, -0.680695, 166.867, -7.70113, -155.894 )
-
 [node name="Tree1" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -131.596, -8.13992, 120.589 )
 
@@ -540,11 +429,8 @@ shape = SubResource( 13 )
 [node name="Tree19" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 49.1705, -8.13992, 103.748 )
 
-[node name="Tree21" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 7.02166, -8.13992, 130.53 )
-
 [node name="Tree20" type="Spatial" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -33.9353, -8.13992, 97.7624 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -33.9353, -8.13992, 152.889 )
 
 [node name="Cube" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree20"]
 mesh = SubResource( 2 )
@@ -576,7 +462,7 @@ mesh = SubResource( 7 )
 material/0 = null
 
 [node name="Icosphere006" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree20"]
-transform = Transform( -6.29927, 4.46609, -4.85766, -5.22431, -7.47797, -0.100437, -4.03104, 2.71249, 7.72119, 0.0883037, 4.52772, -0.0905121 )
+transform = Transform( -6.29927, 4.46609, -4.85766, -5.22431, -7.47797, -0.100437, -4.03104, 2.71249, 7.72119, 0.0883036, 4.52772, -0.0905113 )
 mesh = SubResource( 8 )
 material/0 = ExtResource( 20 )
 
@@ -601,55 +487,8 @@ material/0 = null
 [node name="shape0" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Tree20/Cylinder/static_collision"]
 shape = SubResource( 13 )
 
-[node name="Tree13" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 148.889, -8.13992, 80.2366 )
-
 [node name="Tree16" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 137.472, -8.13992, -40.3128 )
-
-[node name="Cube" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="Icosphere" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( 0.831, 0.484901, -0.231972, -0.507135, 0.848835, -0.0423682, 0.178197, 0.15444, 0.961195, 0.702884, 4.14937, 0.984039 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="Icosphere001" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( 0.883397, -0.185681, 0.00711149, 0.15694, 0.764064, 0.454417, -0.0994874, -0.44345, 0.779983, 0.79635, 3.95752, 1.40232 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="Icosphere002" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( 0.833788, 0.796601, -0.0726314, -0.597845, 0.690298, 0.7079, 0.531441, -0.473252, 0.910305, 0.532318, 4.13127, 1.04744 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="Icosphere003" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( -2.74833, 3.36416, -0.105148, -3.14873, -2.52186, 1.61482, 1.18917, 1.09753, 4.03277, -1.02891, 3.92864, -0.0328298 )
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="Icosphere005" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( -5.37224, 4.09527, -1.68687, -4.23845, -3.98392, 3.82646, 1.28545, 3.97931, 5.56691, 1.01792, 4.07279, -0.188925 )
-mesh = SubResource( 7 )
-material/0 = ExtResource( 20 )
-
-[node name="Icosphere006" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( -6.29927, 4.46609, -4.85766, -5.22431, -7.47797, -0.100437, -4.03104, 2.71249, 7.72119, 0.0883037, 4.52772, -0.0905121 )
-mesh = SubResource( 8 )
-material/0 = null
-
-[node name="Icosphere007" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( -3.16718, 0.487226, -4.64243, 0.951109, -5.42511, -1.21824, -4.57, -1.46674, 2.96383, 0.4584, 4.67356, 0.666436 )
-mesh = SubResource( 9 )
-material/0 = ExtResource( 20 )
-
-[node name="Icosphere004" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
-transform = Transform( 0.555854, 1.8834, -6.80121, 1.92448, -6.60416, -1.67155, -6.7897, -1.7177, -1.03058, 0.300199, 4.65263, -0.86164 )
-mesh = SubResource( 10 )
-material/0 = null
 
 [node name="Cylinder" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree16"]
 transform = Transform( 0.645524, 0, 0, 0, 0.645524, 0, 0, 0, 0.645524, 0.291367, 0.26248, 0.0766542 )
@@ -661,12 +500,6 @@ material/0 = null
 
 [node name="shape0" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Tree16/Cylinder/static_collision"]
 shape = SubResource( 13 )
-
-[node name="Tree36" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
-transform = Transform( 2.56285, 0, -3.07112, 0, 4, 0, 3.07112, 0, 2.56285, 142.522, -8.13992, -76.4512 )
-
-[node name="Tree15" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 132.987, -8.13992, 56.6306 )
 
 [node name="tree2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
 transform = Transform( 1.60779, 0, -2.53279, 0, 3, 0, 2.53279, 0, 1.60779, -157.256, -6.89632, 110.18 )
@@ -680,32 +513,14 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -154.375, -6.0811, 6.46635 )
 [node name="tree26" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -190.198, -6.0811, 99.9368 )
 
-[node name="tree28" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 2.25983, 0, 1.97311, 0, 3, 0, -1.97311, 0, 2.25983, -25.6018, -6.89632, 129.82 )
-
-[node name="tree18" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 2.25983, 0, 1.97311, 0, 3, 0, -1.97311, 0, 2.25983, 116.363, -6.89631, 77.1163 )
-
-[node name="tree21" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 2.25983, 0, 1.97311, 0, 3, 0, -1.97311, 0, 2.25983, 80.5817, -6.89631, 75.8168 )
-
-[node name="tree19" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 2.25983, 0, 1.97311, 0, 3, 0, -1.97311, 0, 2.25983, 133.837, -6.89631, 7.91702 )
-
-[node name="tree14" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 1.39787, 0, 2.65443, 0, 3, 0, -2.65443, 0, 1.39787, -110.035, -6.89632, 100.342 )
-
 [node name="tree15" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -0.994584, 0, 1.73517, 0, 2, 0, -1.73517, 0, -0.994584, -71.3236, -6.0811, 116.453 )
-
-[node name="tree22" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -0.994584, 0, 1.73517, 0, 2, 0, -1.73517, 0, -0.994584, 153.487, -6.0811, -109.044 )
 
 [node name="rock2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -188.257, -4.79671, 147.765 )
 
 [node name="rock14" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
-transform = Transform( -62.4878, 0, 61.9354, 0, 76.253, 0, -49.295, 0, -78.5112, 233.679, 38.9848, 137.187 )
+transform = Transform( -62.4878, 0, 61.9354, 0, 76.253, 0, -49.295, 0, -78.5112, 42.505, 38.9848, -346.032 )
 
 [node name="Tree2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -106.714, -8.00002, -64.2873 )
@@ -773,50 +588,6 @@ transform = Transform( 7.95996, 0, 0.799421, 0, 8, 0, -0.799421, 0, 7.95996, -24
 
 [node name="Tree3" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 108.656, -7.99997, 37.7225 )
-
-[node name="Cube" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="Icosphere" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( 0.831, 0.484901, -0.231972, -0.507135, 0.848835, -0.0423682, 0.178197, 0.15444, 0.961195, 0.702884, 4.14937, 0.984039 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="Icosphere001" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( 0.883397, -0.185681, 0.00711149, 0.15694, 0.764064, 0.454417, -0.0994874, -0.44345, 0.779983, 0.79635, 3.95752, 1.40232 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="Icosphere002" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( 0.833788, 0.796601, -0.0726314, -0.597845, 0.690298, 0.7079, 0.531441, -0.473252, 0.910305, 0.532318, 4.13127, 1.04744 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="Icosphere003" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( -2.74833, 3.36416, -0.105148, -3.14873, -2.52186, 1.61482, 1.18917, 1.09753, 4.03277, -1.02891, 3.92864, -0.0328298 )
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="Icosphere005" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( -5.37224, 4.09527, -1.68687, -4.23845, -3.98392, 3.82646, 1.28545, 3.97931, 5.56691, 1.01792, 4.07279, -0.188925 )
-mesh = SubResource( 7 )
-material/0 = null
-
-[node name="Icosphere006" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( -6.29927, 4.46609, -4.85766, -5.22431, -7.47797, -0.100437, -4.03104, 2.71249, 7.72119, 0.0883037, 4.52772, -0.0905121 )
-mesh = SubResource( 8 )
-material/0 = ExtResource( 20 )
-
-[node name="Icosphere007" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( -3.16718, 0.487226, -4.64243, 0.951109, -5.42511, -1.21824, -4.57, -1.46674, 2.96383, 0.4584, 4.67356, 0.666436 )
-mesh = SubResource( 9 )
-material/0 = null
-
-[node name="Icosphere004" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
-transform = Transform( 0.555854, 1.8834, -6.80121, 1.92448, -6.60416, -1.67155, -6.7897, -1.7177, -1.03058, 0.300199, 4.65263, -0.86164 )
-mesh = SubResource( 10 )
-material/0 = null
 
 [node name="Cylinder" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Tree3"]
 transform = Transform( 0.645524, 0, 0, 0, 0.645524, 0, 0, 0, 0.645524, 0.291367, 0.26248, 0.0766542 )
@@ -890,9 +661,6 @@ shape = SubResource( 13 )
 [node name="Tree5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -5.47242, 0, -2.46021, 0, 6, 0, 2.46021, 0, -5.47242, -110.332, -7.99999, 55.1888 )
 
-[node name="tree4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
-transform = Transform( 2.67965, 0, -4.22131, 0, 5, 0, 4.22131, 0, 2.67965, 85.6396, -6.89632, 14.6321 )
-
 [node name="Tree23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -247.381, -7.99997, -89.3247 )
 
@@ -941,15 +709,6 @@ transform = Transform( 11.9833, 0, -10.6019, 0, 16, 0, 10.6019, 0, 11.9833, 6.38
 [node name="rock4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 17.2455, 0, -5.15684, 0, 18, 0, 5.15684, 0, 17.2455, -8.58012, 2.74746, -34.2306 )
 
-[node name="rock16" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 17.2455, 0, -5.15684, 0, 18, 0, 5.15684, 0, 17.2455, 164.175, 2.74746, 116.138 )
-
-[node name="rock17" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 17.2455, 0, -5.15684, 0, 18, 0, 5.15684, 0, 17.2455, 173.651, 2.74746, 56.1454 )
-
-[node name="rock18" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 11.4989, 0, 17.8806, 0, 100, 0, -99.3367, 0, 2.0698, 181.795, 2.74746, 101.04 )
-
 [node name="rock30" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 4.90346, 0, 18.0899, 0, 100, 0, -156.717, 0, -1.03453, -271.706, 2.74744, -147.347 )
 
@@ -958,12 +717,6 @@ transform = Transform( 299.672, 0, -0.841323, 0, 150, 0, 14.0221, 0, 17.9803, -4
 
 [node name="rock5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 4.06692, 0, 6.88913, 0, 8, 0, -6.88913, 0, 4.06692, 13.6725, -4.69327, -29.8961 )
-
-[node name="rock6" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 3.13428, 0, -5.11628, 0, 6, 0, 5.11628, 0, 3.13428, 31.0273, -5.42192, -33.85 )
-
-[node name="rock7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( -4.94145, 0, 0.762946, 0, 5, 0, -0.762946, 0, -4.94145, 56.6738, -5.42195, -55.5555 )
 
 [node name="rock10" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( -6.91803, 0, 1.06812, 0, 7, 0, -1.06812, 0, -6.91803, -123.878, -3.45367, -38.991 )
@@ -981,13 +734,10 @@ transform = Transform( 208.202, 0, -215.991, 0, 300, 0, 215.991, 0, 208.202, -23
 transform = Transform( -111.006, 0, 168.14, 0, 250, 0, -100.884, 0, -185.011, -138.259, -3.45367, -344.492 )
 
 [node name="rock27" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( -0.623249, 0, 20, 0, 300, 0, -299.999, 0, -0.0415499, 186.823, 34.5837, -142.967 )
-
-[node name="rock28" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( -91.6902, 0, -232.579, 0, 250, 0, 232.579, 0, -91.6902, 90.3136, -3.45367, -366.47 )
+transform = Transform( -0.623249, 0, 20, 0, 300, 0, -299.999, 0, -0.0415499, 5.20309, 34.5837, -142.967 )
 
 [node name="rock24" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 179.262, 0, -9.04755, 0, 180, 0, 16.2856, 0, 99.5899, 79.9611, -3.45367, 204.427 )
+transform = Transform( 36.0465, 0, -97.9743, 0, 180, 0, 176.354, 0, 20.0258, 36.2487, -3.45367, 112.577 )
 
 [node name="rock23" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 88.4459, 0, -46.6618, 0, 100, 0, 46.6618, 0, 88.4459, -280.396, -3.45367, 158.74 )
@@ -1000,39 +750,6 @@ transform = Transform( -1.35473, 0, -6.86766, 0, 7, 0, 6.86766, 0, -1.35473, -11
 
 [node name="rock12" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
 transform = Transform( 6.80579, 0, -1.63744, 0, 7, 0, 1.63744, 0, 6.80579, -151.045, -3.45367, -39.647 )
-
-[node name="Fence7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.65486, 0, -0.755751, 0, 1, 0, 0.755751, 0, -0.65486, 78.8361, -7.81468, -5.72409 )
-
-[node name="Fence8" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.65486, 0, -0.755751, 0, 1, 0, 0.755751, 0, -0.65486, 70.9778, -7.81468, 3.34499 )
-
-[node name="Fence9" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.65486, 0, -0.755751, 0, 1, 0, 0.755751, 0, -0.65486, 63.1194, -7.81468, 12.414 )
-
-[node name="Fence10" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 97.4694, -7.81468, -37.0097 )
-
-[node name="Fence11" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 91.6933, -7.81468, -26.4913 )
-
-[node name="Fence12" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 85.9172, -7.81468, -15.9729 )
-
-[node name="Fence40" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 70.9283, -7.81468, 42.117 )
-
-[node name="Fence41" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 65.1522, -7.81468, 52.6354 )
-
-[node name="Fence42" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.481341, 0, -0.876534, 0, 1, 0, 0.876534, 0, -0.481341, 59.3761, -7.81468, 63.1538 )
-
-[node name="Fence43" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.778375, 0, -0.6278, 0, 1, 0, 0.6278, 0, -0.778375, 55.5983, -7.81468, -43.2992 )
-
-[node name="Fence46" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.778375, 0, -0.6278, 0, 1, 0, 0.6278, 0, -0.778375, 46.2578, -7.81468, -35.7656 )
 
 [node name="Fence47" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.0792943, 0, -0.996852, 0, 1, 0, 0.996852, 0, -0.0792943, -36.0286, -7.81468, 44.8476 )
@@ -1058,18 +775,6 @@ transform = Transform( 0.978191, 0, -0.207707, 0, 1, 0, 0.207707, 0, 0.978191, -
 [node name="Fence54" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 0.978191, 0, -0.207707, 0, 1, 0, 0.207707, 0, 0.978191, -22.6696, -7.81469, -142.179 )
 
-[node name="Fence55" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.613224, 0, -0.789909, 0, 1, 0, 0.789909, 0, 0.613224, -13.0348, -7.81469, -136.571 )
-
-[node name="Fence56" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.613224, 0, -0.789909, 0, 1, 0, 0.789909, 0, 0.613224, -5.67608, -7.81469, -127.092 )
-
-[node name="Fence57" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.631421, 0, -0.775441, 0, 1, 0, 0.775441, 0, -0.631421, -5.68431, -7.81469, -117.237 )
-
-[node name="Fence58" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.631421, 0, -0.775441, 0, 1, 0, 0.775441, 0, -0.631421, -13.2614, -7.81469, -107.932 )
-
 [node name="Fence72" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.68545, 0, -0.72812, 0, 1, 0, 0.72812, 0, -0.68545, -175.702, -7.81469, 5.02351 )
 
@@ -1087,36 +792,6 @@ transform = Transform( -0.334827, 0, 0.94228, 0, 1, 0, -0.94228, 0, -0.334827, -
 
 [node name="Fence77" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.334827, 0, 0.94228, 0, 1, 0, -0.94228, 0, -0.334827, -218.081, -7.81469, 4.01779 )
-
-[node name="Fence78" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.68545, 0, -0.72812, 0, 1, 0, 0.72812, 0, -0.68545, 122.053, -7.81469, -116.416 )
-
-[node name="Fence79" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.68545, 0, -0.72812, 0, 1, 0, 0.72812, 0, -0.68545, 113.828, -7.81469, -107.678 )
-
-[node name="Fence80" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.993493, 0, -0.113897, 0, 1, 0, 0.113897, 0, -0.993493, 104.032, -7.81469, -102.356 )
-
-[node name="Fence81" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.993493, 0, -0.113897, 0, 1, 0, 0.113897, 0, -0.993493, 92.1103, -7.81469, -100.989 )
-
-[node name="Fence82" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.334827, 0, 0.94228, 0, 1, 0, -0.94228, 0, -0.334827, 83.6919, -7.81469, -106.114 )
-
-[node name="Fence83" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( -0.334827, 0, 0.94228, 0, 1, 0, -0.94228, 0, -0.334827, 79.674, -7.81469, -117.421 )
-
-[node name="Fence59" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.70337, 0, -0.710824, 0, 1, 0, 0.710824, 0, 0.70337, -11.6318, -7.81469, -99.5967 )
-
-[node name="Fence60" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.70337, 0, -0.710824, 0, 1, 0, 0.710824, 0, 0.70337, -3.19141, -7.81469, -91.0668 )
-
-[node name="Fence61" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.672251, 0, -0.740324, 0, 1, 0, 0.740324, 0, 0.672251, 4.86157, -7.81469, -82.1602 )
-
-[node name="Fence62" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.672251, 0, -0.740324, 0, 1, 0, 0.740324, 0, 0.672251, 12.9286, -7.81469, -73.2764 )
 
 [node name="Fence63" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.980584, 0, 0.1961, 0, 1, 0, -0.1961, 0, -0.980584, -147.295, -7.81469, -60.1073 )
@@ -1145,12 +820,6 @@ transform = Transform( -0.992777, 0, 0.119981, 0, 1, 0, -0.119981, 0, -0.992777,
 [node name="Fence71" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( -0.992777, 0, 0.119981, 0, 1, 0, -0.119981, 0, -0.992777, -219.955, -7.81469, -91.8229 )
 
-[node name="Fence44" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.63698, 0, -0.770881, 0, 1, 0, 0.770881, 0, 0.63698, 62.3277, -7.81468, 22.7676 )
-
-[node name="Fence45" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
-transform = Transform( 0.63698, 0, -0.770881, 0, 1, 0, 0.770881, 0, 0.63698, 69.9715, -7.81468, 32.0182 )
-
 [node name="Campfire" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 17 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -32.1918, -7.89571, -72.1548 )
 
@@ -1168,7 +837,7 @@ __meta__ = {
 shape = SubResource( 15 )
 
 [node name="LevelTransition" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3233, -4.10338, -250.47 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2011, -4.10338, -250.47 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 15 )]
 
