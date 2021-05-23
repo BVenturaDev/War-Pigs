@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/components/raid/Raid_Hut_Tutorial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://scenes/models/campfire_prop.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/components/death/Death_Screen.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/textures/wgj33 cards.png" type="Texture" id=24]
+[ext_resource path="res://src/DirectionalLight.gd" type="Script" id=25]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -93,6 +94,7 @@ spawn_pigs = false
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.773553, 0.633732, 0, -0.633732, 0.773553, 0, 42.0693, 0 )
 shadow_enabled = true
+script = ExtResource( 25 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64127, -8, 212.203 )

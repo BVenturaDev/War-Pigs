@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/components/Minion.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/Path_Finder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/models/pig.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/components/currency/Baggage.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/coins_loot.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/components/debug/DebugStatus.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -59,6 +60,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72254, 9.70962, 0 )
 [node name="Upkeep_Timer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
+
+[node name="CoinLootedSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_size = 70.0
 
 [connection signal="timeout" from="Search_Timer" to="." method="_on_Search_Timer_timeout"]
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_Attack_Timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/components/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/models/pig.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/sounds/pigs/charge order.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sounds/pigs/recall order.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/sounds/single attack order.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/cha_ching.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/coins_loot.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -82,5 +84,14 @@ autostart = true
 
 [node name="Blood_Spot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.02076, 0 )
+
+[node name="ChaChingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+unit_db = 2.0
+unit_size = 70.0
+
+[node name="SellSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+unit_size = 70.0
 
 [connection signal="timeout" from="Swing_Timer" to="." method="_on_Swing_Timer_timeout"]

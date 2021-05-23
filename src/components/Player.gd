@@ -22,6 +22,8 @@ onready var interact_tar = $Camara_Control/interact_Target
 onready var charge_sound = $ChargeSound
 onready var recall_sound = $RecallSound
 onready var single_attack_sound = $SingleAttackSound
+onready var cha_ching_sound = $ChaChingSound
+onready var sell_sound = $SellSound
 onready var banner_pos = $Banner_Pos
 onready var pig = $pig
 onready var blood_spot = $Blood_Spot
@@ -147,6 +149,7 @@ func count_minions(save_pigs: bool):
 func buy_item(item: Buyable, amount: int):
 	if item.can_buy(amount):
 		item_logic(item, amount)
+		cha_ching_sound.play()
 		
 		# Have item remain available
 		if item.is_consumable():
@@ -194,6 +197,7 @@ func sell_item(item: Sellable):
 				sell_pig()
 		var profit = item.get_profit()
 		Globals.total_currency += profit
+		sell_sound.play()
 
 func sell_pig():
 	formations.remove_last_pig()

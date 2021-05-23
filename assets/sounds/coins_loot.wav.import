@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/coins_loot.wav-44b07bb7ccb495c4b69b2b515eab1c41.sample"
+
+[deps]
+
+source_file="res://assets/sounds/coins_loot.wav"
+dest_files=[ "res://.import/coins_loot.wav-44b07bb7ccb495c4b69b2b515eab1c41.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
