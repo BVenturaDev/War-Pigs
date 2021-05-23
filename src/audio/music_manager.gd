@@ -26,8 +26,8 @@ var last_combat_pig_count: int = 0
 
 
 func _ready() -> void:
-	Globals.connect("total_pigs_updated", self, "_update_march_layers")
-	Globals.connect("combat_pigs_updated", self, "_handle_track_switch")
+	var _r = Globals.connect("total_pigs_updated", self, "_update_march_layers")
+	var _r2d2 = Globals.connect("combat_pigs_updated", self, "_handle_track_switch")
 	
 
 func _update_march_layers(total_pigs: int) -> void:
@@ -36,7 +36,7 @@ func _update_march_layers(total_pigs: int) -> void:
 		last_pig_count = total_pigs
 
 
-func _update_music_layers(music_node: Node, total_pigs: int, last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
+func _update_music_layers(_music_node: Node, total_pigs: int, last_pig_count: int, first_threshold: int, second_threshold: int) -> void:
 	if total_pigs == first_threshold or total_pigs == second_threshold:
 		_timer.start(LAYER_UPDATE_TIMER)
 	

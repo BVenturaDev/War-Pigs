@@ -416,5 +416,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 103.888, -7.24753, -173.402 )
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -11.2044, -7.93593, -102.693 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 16 )]
-
-[node name="DeathScreen" parent="." instance=ExtResource( 17 )]
